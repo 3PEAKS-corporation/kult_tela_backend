@@ -1,9 +1,9 @@
-const db = require('../services/db')
+const db = require("../services/db");
 
 const User = {
   async create(req, res) {
-    return res.status(200).send({ report: 'success' })
+    return res.status(200).send({ report: "success" });
   }
-}
+};
 
-module.exports = User
+module.exports = User;

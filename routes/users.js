@@ -3,6 +3,8 @@ const { User } = require('../controllers/')
 
 const router = Router()
 
-router.get('/users', User.create)
+router.put('/users', User.signup)
+router.post('/users', User.login)
+router.get('/users', User.tokenAuth)
 
 module.exports = router

@@ -1,13 +1,16 @@
 const { query, pool } = require('./services/db')
-
 const fs = require('fs')
+
+const MODELS = ['users', 'tokens']
 
 const rf = name => fs.readFileSync('./models/' + name).toString()
 
-const usersInit = rf('users.sql')
-
 const createTables = () => {
-  const queryText = usersInit
+  let queryText = ''
+  MODELS.forEach(model => {
+    queryText += rf(model + '.sql')
+  })
+
   query(queryText)
     .then(res => {
       console.log(res)
@@ -20,17 +23,8 @@ const createTables = () => {
 }
 
 const dropTables = () => {
-  const tablesToDrop = [
-    'tokens',
-    'users',
-    'workers',
-    'promos',
-    'gallery',
-    'requests',
-    'reviews'
-  ]
   let queryText = ''
-  tablesToDrop.forEach(table => (queryText += `DROP TABLE IF EXISTS ${table};`))
+  MODELS.forEach(table => (queryText += `DROP TABLE IF EXISTS ${table};`))
   console.log(queryText)
 
   query(queryText)

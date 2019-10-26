@@ -1,8 +1,8 @@
 const { Pool } = require('pg')
-const dbconfig = require('../config/db')
+const { db } = require('../config/')
 
 const pool = new Pool({
-  connectionString: dbconfig.DATABASE_URL
+  connectionString: db.DATABASE_URL
 })
 
 module.exports = {

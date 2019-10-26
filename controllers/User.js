@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt')
-const { utils, db, jwt } = require('../services/')
+const { utils, db, token: _token } = require('../services/')
 
 const SALT_ROUNDS = 10
 
@@ -43,7 +43,7 @@ const User = {
         if (result[0].token)
           return utils.response.success(res, { token: result[0].token })
 
-        const token = jwt.generateToken({ id: user.id, email: user.email })
+        const token = _token.generateToken({ id: user.id, email: user.email })
         const query3 = `INSERT INTO tokens(user_id, token) VALUES($1,$2) RETURNING TRUE`
         const values3 = [user.id, token]
 
@@ -56,7 +56,7 @@ const User = {
     }
   },
   async tokenAuth(req, res) {
-    const { token } = req.headers
+    const token = _token.getToken(req)
     if (!token) return utils.response.error(res, 'Токен не существует')
 
     const query = `SELECT users.id as id, users.email as email, users.name as name FROM users, tokens WHERE users.id = tokens.user_id AND tokens.token=$1`
@@ -65,6 +65,7 @@ const User = {
     try {
       const { rows: user } = await db.query(query, values)
       if (user[0]) return utils.response.success(res, { user: user[0] })
+      else return utils.response.error(res, 'Неправильный токен')
     } catch (error) {
       return utils.response.error(res, 'Пользователь не найден')
     }

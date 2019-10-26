@@ -1,9 +1,9 @@
 const db = require('./db')
 const utils = require('./utils')
-const jwt = require('./jwt')
+const token = require('./token')
 
 module.exports = {
   db,
   utils,
-  jwt
+  token
 }

@@ -1,9 +1,27 @@
 const bcrypt = require('bcrypt')
-const { utils, db, token: _token } = require('../services/')
+const { utils, db, token: _token, mail } = require('../services/')
 
 const SALT_ROUNDS = 10
 
 const User = {
+  async createBlankProfile(req, res) {
+    const { email } = req.body
+
+    if (!email) return utils.response.error(res)
+
+    const query = `INSERT INTO users(email) VALUES($1) RETURNING TRUE`
+    const values = [email]
+    try {
+      const { rows: result } = await db.query(query, values)
+      if (result[0]) return utils.response.success(res, result[0])
+      else return utils.response.error(res, 'Пользователь уже существует')
+    } catch (error) {
+      return utils.response.error(
+        res,
+        'Пользователь с таким email уже зарегистрирован'
+      )
+    }
+  },
   async signup(req, res) {
     const { password, email } = req.body
 
@@ -23,6 +41,7 @@ const User = {
       )
     }
   },
+
   async login(req, res) {
     const { password, email } = req.body
 
@@ -55,17 +74,20 @@ const User = {
       utils.response.error(res, 'Email не существует')
     }
   },
-  async tokenAuth(req, res) {
-    const token = _token.getToken(req)
-    if (!token) return utils.response.error(res, 'Токен не существует')
 
-    const query = `SELECT users.id as id, users.email as email, users.name as name FROM users, tokens WHERE users.id = tokens.user_id AND tokens.token=$1`
-    const values = [token]
+  async userByToken(req, res) {
+    const userId = req.currentUserId
+
+    const query = `SELECT * FROM users WHERE id=$1`
+    const values = [userId]
 
     try {
-      const { rows: user } = await db.query(query, values)
-      if (user[0]) return utils.response.success(res, { user: user[0] })
-      else return utils.response.error(res, 'Неправильный токен')
+      const { rows } = await db.query(query, values)
+      if (rows[0]) {
+        let user = rows[0]
+        delete user.password
+        return utils.response.success(res, { user })
+      } else return utils.response.error(res, 'Неправильный токен')
     } catch (error) {
       return utils.response.error(res, 'Пользователь не найден')
     }

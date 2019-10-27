@@ -8,12 +8,17 @@ module.exports = function() {
 
   create = config => {
     const router = require('../routes/')
+    const { env } = require('./')
 
     app.set('env', config.ENV)
     app.set('port', config.PORT)
 
     app.use(cors())
     app.use(express.json())
+    app.use(
+      env.IMAGES_FOLDER,
+      express.static(process.cwd() + env.IMAGES_FOLDER)
+    )
 
     router.init(app)
 

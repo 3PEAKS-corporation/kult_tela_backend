@@ -4,8 +4,12 @@ const { requireAuth } = require('../middleware/')
 
 const router = Router()
 
-router.put('/users', User.signup)
-router.post('/users', User.login)
-router.get('/users', User.tokenAuth)
+router
+  .route('/users')
+  .put(User.signup)
+  .post(User.login)
+  .get(requireAuth.requireToken, User.userByToken)
+
+router.route('/auth').post(User.createBlankProfile)
 
 module.exports = router

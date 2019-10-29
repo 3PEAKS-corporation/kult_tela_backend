@@ -2,17 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/middleware/imageUpload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/mail.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/Auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/Plan.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/plans.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/plans.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/env.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +51,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="Z:\development\kult_tela_backend\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="database.main" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -84,7 +85,8 @@
       <workItem from="1572096115850" duration="3503000" />
       <workItem from="1572103764993" duration="628000" />
       <workItem from="1572104503569" duration="17066000" />
-      <workItem from="1572178242152" duration="7036000" />
+      <workItem from="1572178242152" duration="7376000" />
+      <workItem from="1572339743995" duration="14658000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -107,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572125298007</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactor auth/user">
+      <created>1572189733549</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1572189733549</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,6 +139,7 @@
     <MESSAGE value="db init + enhancements" />
     <MESSAGE value="auth" />
     <MESSAGE value="token require" />
-    <option name="LAST_COMMIT_MESSAGE" value="token require" />
+    <MESSAGE value="refactor auth/user" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor auth/user" />
   </component>
 </project>

@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS signup_info (
+  id serial PRIMARY KEY,
+  user_id INT NOT NULL,
+  hash VARCHAR NOT NULL UNIQUE ,
+  payment_hash VARCHAR NOT NULL ,
+  used BOOLEAN NOT NULL DEFAULT FALSE
+);

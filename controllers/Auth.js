@@ -12,6 +12,7 @@ async function isHashAndPaymentDone(hash) {
     //TODO: проверка статуста платежа
     const payment = true
     if (payment) return { success: true, user_id: info.user_id }
+    else if (!payment) return false
   } else return false
 }
 
@@ -61,7 +62,11 @@ const Auth = {
         let values = [isOk.user_id]
         let { rows } = await db.query(query, values)
         return utils.response.success(res, { email: rows[0].email })
-      } else return utils.response.error(res, 'Заполнение данных недоступно')
+      } else
+        return utils.response.error(
+          res,
+          'Платеж в обработке, или срок действия ссылки истек'
+        )
     } catch (error) {
       return utils.response.error(
         res,

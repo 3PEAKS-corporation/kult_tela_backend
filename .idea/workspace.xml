@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/imageUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/imageUpload.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +78,9 @@
       <workItem from="1572103764993" duration="628000" />
       <workItem from="1572104503569" duration="17066000" />
       <workItem from="1572178242152" duration="7376000" />
-      <workItem from="1572339743995" duration="20236000" />
+      <workItem from="1572339743995" duration="20258000" />
+      <workItem from="1572417166341" duration="686000" />
+      <workItem from="1572421208761" duration="430000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -120,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572364291985</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fixes">
+      <created>1572383586543</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1572383586543</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +157,7 @@
     <MESSAGE value="refactor auth/user" />
     <MESSAGE value="auth done(except payment)" />
     <MESSAGE value="new table" />
-    <option name="LAST_COMMIT_MESSAGE" value="new table" />
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
 </project>

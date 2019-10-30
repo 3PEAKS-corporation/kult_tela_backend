@@ -3,7 +3,7 @@ const { env } = require('../config')
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, env.IMAGES_FOLDER)
+    cb(null, '.' + env.IMAGES_FOLDER)
   },
   filename: (req, file, cb) => {
     const date = new Date()

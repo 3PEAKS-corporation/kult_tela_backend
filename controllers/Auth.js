@@ -137,7 +137,7 @@ const Auth = {
 
     if (!utils.verify([password, email])) return utils.response.error(res)
 
-    const query = `SELECT id, email, password FROM users WHERE email=$1`
+    const query = `SELECT * FROM users WHERE email=$1`
     const values = [email]
 
     try {

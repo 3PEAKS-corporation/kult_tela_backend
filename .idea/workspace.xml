@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/imageUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/imageUpload.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +77,8 @@
       <workItem from="1572178242152" duration="7376000" />
       <workItem from="1572339743995" duration="20258000" />
       <workItem from="1572417166341" duration="686000" />
-      <workItem from="1572421208761" duration="430000" />
+      <workItem from="1572421208761" duration="903000" />
+      <workItem from="1572460111549" duration="605000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -131,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572383586543</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix public folder">
+      <created>1572421660150</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1572421660150</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +163,7 @@
     <MESSAGE value="auth done(except payment)" />
     <MESSAGE value="new table" />
     <MESSAGE value="fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
+    <MESSAGE value="fix public folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix public folder" />
   </component>
 </project>

@@ -168,7 +168,7 @@ const Auth = {
   },
 
   async userByToken(req, res) {
-    const userId = req.currentUserId
+    const userId = req.currentUser.id
 
     const query = `SELECT * FROM users WHERE id=$1`
     const values = [userId]

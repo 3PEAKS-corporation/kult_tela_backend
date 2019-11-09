@@ -1,5 +1,4 @@
 const { utils, db, token: _token, mail } = require('../services/')
-
 const User = {
   async updateWeight(req, res) {
     let { new_weight } = req.body
@@ -16,7 +15,7 @@ const User = {
       )::jsonb)
       WHERE id=$2
       `
-    const values = [new_weight, req.currentUserId]
+    const values = [new_weight, req.currentUser.id]
 
     try {
       const { rows } = await db.query(query, values)

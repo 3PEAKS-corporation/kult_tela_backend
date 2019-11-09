@@ -19,8 +19,9 @@ async function isHashAndPaymentDone(hash) {
 const Auth = {
   async createBlankProfile(req, res) {
     const { email, plan_id } = req.body
+    console.log(plan_id)
 
-    if (!utils.verify([email, plan_id])) return utils.response.error(res)
+    if (!email || plan_id === undefined) return utils.response.error(res)
 
     let query = `INSERT INTO users(email, plan_id) VALUES($1, $2) RETURNING id, email`
     let values = [email, plan_id]
@@ -137,13 +138,15 @@ const Auth = {
 
     if (!utils.verify([password, email])) return utils.response.error(res)
 
-    const query = `SELECT * FROM users WHERE email=$1`
+    const query = `SELECT *, to_char(date_signup,'DD.MM.YYYY') as date_signup_formatted FROM users WHERE email=$1`
     const values = [email]
 
     try {
       const { rows } = await db.query(query, values)
       let user = rows[0]
       const isPassword = await bcrypt.compare(password, user.password)
+      user.date_signup = user.date_signup_formatted
+      delete user.date_signup_formatted
       delete user.password
       if (isPassword) {
         const query2 = `UPDATE tokens SET expire_date=CURRENT_DATE+interval'31 days' WHERE user_id=$1 RETURNING *`
@@ -170,13 +173,15 @@ const Auth = {
   async userByToken(req, res) {
     const userId = req.currentUser.id
 
-    const query = `SELECT * FROM users WHERE id=$1`
+    const query = `SELECT *, to_char(date_signup,'DD.MM.YYYY') as date_signup_formatted FROM users WHERE id=$1`
     const values = [userId]
 
     try {
       const { rows } = await db.query(query, values)
       if (rows[0]) {
         let user = rows[0]
+        user.date_signup = user.date_signup_formatted
+        delete user.date_signup_formatted
         delete user.password
         return utils.response.success(res, { user })
       } else return utils.response.error(res, 'Неправильный токен')

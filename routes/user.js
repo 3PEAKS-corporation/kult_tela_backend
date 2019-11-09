@@ -1,9 +1,9 @@
 const { Router } = require('express')
 const { User } = require('../controllers/')
-const { requireToken } = require('../middleware/requireAuth')
+const { requireAuth } = require('../middleware/')
 
 const router = Router()
 
-router.post('/user/update-weight', requireToken, User.updateWeight)
+router.post('/user/update-weight', requireAuth, User.updateWeight)
 
 module.exports = router

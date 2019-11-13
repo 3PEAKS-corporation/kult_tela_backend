@@ -15,7 +15,7 @@ module.exports = async function(req, res, next) {
   try {
     const { rows } = await db.query(query, values)
     if (!rows[0].id)
-      return utils.response.error(res, 'Ошибка доступа: токен отсутствует', 401)
+      return utils.response.error(res, 'Ошибка доступа: токен не найден', 401)
     else {
       const user = rows[0]
       req.currentUser = { id: user.id, plan_id: user.plan_id }

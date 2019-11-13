@@ -14,12 +14,13 @@ const User = {
       'date', current_timestamp
       )::jsonb)
       WHERE id=$2
+      RETURNING rank, weight_diff
       `
     const values = [new_weight, req.currentUser.id]
 
     try {
       const { rows } = await db.query(query, values)
-      return utils.response.success(res)
+      return utils.response.success(res, rows[0])
     } catch (error) {
       return utils.response.error(res, 'Не удалось обновить вес')
     }

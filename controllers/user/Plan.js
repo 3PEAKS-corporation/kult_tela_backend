@@ -1,4 +1,4 @@
-const { utils, db, token: _token, mail } = require('../services/')
+const { utils, db, token: _token, mail } = require('../../services/')
 
 const Plans = [
   {

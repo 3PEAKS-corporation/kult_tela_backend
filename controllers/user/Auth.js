@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt')
-const { utils, db, token: _token, mail } = require('../services/')
+const { utils, db, token: _token, mail } = require('../../services')
 
 const SALT_ROUNDS = 10
 
@@ -19,8 +19,6 @@ async function isHashAndPaymentDone(hash) {
 const Auth = {
   async createBlankProfile(req, res) {
     const { email, plan_id } = req.body
-    console.log(plan_id)
-
     if (!email || plan_id === undefined) return utils.response.error(res)
 
     let query = `INSERT INTO users(email, plan_id) VALUES($1, $2) RETURNING id, email`

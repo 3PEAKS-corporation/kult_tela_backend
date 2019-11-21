@@ -6,7 +6,7 @@ const router = Router()
 router
   .route('/auth')
   .post(Auth.login)
-  .get(requireAuth, Auth.userByToken)
+  .get(requireAuth.userToken, Auth.userByToken)
 
 router
   .route('/auth/signup')

@@ -1,7 +1,14 @@
 const { query, pool } = require('./services/db')
 const fs = require('fs')
 
-const MODELS = ['functions', 'users', 'tokens', 'signup_info', 'plans']
+const MODELS = [
+  'functions',
+  'users',
+  'tokens',
+  'signup_info',
+  'plans',
+  'exercises'
+]
 
 const rf = name => fs.readFileSync('./models/' + name).toString()
 

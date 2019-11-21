@@ -9,12 +9,12 @@ router
   .get(requireAuth, Auth.userByToken)
 
 router
-  .route('/auth-signup')
+  .route('/auth/signup')
   .put(Auth.createBlankProfile)
   .post(Auth.isFillAllowed)
 
 router.post(
-  '/auth-signup/fill',
+  '/auth/signup/fill',
   imageUpload.single('avatar_src'),
   Auth.fillInfo
 )

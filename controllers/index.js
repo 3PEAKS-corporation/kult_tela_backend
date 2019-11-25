@@ -5,6 +5,11 @@ const Top = require('./user/Top')
 const Exercise = require('./user/Exercise')
 
 const _Exercise = require('./admin/Exercise')
+const _Recipe = require('./admin/Recipe')
+
+/**
+ * NAMES WITH "_" GOES AS ADMIN CONTROLLERS
+ */
 
 module.exports = {
   // USER
@@ -14,5 +19,6 @@ module.exports = {
   Top,
   Exercise,
   // ADMIN
-  _Exercise
+  _Exercise,
+  _Recipe
 }

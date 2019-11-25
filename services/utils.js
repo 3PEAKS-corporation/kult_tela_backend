@@ -9,7 +9,7 @@ module.exports = {
   verify: body => {
     let isVerified = true
     body.forEach(item => {
-      isVerified = isVerified && Boolean(item)
+      isVerified = isVerified && Boolean(typeof item == 'number' ? true : item)
     })
     return isVerified
   }

@@ -7,6 +7,7 @@ const router = Router()
 /**
  * @ADMIN
  */
-router.put('/admin/exercise', requireAuth.adminToken, _Exercise.create) //TODO: admin auth
+
+router.put('/admin/exercise', requireAuth.adminToken, _Exercise.create)
 
 module.exports = router

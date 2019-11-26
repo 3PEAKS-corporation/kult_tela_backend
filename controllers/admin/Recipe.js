@@ -12,13 +12,13 @@ const Recipe = {
         name, description, weight, calories, proteins, carbohydrates, fat, image_src, products)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);`
 
-    const values = [name, description, weight, calories, proteins, carbohydrates, fat, image_src, products]
+    const values = [name, description, weight, calories, proteins, carbohydrates, fat, image_src.filename, typeof products === 'string' ? JSON.parse(products) : products]
 
     try {
       const result = await db.query(query, values)
       return utils.response.success(res)
     } catch (error) {
-      utils.response.error(res, 'Неправильный формат данных')
+        utils.response.error(res, 'Неправильный формат данных')
       throw error;
     }
   }

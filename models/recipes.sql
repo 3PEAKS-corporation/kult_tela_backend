@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS recipes (
     id serial PRIMARY KEY,
-    name VARCHAR NOT NULL,
+    name VARCHAR NOT NULL UNIQUE,
     description VARCHAR NOT NULL,
     
     weight REAL NOT NULL,

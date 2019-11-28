@@ -14,7 +14,7 @@ router.put('/admin/recipe', requireAuth.adminToken, imageUpload.single('image_sr
  * @USER
  */
 
-router.get('/recipe/all', requireAuth.userToken, Recipe.getAllForList)
-router.get('/recipe/:id', requireAuth.userToken, Recipe.getOneById)
+router.get('/recipe/', requireAuth.userToken, Recipe.getAllForList)
+router.get('/recipe/:id?', requireAuth.userToken, Recipe.getOneById)
 
 module.exports = router

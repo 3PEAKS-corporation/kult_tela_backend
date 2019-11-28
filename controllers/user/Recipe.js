@@ -20,12 +20,11 @@ const Recipe = {
     }
   },
 
-  async getAllForList() {
+  async getAllForList(req, res) {
     const query = `SELECT id, name, calories, weight FROM recipes`
-    const values = [id]
 
     try {
-        const {rows} = await db.query(query, values)
+        const {rows} = await db.query(query)
         return utils.response.success(res, rows)
     } catch (error) {
         return utils.response.error(res, "Ошибка соединения")

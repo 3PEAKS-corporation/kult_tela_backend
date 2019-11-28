@@ -4,9 +4,10 @@ CREATE TABLE IF NOT EXISTS recipes (
     description VARCHAR NOT NULL,
     
     weight REAL NOT NULL,
-    weight_full REAL GENERATED ALWAYS AS ((weight/100.0)*calories) STORED, 
 
+    calories_full REAL GENERATED ALWAYS AS ((weight/100.0)*calories) STORED, 
     calories REAL NOT NULL,
+    
     proteins REAL NOT NULL,
     carbohydrates REAL NOT NULL,
     fat REAL NOT NULL,

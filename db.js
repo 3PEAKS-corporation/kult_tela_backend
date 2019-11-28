@@ -7,7 +7,8 @@ const MODELS = [
   'tokens',
   'signup_info',
   'plans',
-  'exercises'
+  'exercises',
+  'recipes'
 ]
 
 const rf = name => fs.readFileSync('./models/' + name).toString()

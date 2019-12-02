@@ -24,6 +24,9 @@ const User = {
     } catch (error) {
       return utils.response.error(res, 'Не удалось обновить вес')
     }
+  },
+  async updateWorkout(req, res) {
+    
   }
 }
 

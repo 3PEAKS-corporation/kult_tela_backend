@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS execrices (
+CREATE TABLE IF NOT EXISTS exercises (
     id serial PRIMARY KEY,
     type INT NOT NULL,
     name VARCHAR NOT NULL,

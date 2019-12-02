@@ -1,16 +1,32 @@
 const { db, utils } = require('../../services')
 
 const Recipe = {
-  async getOne(req, res) {
+  async getOneById(req, res) {
     const {id} = req.params
-    const query = `SELECT * FROM workouts WHERE id=$1`
-    const values = [id]
+    let query = `SELECT * FROM workouts WHERE id=$1`
+    let values = [id]
     try {
         const {rows} = await db.query(query, values)
-        if(rows[0])
-            return utils.response.success(res, rows[0])
+        let workout = rows[0]
+        if(rows[0]) {
+          const ids_home = workout.exercises_home
+          const ids_gym = workout.exercises_gym
+
+          query = `SELECT * FROM exercises WHERE id IN (${ids_home.join(',')})`
+          const {rows: exercises_home} = await db.query(query)
+          
+          query = `SELECT * FROM exercises WHERE id IN (${ids_gym.join(',')})`
+          const {rows: exercises_gym} = await db.query(query)
+
+          workout.exercises_home = exercises_home
+          workout.exercises_gym = exercises_gym
+
+          return utils.response.success(res, workout)
+          
+        }
         else return utils.response.error(res, "Тренировка не найдена")
     } catch (error) {
+      throw error
         return utils.response.error(res, "Тренировка не найдена")
     }
   }

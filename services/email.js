@@ -1,5 +1,15 @@
 const nodemailer = require('nodemailer')
+const { env } = require('../config/')
 
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+         user: env.EMAIL,
+         pass: env.EMAIL_PASSWORD
+     }
+ });
+
+/*
 function debug(info) {
   console.log('Message sent: %s', info.messageId)
   // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
@@ -36,6 +46,24 @@ async function main() {
   })
 
   //debug(info)
+}*/
+
+const mailOptions = (email ,code) => {
+  return {
+    from: 'kulttela@info.ru', // sender address
+    to: email, // list of receivers
+    subject: 'Subject of your email', // Subject line
+    html: code// plain text body
+  }
+};
+
+const sendEmail = (email ,code) => {
+  transporter.sendMail(mailOptions(email, code), (err, info) => {
+    if(err)
+      console.log(err)
+    else
+      console.log(info);
+ });
 }
 
-module.exports = main
+module.exports = sendEmail

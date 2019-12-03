@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt')
-const { utils, db, token: _token, mail } = require('../../services')
+const { utils, db, token: _token, email: emailSender } = require('../../services')
 
 const SALT_ROUNDS = 10
 
@@ -37,6 +37,9 @@ const Auth = {
         query = `INSERT INTO signup_info(user_id, hash, payment_hash) VALUES($1,$2,$3) RETURNING TRUE`
         values = [user_id, hash, 'PAYMENT_HASH']
         const { rows: signup_info } = await db.query(query, values)
+        console.log(hash);
+        
+        emailSender(email, hash);
         //TODO: отправка на почту ссылки для заполнения данных
         if (signup_info[0]) return utils.response.success(res)
         else return utils.response.error(res, 'Ошибка создания пользователя')

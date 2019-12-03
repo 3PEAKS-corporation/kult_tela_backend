@@ -7,5 +7,7 @@ module.exports = {
   SECRET: env.SECRET,
   PORT: env.PORT,
   ENV: env.ENV,
-  IMAGES_FOLDER: '/public/images'
+  IMAGES_FOLDER: '/public/images',
+  EMAIL: env.EMAIL,
+  EMAIL_PASSWORD: env.EMAIL_PASSWORD
 }

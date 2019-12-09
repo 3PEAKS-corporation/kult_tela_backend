@@ -15,6 +15,12 @@ const MODELS = [
 const rf = name => fs.readFileSync('./models/' + name).toString()
 
 const createTables = () => {
+  const dir = './public/images'
+
+  if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+  }
+
   let queryText = ''
   MODELS.forEach(model => {
     queryText += rf(model + '.sql')

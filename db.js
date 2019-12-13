@@ -15,10 +15,12 @@ const MODELS = [
 const rf = name => fs.readFileSync('./models/' + name).toString()
 
 const createTables = () => {
-  const dir = './public/images'
+  const dir = './public'
+  const subdir = './public/images'
 
-  if (!fs.existsSync(dir)){
-    fs.mkdirSync(dir);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir)
+    if (!fs.existsSync(subdir)) fs.mkdirSync(subdir)
   }
 
   let queryText = ''

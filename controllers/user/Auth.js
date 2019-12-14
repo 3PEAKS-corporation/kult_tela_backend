@@ -1,5 +1,10 @@
 const bcrypt = require('bcrypt')
-const { utils, db, token: _token, email: emailSender } = require('../../services')
+const {
+  utils,
+  db,
+  token: _token,
+  email: emailSender
+} = require('../../services')
 
 const SALT_ROUNDS = 10
 
@@ -37,9 +42,9 @@ const Auth = {
         query = `INSERT INTO signup_info(user_id, hash, payment_hash) VALUES($1,$2,$3) RETURNING TRUE`
         values = [user_id, hash, 'PAYMENT_HASH']
         const { rows: signup_info } = await db.query(query, values)
-        console.log(hash);
-        
-        emailSender(email, hash);
+        console.log(hash)
+
+        emailSender(email, hash)
         //TODO: отправка на почту ссылки для заполнения данных
         if (signup_info[0]) return utils.response.success(res)
         else return utils.response.error(res, 'Ошибка создания пользователя')
@@ -83,7 +88,8 @@ const Auth = {
       last_name,
       patronymic,
       weight_start,
-      password
+      password,
+      height
     } = req.body
     const avatar_src = req.file
 
@@ -95,7 +101,8 @@ const Auth = {
         patronymic,
         weight_start,
         password,
-        avatar_src
+        avatar_src,
+        height
       ])
     )
       return utils.response.error(res)
@@ -106,7 +113,7 @@ const Auth = {
       if (isOk) {
         const passwordHashed = await bcrypt.hash(password, SALT_ROUNDS)
 
-        let query = `UPDATE users SET password=$1, first_name=$2, last_name=$3, patronymic=$4, weight_start=$5, avatar_src=$6 WHERE id=$7 RETURNING TRUE`
+        let query = `UPDATE users SET password=$1, first_name=$2, last_name=$3, patronymic=$4, weight_start=$5, avatar_src=$6, height=$8 WHERE id=$7 RETURNING TRUE`
         let values = [
           passwordHashed,
           first_name,
@@ -114,7 +121,8 @@ const Auth = {
           patronymic,
           weight_start,
           avatar_src.filename,
-          isOk.user_id
+          isOk.user_id,
+          height
         ]
         const { rows } = await db.query(query, values)
         if (rows[0].bool === true) {

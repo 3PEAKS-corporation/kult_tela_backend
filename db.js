@@ -8,7 +8,6 @@ const MODELS = [
   'signup_info',
   'plans',
   'exercises',
-  'recipes',
   'workouts'
 ]
 

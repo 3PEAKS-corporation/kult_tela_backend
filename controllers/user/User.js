@@ -25,9 +25,10 @@ const User = {
       return utils.response.error(res, 'Не удалось обновить вес')
     }
   },
-  async updateWorkout(req, res) {
-    
-  }
+  async updateWorkout(req, res) {},
+  async addPayment(userId) {},
+  async addNotification(userId) {},
+  async addPhoto(userId) {}
 }
 
 module.exports = User

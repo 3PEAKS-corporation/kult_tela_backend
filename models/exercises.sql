@@ -4,5 +4,6 @@ CREATE TABLE IF NOT EXISTS exercises (
     name VARCHAR NOT NULL,
     repetitions INTEGER DEFAULT 0,
     description VARCHAR NOT NULL,
+    warning VARCHAR DEFAULT NULL,
     video_src VARCHAR DEFAULT NULL
 );

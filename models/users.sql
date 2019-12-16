@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS  users(
     height REAL,
 
     weight_start REAL ,
-    weight_history jsonb[] ,
+    weight_history jsonb[] DEFAULT NULL,
     weight_diff REAL GENERATED ALWAYS AS (weight_start - (arr_last_item(weight_history)->>'weight')::real) STORED ,
 
     rank INTEGER GENERATED ALWAYS AS (calc_rank(weight_start, weight_start-(arr_last_item(weight_history)->>'weight')::real)) STORED,

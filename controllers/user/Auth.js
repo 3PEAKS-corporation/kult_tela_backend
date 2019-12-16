@@ -5,7 +5,8 @@ const {
   token: _token,
   email: emailSender
 } = require('../../services')
-
+const User = require('../user/User')
+const { Plans } = require('../user/Plan')
 const SALT_ROUNDS = 10
 
 async function isHashAndPaymentDone(hash) {
@@ -42,7 +43,12 @@ const Auth = {
         query = `INSERT INTO signup_info(user_id, hash, payment_hash) VALUES($1,$2,$3) RETURNING TRUE`
         values = [user_id, hash, 'PAYMENT_HASH']
         const { rows: signup_info } = await db.query(query, values)
-        console.log(hash)
+        const payment = {
+          reason: 'BUY_PLAN',
+          amount: Plans[plan_id].cost,
+          key: 'sdsdsds'
+        }
+        await User.addPayment(user_id, payment)
 
         emailSender(email, hash)
         //TODO: отправка на почту ссылки для заполнения данных
@@ -129,8 +135,10 @@ const Auth = {
           query = `UPDATE signup_info SET used=TRUE WHERE hash=$1 RETURNING TRUE`
           values = [hash]
           const { rows: result } = await db.query(query, values)
-          if (result[0].bool === true) return utils.response.success(res)
-          else utils.response.error(res, 'Произошла ошибка, попробуйте позже')
+          if (result[0].bool === true) {
+            await User.addPhoto(isOk.user_id, avatar_src.filename)
+            return utils.response.success(res)
+          } else utils.response.error(res, 'Произошла ошибка, попробуйте позже')
         }
       } else
         return utils.response.error(

@@ -19,7 +19,9 @@ CREATE TABLE IF NOT EXISTS  users(
     workout jsonb[] DEFAULT NULL,
     food jsonb[] DEFAULT NULL,
     payments jsonb[] DEFAULT NULL,
+    
     notifications jsonb[] DEFAULT NULL,
+    notifications_last_seen INT DEFAULT NULL,
     
     avatar_src VARCHAR,
     plan_id INT DEFAULT NULL

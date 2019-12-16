@@ -7,4 +7,10 @@ const router = Router()
 router.post('/user/update/weight', requireAuth.userToken, User.updateWeight)
 router.post('/user/update/workout', requireAuth.userToken, User.updateWorkout)
 
+router.get(
+  '/user/notification/set-last-seen/:id',
+  requireAuth.userToken,
+  User.setLastSeenNotification
+)
+
 module.exports = router

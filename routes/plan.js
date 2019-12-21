@@ -7,5 +7,4 @@ const router = Router()
 router.get('/plan/all', Plan.getPublicInfo)
 //.put(Plan.createWithSQL) //TODO: admin middleware
 
-
 module.exports = router

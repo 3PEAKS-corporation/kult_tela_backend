@@ -137,6 +137,10 @@ const Auth = {
           const { rows: result } = await db.query(query, values)
           if (result[0].bool === true) {
             await User.addPhoto(isOk.user_id, avatar_src.filename)
+            await User.addNotification(isOk.user_id, {
+              title: 'Добро пожаловать в армию!',
+              url: '/top'
+            })
             return utils.response.success(res)
           } else utils.response.error(res, 'Произошла ошибка, попробуйте позже')
         }

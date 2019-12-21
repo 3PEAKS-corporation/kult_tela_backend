@@ -1,5 +1,5 @@
 const Auth = require('./user/Auth')
-const { Plan, Plans: PLANS } = require('./user/Plan')
+const Plan = require('./user/Plan')
 const User = require('./user/User')
 const Top = require('./user/Top')
 const Exercise = require('./user/Exercise')
@@ -16,7 +16,6 @@ module.exports = {
   // USER
   Auth,
   Plan,
-  PLANS,
   User,
   Top,
   Exercise,

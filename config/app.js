@@ -9,6 +9,7 @@ module.exports = function() {
 
   create = config => {
     const router = require('../routes/')
+    const { initData: initJsonData } = require('../data/')
     const { env } = require('./')
 
     app.set('env', config.ENV)
@@ -22,6 +23,8 @@ module.exports = function() {
     )
 
     router.init(app)
+
+    initJsonData()
 
     app.all('*', (req, res, next) => {
       res.header('Access-Control-Allow-Origin', '*')

@@ -1,12 +1,7 @@
 const bcrypt = require('bcrypt')
-const {
-  utils,
-  db,
-  token: _token,
-  email: emailSender
-} = require('../../services')
-const User = require('../user/User')
-const { Plans } = require('../user/Plan')
+const { utils, db, token: _token } = require('../../services')
+const { Payment, Email, Photo, Notification, Food } = require('./User/')
+const { DATA } = require('../../data/')
 const SALT_ROUNDS = 10
 
 async function isHashAndPaymentDone(hash) {
@@ -40,18 +35,21 @@ const Auth = {
           id: user_id + '_PAYMENT',
           email: email
         })
+
         query = `INSERT INTO signup_info(user_id, hash, payment_hash) VALUES($1,$2,$3) RETURNING TRUE`
+
         values = [user_id, hash, 'PAYMENT_HASH']
         const { rows: signup_info } = await db.query(query, values)
+
         const payment = {
           reason: 'BUY_PLAN',
-          amount: Plans[plan_id].cost,
+          amount: DATA.plans[plan_id].cost,
           key: 'sdsdsds'
         }
-        await User.addPayment(user_id, payment)
 
-        emailSender(email, hash)
-        //TODO: отправка на почту ссылки для заполнения данных
+        await Payment.add(user_id, payment)
+        await Email.firstLogin(email, hash)
+        await Food.setCurrentFoodMenu(user_id)
         if (signup_info[0]) return utils.response.success(res)
         else return utils.response.error(res, 'Ошибка создания пользователя')
       } else return utils.response.error(res, 'Email уже зарегистрирован')
@@ -136,11 +134,13 @@ const Auth = {
           values = [hash]
           const { rows: result } = await db.query(query, values)
           if (result[0].bool === true) {
-            await User.addPhoto(isOk.user_id, avatar_src.filename)
-            await User.addNotification(isOk.user_id, {
+            await Photo.add(isOk.user_id, avatar_src.filename)
+            await Notification.add(isOk.user_id, {
               title: 'Добро пожаловать в армию!',
               url: '/top'
             })
+            await Food.setCurrentFoodMenu(isOk.user_id)
+
             return utils.response.success(res)
           } else utils.response.error(res, 'Произошла ошибка, попробуйте позже')
         }

@@ -9,5 +9,6 @@ module.exports = {
   ENV: env.ENV,
   IMAGES_FOLDER: '/public/images',
   EMAIL: env.EMAIL,
-  EMAIL_PASSWORD: env.EMAIL_PASSWORD
+  EMAIL_PASSWORD: env.EMAIL_PASSWORD,
+  URL: env.URL || 'http://localhost:3000/'
 }

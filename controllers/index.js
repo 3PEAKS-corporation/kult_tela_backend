@@ -1,9 +1,10 @@
 const Auth = require('./user/Auth')
 const Plan = require('./user/Plan')
-const User = require('./user/User')
+const User = require('./user/User/')
 const Top = require('./user/Top')
 const Exercise = require('./user/Exercise')
 const Workout = require('./user/Workout')
+const Food = require('./user/Food')
 
 const _Exercise = require('./admin/Exercise')
 const _Workout = require('./admin/Workout')
@@ -20,6 +21,7 @@ module.exports = {
   Top,
   Exercise,
   Workout,
+  Food,
   // ADMIN
   _Exercise,
   _Workout

@@ -19,7 +19,11 @@ const Food = {
             Math.floor(days_from_start / menu.days.length) * menu.days.length -
             1
 
-      if (menu) return utils.response.success(res, menu.days[day_id])
+      if (menu)
+        return utils.response.success(res, {
+          ...menu.days[day_id],
+          info: menu.info
+        })
       else return utils.response.error(res, 'Меню не найдено')
     } catch (error) {
       return utils.response.error(res, 'Не удалось загрузить меню')

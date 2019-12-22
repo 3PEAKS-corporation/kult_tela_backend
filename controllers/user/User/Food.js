@@ -3,6 +3,7 @@ const { utils, db } = require('../../../services/')
 const Food = {
   async setCurrentFoodMenu(userId) {
     menuId = 1
+    // TODO: расчет id плана питания
     const query = `UPDATE users SET food = jsonb_set(food,'{menu_id}'::text[], $1) WHERE id=$2`
     const values = [menuId, userId]
 

@@ -9,17 +9,16 @@ var transporter = nodemailer.createTransport({
   }
 })
 
-const mailOptions = (email, code) => {
+const mailOptions = (email, opts) => {
   return {
-    from: 'kulttela@info.ru', // sender address
+    from: 'info@cultTela.ru', // sender address
     to: email, // list of receivers
-    subject: 'Subject of your email', // Subject line
-    html: code // plain text body
+    ...opts
   }
 }
 
-const sendEmail = (email, body) => {
-  transporter.sendMail(mailOptions(email, body), (err, info) => {
+const sendEmail = (email, opts) => {
+  transporter.sendMail(mailOptions(email, opts), (err, info) => {
     if (err) console.log(err)
     else console.log(info)
   })

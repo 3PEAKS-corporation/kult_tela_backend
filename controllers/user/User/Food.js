@@ -2,13 +2,13 @@ const { utils, db } = require('../../../services/')
 
 const Food = {
   async setCurrentFoodMenu(userId) {
-    menuId = 1
+    const menuId = 1
     // TODO: расчет id плана питания
     const query = `UPDATE users SET food = jsonb_set(food,'{menu_id}'::text[], $1) WHERE id=$2`
     const values = [menuId, userId]
 
     try {
-      await db.query(query, values)
+      console.log(await db.query(query, values))
     } catch (error) {
       throw error
     }

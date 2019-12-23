@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer')
 const { env } = require('../config/')
 
 var transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: 'Yandex',
   auth: {
     user: env.EMAIL,
     pass: env.EMAIL_PASSWORD
@@ -11,7 +11,7 @@ var transporter = nodemailer.createTransport({
 
 const mailOptions = (email, opts) => {
   return {
-    from: 'info@cultTela.ru', // sender address
+    from: env.EMAIL, // sender address
     to: email, // list of receivers
     ...opts
   }

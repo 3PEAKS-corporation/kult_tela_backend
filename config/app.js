@@ -37,7 +37,7 @@ module.exports = function() {
     const port = app.get('port')
 
     app.get('/', (req, res) => {
-      res.status(200).send({ report: 'Server works properly.' })
+      res.sendFile(path.resolve() + '/index.html')
     })
 
     app.listen(port, () => {

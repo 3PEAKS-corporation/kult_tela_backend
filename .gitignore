@@ -19,3 +19,4 @@ docker-compose.yml
 public/
 
 .env
+index.html

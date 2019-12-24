@@ -18,28 +18,28 @@ BEGIN
 	percent:=start_weight/100.0*diff_weight;
 
    CASE
-   WHEN percent BETWEEN 8.0 AND 13.0 THEN
-         rank = 1;
-   WHEN percent BETWEEN 13.0 AND 17.0 THEN
-         rank = 2;
-   WHEN percent BETWEEN 17.0 AND 20.0 THEN
-         rank = 3;
-   WHEN percent BETWEEN 20.0 AND 23.0 THEN
-         rank = 4;
-   WHEN percent BETWEEN 23.0 AND 27.0 THEN
-			rank = 5;
-   WHEN percent BETWEEN 27.0 AND 33.0 THEN
-			rank = 6;
-   WHEN percent BETWEEN 33.0 AND 35.0 THEN
-			rank = 7;
-   WHEN percent BETWEEN 35.0 AND 40.0 THEN
-			rank = 8;
-   WHEN percent BETWEEN 40.0 AND 50.0 THEN
-			rank = 9;
-   WHEN percent BETWEEN 50.0 AND 100.0 THEN
-         rank = 10;
+   WHEN percent >= 8.0 AND percent < 13.0 THEN
+      rank = 1;
+   WHEN percent >= 13.0 AND percent < 17.0 THEN
+      rank = 2;
+   WHEN percent >= 17.0 AND percent < 20.0 THEN
+      rank = 3;
+   WHEN percent >= 20.0 AND percent < 23.0 THEN
+      rank = 4;
+   WHEN percent >= 23.0 AND percent < 27.0 THEN
+	rank = 5;
+   WHEN percent >= 27.0 AND percent < 33.0 THEN
+	rank = 6;
+   WHEN percent >= 33.0 AND percent < 35.0 THEN
+	rank = 7;
+   WHEN percent >= 35.0 AND percent < 40.0 THEN
+	rank = 8;
+   WHEN percent >= 40.0 AND percent < 50.0 THEN
+	rank = 9;
+   WHEN percent >= 50.0 AND percent < 100.0 THEN
+      rank = 10;
    ELSE
-    	  	rank = 0;
+    	rank = 0;
    END CASE;
 
    RETURN rank;

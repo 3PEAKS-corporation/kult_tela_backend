@@ -11,6 +11,8 @@ const MODELS = [
   'workouts'
 ]
 
+const FUNCTIONS = ['arr_length', 'arr_last_item', 'calc_rank']
+
 const rf = name => fs.readFileSync('./models/' + name).toString()
 
 const createTables = () => {
@@ -41,7 +43,9 @@ const createTables = () => {
 const dropTables = () => {
   let queryText = ''
   MODELS.forEach(table => (queryText += `DROP TABLE IF EXISTS ${table};`))
-  console.log(queryText)
+
+  if (FUNCTIONS)
+    FUNCTIONS.forEach(func => (queryText += `DROP FUNCTION IF EXISTS ${func};`))
 
   query(queryText)
     .then(res => {

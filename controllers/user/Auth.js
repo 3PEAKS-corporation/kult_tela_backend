@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt')
 const { utils, db, token: _token } = require('../../services')
-const { Payment, Email, Photo, Notification, Food } = require('./User/')
+const { Payment, Email, Photo, Notification, Food, Common } = require('./User/')
 const { DATA } = require('../../data/')
 const SALT_ROUNDS = 10
 
@@ -134,7 +134,7 @@ const Auth = {
           values = [hash]
           const { rows: result } = await db.query(query, values)
           if (result[0].bool === true) {
-            await Photo.add(isOk.user_id, avatar_src.filename)
+            await Photo.add(isOk.user_id, avatar_src.filename, 'AVATAR')
             await Notification.add(isOk.user_id, {
               title: 'Добро пожаловать в армию!',
               url: '/top'
@@ -159,16 +159,9 @@ const Auth = {
 
     if (!utils.verify([password, email])) return utils.response.error(res)
 
-    const query = `SELECT *, to_char(date_signup,'DD.MM.YYYY') as date_signup_formatted FROM users WHERE email=$1`
-    const values = [email]
-
     try {
-      const { rows } = await db.query(query, values)
-      let user = rows[0]
+      let user = await Common.getUserData(email, true, true)
       const isPassword = await bcrypt.compare(password, user.password)
-      user.date_signup = user.date_signup_formatted
-      delete user.date_signup_formatted
-      delete user.password
       if (isPassword) {
         const query2 = `UPDATE tokens SET expire_date=CURRENT_DATE+interval'31 days' WHERE user_id=$1 RETURNING *`
         const values2 = [user.id]
@@ -194,18 +187,10 @@ const Auth = {
   async userByToken(req, res) {
     const userId = req.currentUser.id
 
-    const query = `SELECT *, to_char(date_signup,'DD.MM.YYYY') as date_signup_formatted FROM users WHERE id=$1`
-    const values = [userId]
-
     try {
-      const { rows } = await db.query(query, values)
-      if (rows[0]) {
-        let user = rows[0]
-        user.date_signup = user.date_signup_formatted
-        delete user.date_signup_formatted
-        delete user.password
-        return utils.response.success(res, { user })
-      } else return utils.response.error(res, 'Неправильный токен')
+      const user = await Common.getUserData(userId)
+      if (user !== null) return utils.response.success(res, user)
+      else return utils.response.error(res, 'Неправильный токен')
     } catch (error) {
       return utils.response.error(res, 'Пользователь не найден')
     }

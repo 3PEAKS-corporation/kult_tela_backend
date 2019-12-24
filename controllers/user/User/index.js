@@ -5,6 +5,7 @@ const Workout = require('./Workout')
 const Weight = require('./Weight')
 const Email = require('./Email')
 const Payment = require('./Payment')
+const Common = require('./Common')
 
 module.exports = {
   Food,
@@ -13,5 +14,6 @@ module.exports = {
   Workout,
   Weight,
   Email,
-  Payment
+  Payment,
+  Common
 }

@@ -9,15 +9,13 @@ const Food = {
     try {
       const { rows } = await db.query(query, values)
       const { menu_id, days_from_start } = rows[0]
-
       const menu = DATA.menus.filter(item => item.id === menu_id)[0]
 
       const day_id =
         days_from_start === 0
           ? 0
           : days_from_start -
-            Math.floor(days_from_start / menu.days.length) * menu.days.length -
-            1
+            Math.floor(days_from_start / menu.days.length) * menu.days.length
 
       if (menu)
         return utils.response.success(res, {

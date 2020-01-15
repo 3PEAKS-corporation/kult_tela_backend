@@ -20,6 +20,8 @@ const requireAuth = {
       else {
         const user = rows[0]
         req.currentUser = { id: user.id, plan_id: user.plan_id }
+        console.log()
+
         return next()
       }
     } catch (error) {

@@ -1,4 +1,7 @@
-const { query, pool } = require('./services/db')
+const {
+  query,
+  pool
+} = require('./services/db')
 const fs = require('fs')
 
 const MODELS = [
@@ -58,6 +61,9 @@ const dropTables = () => {
     })
 }
 
-module.exports = { createTables, dropTables }
+module.exports = {
+  createTables,
+  dropTables
+}
 
 require('make-runnable')

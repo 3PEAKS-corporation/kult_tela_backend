@@ -93,7 +93,8 @@ const Auth = {
       patronymic,
       weight_start,
       password,
-      height
+      height,
+      age
     } = req.body
     const avatar_src = req.file
 
@@ -106,7 +107,8 @@ const Auth = {
         weight_start,
         password,
         avatar_src,
-        height
+        height,
+        age
       ])
     )
       return utils.response.error(res)
@@ -117,7 +119,7 @@ const Auth = {
       if (isOk) {
         const passwordHashed = await bcrypt.hash(password, SALT_ROUNDS)
 
-        let query = `UPDATE users SET password=$1, first_name=$2, last_name=$3, patronymic=$4, weight_start=$5, avatar_src=$6, height=$8 WHERE id=$7 RETURNING TRUE`
+        let query = `UPDATE users SET password=$1, first_name=$2, last_name=$3, patronymic=$4, weight_start=$5, avatar_src=$6, height=$8, age=$9 WHERE id=$7 RETURNING TRUE`
         let values = [
           passwordHashed,
           first_name,
@@ -126,7 +128,8 @@ const Auth = {
           weight_start,
           avatar_src.filename,
           isOk.user_id,
-          height
+          height,
+          age
         ]
         const { rows } = await db.query(query, values)
         if (rows[0].bool === true) {

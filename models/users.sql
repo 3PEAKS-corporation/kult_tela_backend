@@ -8,7 +8,8 @@ CREATE TABLE IF NOT EXISTS  users(
     date_signup TIMESTAMP DEFAULT current_timestamp,
 
     height REAL,
-
+    age INTEGER,
+    
     weight_start REAL ,
     weight_history jsonb[] DEFAULT NULL,
     weight_diff REAL GENERATED ALWAYS AS (weight_start - (arr_last_item(weight_history)->>'weight')::real) STORED ,

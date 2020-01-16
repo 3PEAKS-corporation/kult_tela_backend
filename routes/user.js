@@ -11,9 +11,10 @@ const router = Router()
 router.post('/user/update/weight', requireAuth.userToken, User.Weight.update)
 router.post('/user/update/workout', requireAuth.userToken, User.Workout.update)
 router.post(
-  '/user/edit/profile',
+  '/user/update/info',
   requireAuth.userToken,
-  User.Common.editProfileData
+  imageUpload.single('avatar_src'),
+  User.Common.updateInfo
 )
 
 /**

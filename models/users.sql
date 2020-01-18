@@ -17,12 +17,12 @@ CREATE TABLE IF NOT EXISTS  users(
     rank INTEGER GENERATED ALWAYS AS (calc_rank(weight_start, weight_start-(arr_last_item(weight_history)->>'weight')::real)) STORED,
 
     photos jsonb[] DEFAULT NULL,
-    workout jsonb DEFAULT NULL,
+    workout jsonb DEFAULT '{}',
 
     food_menu_id INTEGER DEFAULT NULL,
     food_reports jsonb[] DEFAULT NULL,
     
-    payments jsonb[] DEFAULT '{}',
+    payments jsonb[] DEFAULT NULL,
     
     notifications jsonb[] DEFAULT NULL,
     notifications_last_seen INT DEFAULT -1,

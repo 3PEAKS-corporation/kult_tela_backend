@@ -8,7 +8,6 @@ module.exports = function() {
     start
 
   create = config => {
-    const router = require('../routes/')
     const { initData: initJsonData } = require('../data/')
     const { env } = require('./')
 
@@ -22,6 +21,7 @@ module.exports = function() {
       express.static(process.cwd() + env.IMAGES_FOLDER)
     )
 
+    const router = require('../routes/')
     router.init(app)
 
     initJsonData()
@@ -40,9 +40,14 @@ module.exports = function() {
       res.sendFile(path.resolve() + '/index.html')
     })
 
-    app.listen(port, () => {
+    const server = app.listen(port, () => {
       console.log('Express server listening on - http://localhost:' + port)
     })
+
+    const io = require('socket.io').listen(server)
+
+    const sockets = require('../sockets/')
+    sockets.init(io)
   }
 
   return {

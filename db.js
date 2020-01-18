@@ -11,7 +11,9 @@ const MODELS = [
   'signup_info',
   'plans',
   'exercises',
-  'workouts'
+  'workouts',
+  'chat_rooms',
+  'chat_messages'
 ]
 
 const FUNCTIONS = ['arr_length', 'arr_last_item', 'calc_rank']

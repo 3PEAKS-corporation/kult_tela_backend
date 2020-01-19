@@ -21,12 +21,11 @@ module.exports = function() {
       express.static(process.cwd() + env.IMAGES_FOLDER)
     )
 
-    const router = require('../routes/')
-    router.init(app)
-
     initJsonData()
 
     app.all('*', (req, res, next) => {
+      req.serverURL = req.protocol + '://' + req.get('host') + '/'
+      req.imageURL = val => req.serverURL + 'public/images/' + val
       res.header('Access-Control-Allow-Origin', '*')
       res.header('Access-Control-Allow-Headers', 'X-Requested-With')
       next()
@@ -39,6 +38,9 @@ module.exports = function() {
     app.get('/', (req, res) => {
       res.sendFile(path.resolve() + '/index.html')
     })
+
+    const router = require('../routes/')
+    router.init(app)
 
     const server = app.listen(port, () => {
       console.log('Express server listening on - http://localhost:' + port)

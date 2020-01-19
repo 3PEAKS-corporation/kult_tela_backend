@@ -1,24 +1,14 @@
 const { requireAuth } = require('./middleware/')
 
-let SOCKETS = []
-
-const addUserToSockets = user => {
-  SOCKETS.push(user)
-}
-
-const removeUserBySocketFromTokens = socket => {
-  SOCKETS = SOCKETS.filter(user => user.socket !== socket)
-}
+const { SOCKETS_CHAT } = require('./models/')
 
 const init = io => {
-  io.use(requireAuth.requireToken).on('connection', socket => {
-    console.log('user connected with id: ', socket.id)
-    addUserToSockets({ socket: socket.id, ...socket.currentUser })
+  io.on('connection', socket => {
+    console.log('connected')
 
-    socket.on('disconnect', () => {
-      removeUserBySocketFromTokens(socket.id)
-      console.log('user disc with id: ', socket.currentUser.id)
-      console.log(SOCKETS)
+    socket.on('eventAA', data => {
+      console.log(data)
+      io.emit('chat_pinged', 'chat pinged mens')
     })
   })
 }

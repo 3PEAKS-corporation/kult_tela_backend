@@ -1,5 +1,6 @@
-const app = require("./config/app")();
-const config = require("./config/env");
+const { app, env } = require('./config/')
 
-app.create(config);
-app.start();
+const App = app()
+
+App.create(env)
+App.start()

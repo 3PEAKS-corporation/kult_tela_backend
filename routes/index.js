@@ -5,8 +5,9 @@ const top = require('./top')
 const exercise = require('./exercise')
 const workout = require('./workout')
 const food = require('./food')
+const chat = require('./chat')
 
-const init = app => {
+const init = (app, io) => {
   app.use(auth)
   app.use(plan)
   app.use(user)
@@ -14,6 +15,7 @@ const init = app => {
   app.use(exercise)
   app.use(workout)
   app.use(food)
+  app.use(chat)
 }
 
 module.exports = {

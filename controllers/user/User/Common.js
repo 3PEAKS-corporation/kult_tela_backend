@@ -10,6 +10,22 @@ const updateOne = async (name, value, userId) => {
   }
 }
 
+const getPublicUserData = async userId => {
+  const query = `SELECT id, first_name || ' ' || last_name as name, rank, avatar_src  FROM users WHERE id=$1`
+  const values = [userId]
+
+  try {
+    const { rows } = await db.query(query, values)
+    const user = rows[0]
+    if (user) {
+      user.avatar_src = utils.getImageUrl(user.avatar_src)
+      return user
+    } else return null
+  } catch (error) {
+    return null
+  }
+}
+
 const getUserData = async (key, isEmail = false, returnPassword = false) => {
   let query
   if (!isEmail)
@@ -24,6 +40,7 @@ const getUserData = async (key, isEmail = false, returnPassword = false) => {
     if (rows[0]) {
       let user = rows[0]
       user.date_signup = user.date_signup_formatted
+      user.avatar_src = utils.getImageUrl(user.avatar_src)
       user.plan_name = DATA.plans.filter(
         item => item.id == user.plan_id
       )[0].name
@@ -41,6 +58,7 @@ const getUserData = async (key, isEmail = false, returnPassword = false) => {
 
 const Common = {
   getUserData,
+  getPublicUserData,
   async updateInfo(req, res) {
     const new_avatar = req.file
     const { first_name, last_name, patronymic, height, age } = req.body

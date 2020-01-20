@@ -3,5 +3,6 @@ CREATE TABLE IF NOT EXISTS chat_messages (
   user_id INTEGER NOT NULL,
   room_id INTEGER NOT NULL,
   text VARCHAR NOT NULL,
+  attachments jsonb[] DEFAULT NULL,
   date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

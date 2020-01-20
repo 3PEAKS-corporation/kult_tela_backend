@@ -24,8 +24,6 @@ module.exports = function() {
     initJsonData()
 
     app.all('*', (req, res, next) => {
-      req.serverURL = req.protocol + '://' + req.get('host') + '/'
-      req.imageURL = val => req.serverURL + 'public/images/' + val
       res.header('Access-Control-Allow-Origin', '*')
       res.header('Access-Control-Allow-Headers', 'X-Requested-With')
       next()

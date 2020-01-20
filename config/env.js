@@ -10,5 +10,6 @@ module.exports = {
   IMAGES_FOLDER: '/public/images',
   EMAIL: env.EMAIL,
   EMAIL_PASSWORD: env.EMAIL_PASSWORD,
-  URL: env.URL || 'http://localhost:3000/'
+  SERVER_URL: env.SERVER_URL,
+  SITE_URL: env.SITE_URL
 }

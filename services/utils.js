@@ -1,3 +1,5 @@
+const { SERVER_URL, IMAGES_FOLDER } = require('../config/env')
+
 module.exports = {
   response: {
     error: (res, error = 'Все поля должны быть заполнены!', code = 400) =>
@@ -12,5 +14,10 @@ module.exports = {
       isVerified = isVerified && Boolean(typeof item == 'number' ? true : item)
     })
     return isVerified
+  },
+  getImageUrl: image_src => {
+    const folder = IMAGES_FOLDER.substring(1)
+
+    return SERVER_URL + folder + '/' + image_src
   }
 }

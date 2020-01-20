@@ -10,6 +10,10 @@ const init = io => {
       console.log(data)
       io.emit('chat_pinged', 'chat pinged mens')
     })
+
+    socket.on('disconnect', () => {
+      console.log('DISCCOOOONNNECTS')
+    })
   })
 }
 

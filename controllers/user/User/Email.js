@@ -31,7 +31,7 @@ const Email = {
 									</td>
 								</tr>
 								<tr>
-									<td style="padding: 20px 0 30px 0; color:  #1d1d22; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">Добро пожаловать в ряды Армии безопасного похудения! <br><a href="${env.URL +
+									<td style="padding: 20px 0 30px 0; color:  #1d1d22; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">Добро пожаловать в ряды Армии безопасного похудения! <br><a href="${env.SITE_URL +
                     'first-login/' +
                     hash}" style="font-family: Arial, sans-serif; line-height: 22px; font-size: 18px;">Продолжить регистрацию</a>
 </td>

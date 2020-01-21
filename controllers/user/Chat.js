@@ -1,5 +1,6 @@
 const { db, utils } = require('../../services')
 const { getPublicUserData } = require('./User/Common')
+const { SOCKETS_CHAT } = require('../../sockets/models/')
 
 const Chat = {
   async getById(req, res) {
@@ -40,9 +41,23 @@ const Chat = {
         chat.messages_unread = chat.last_seen_message_id
           ? messages[messages.length - 1].id - chat.last_seen_message_id
           : 0
+        console.log(SOCKETS_CHAT.data)
+
+        chat.user_status = SOCKETS_CHAT.isUser({ id: chat.user_id })
 
         return utils.response.success(res, chat)
-      } else return utils.response.error(res, 'Пользователь не существует')
+      } else {
+        const user = await getPublicUserData(user_id)
+        if (user) {
+          const info = {
+            user,
+            user_id: user.id,
+            chat_is_empty: true
+          }
+
+          return utils.response.success(res, info)
+        } else return utils.response.error(res, 'Пользователь не существует')
+      }
     } catch (error) {
       return utils.response.error(res, 'Ошибка загрузки чата')
     }
@@ -107,6 +122,7 @@ async function getAllByUserId(userId) {
 
         return {
           ...chat,
+          user_status: SOCKETS_CHAT.isUser({ id: chat.user_id }),
           messages_unread: chat.last_seen_message_id
             ? last_message.id - chat.last_seen_message_id
             : 0,

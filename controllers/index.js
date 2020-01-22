@@ -11,7 +11,7 @@ const _Exercise = require('./admin/Exercise')
 const _Workout = require('./admin/Workout')
 
 /**
- * NAMES WITH "_" GOES AS ADMIN CONTROLLERS
+ * NAMES WITH "_" GOES AS @ADMIN CONTROLLERS
  */
 
 module.exports = {

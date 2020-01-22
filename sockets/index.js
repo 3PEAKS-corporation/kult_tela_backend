@@ -38,8 +38,9 @@ const init = io => {
               socket.emit('chat_message', message)
               console.log('emitted')
 
-              const to_socket_id = SOCKETS_CHAT.getUser({ id: to_user_id })
-                .socket
+              const user = SOCKETS_CHAT.getUser({ id: to_user_id })
+
+              const to_socket_id = user && user.socket
 
               if (to_socket_id)
                 io.to(to_socket_id).emit('chat_message', message)
@@ -63,8 +64,9 @@ const init = io => {
                 socket.emit('chat_message_first', message)
                 console.log('emitted')
 
-                const to_socket_id = SOCKETS_CHAT.getUser({ id: to_user_id })
-                  .socket
+                const user = SOCKETS_CHAT.getUser({ id: to_user_id })
+
+                const to_socket_id = user && user.socket
 
                 if (to_socket_id) message.to_user_id = socket.currentUser.id
                 io.to(to_socket_id).emit('chat_message_first', message)

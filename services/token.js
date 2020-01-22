@@ -8,9 +8,6 @@ const generateToken = ({ id, email }) => {
   return jwt.sign({ id, email }, signature, { expiresIn: expiration })
 }
 
-const getToken = req => req.headers.token
-
 module.exports = {
-  generateToken,
-  getToken
+  generateToken
 }

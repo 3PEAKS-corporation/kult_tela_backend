@@ -1,7 +1,8 @@
 const bcrypt = require('bcrypt')
 const { utils, db, token: _token } = require('../../services')
-const { Payment, Email, Photo, Notification, Food, Common } = require('./User/')
+const { User } = require('../../utils/')
 const { DATA } = require('../../data/')
+
 const SALT_ROUNDS = 10
 
 async function isHashAndPaymentDone(hash) {
@@ -47,13 +48,15 @@ const Auth = {
           key: 'sdsdsds'
         }
 
-        await Payment.add(user_id, payment)
-        await Email.firstLogin(email, hash)
-        await Food.setCurrentFoodMenu(user_id)
+        await User.Payment.add(user_id, payment)
+        await User.Email.firstLogin(email, hash)
+        await User.Food.setCurrentFoodMenu(user_id)
         if (signup_info[0]) return utils.response.success(res)
         else return utils.response.error(res, 'Ошибка создания пользователя')
       } else return utils.response.error(res, 'Email уже зарегистрирован')
     } catch (error) {
+      console.log(error)
+
       return utils.response.error(
         res,
         'Пользователь с таким email уже зарегистрирован'
@@ -137,12 +140,12 @@ const Auth = {
           values = [hash]
           const { rows: result } = await db.query(query, values)
           if (result[0].bool === true) {
-            await Photo.add(isOk.user_id, avatar_src.filename, 'AVATAR')
-            await Notification.add(isOk.user_id, {
+            await User.Photo.add(isOk.user_id, avatar_src.filename, 'AVATAR')
+            await User.Notification.add(isOk.user_id, {
               title: 'Добро пожаловать в армию!',
               url: '/top'
             })
-            await Food.setCurrentFoodMenu(isOk.user_id)
+            await User.Food.setCurrentFoodMenu(isOk.user_id)
 
             return utils.response.success(res)
           } else utils.response.error(res, 'Произошла ошибка, попробуйте позже')
@@ -163,8 +166,17 @@ const Auth = {
     if (!utils.verify([password, email])) return utils.response.error(res)
 
     try {
-      let user = await Common.getUserData(email, true, true)
-      const isPassword = await bcrypt.compare(password, user.password)
+      let user = await User.Common.getUserData(email, true, true)
+
+      let isPassword = null
+      if (user && user.password)
+        isPassword = await bcrypt.compare(password, user.password)
+      else if (user && !user.password)
+        return utils.response.error(
+          res,
+          'Ваша регистрация не завершена, проверьте электронную почту!'
+        )
+      else return utils.response.error(res, 'Пользователь не существует')
       if (isPassword) {
         const query2 = `UPDATE tokens SET expire_date=CURRENT_DATE+interval'31 days' WHERE user_id=$1 RETURNING *`
         const values2 = [user.id]
@@ -183,7 +195,8 @@ const Auth = {
         else return utils.response.error(res, 'Ошибка БД')
       } else return utils.response.error(res, 'Неправильный пароль')
     } catch (error) {
-      return utils.response.error(res, 'Email не существует')
+      throw error
+      return utils.response.error(res, 'Пользователь не существует')
     }
   },
 
@@ -191,7 +204,7 @@ const Auth = {
     const userId = req.currentUser.id
 
     try {
-      const user = await Common.getUserData(userId)
+      const user = await User.Common.getUserData(userId)
       if (user !== null) return utils.response.success(res, user)
       else return utils.response.error(res, 'Неправильный токен')
     } catch (error) {

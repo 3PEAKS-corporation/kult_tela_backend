@@ -1,4 +1,6 @@
-const { Token } = require('../../utils/')
+const {
+  User: { Token }
+} = require('../../utils/')
 
 const getToken = socket => socket.handshake.query.token
 

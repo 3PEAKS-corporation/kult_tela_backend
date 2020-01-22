@@ -1,5 +1,7 @@
 const { db, utils } = require('../../services')
-const { getPublicUserData } = require('./User/Common')
+const {
+  User: { Common }
+} = require('../../utils/')
 const { SOCKETS_CHAT } = require('../../sockets/models/')
 
 const Chat = {
@@ -27,7 +29,7 @@ const Chat = {
         if (!chat.last_seen_message_id) delete chat.last_seen_message_id
         if (!chat.second_is_admin) {
           delete chat.second_is_admin
-          const user = await getPublicUserData(user_id)
+          const user = await Common.getPublicUserData(user_id)
           chat.user = user
         } else {
           // find admin in db
@@ -47,7 +49,7 @@ const Chat = {
 
         return utils.response.success(res, chat)
       } else {
-        const user = await getPublicUserData(user_id)
+        const user = await Common.getPublicUserData(user_id)
         if (user) {
           const info = {
             user,

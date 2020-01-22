@@ -1,4 +1,4 @@
-const { utils, db, token: _token, mail } = require('../../../services/')
+const { db } = require('../../services/')
 
 const Photo = {
   async add(userId, src, reason = ' ') {

@@ -1,5 +1,19 @@
 const Token = require('./user/Token')
+const Common = require('./user/Common')
+const Email = require('./user/Email')
+const Food = require('./user/Food')
+const Photo = require('./user/Photo')
+const Payment = require('./user/Payment')
+const Notification = require('./user/Notification')
 
 module.exports = {
-  Token
+  User: {
+    Token,
+    Common,
+    Email,
+    Food,
+    Photo,
+    Payment,
+    Notification
+  }
 }

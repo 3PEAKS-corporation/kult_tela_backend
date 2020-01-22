@@ -7,7 +7,6 @@ module.exports = {
     success: (res, message, code = 200) =>
       res.status(code).send({ success: true, data: message })
   },
-
   verify: body => {
     let isVerified = true
     body.forEach(item => {
@@ -19,5 +18,9 @@ module.exports = {
     const folder = IMAGES_FOLDER.substring(1)
 
     return SERVER_URL + folder + '/' + image_src
+  },
+  getCurrentDate: () => {
+    const d = new Date()
+    return `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`
   }
 }

@@ -1,4 +1,4 @@
-const { db } = require('../../../services/')
+const { db } = require('../../services/')
 
 const Payment = {
   async add(userId, { reason, amount, key }) {

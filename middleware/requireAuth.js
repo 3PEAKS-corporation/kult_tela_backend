@@ -1,5 +1,7 @@
 const { utils } = require('../services/')
-const { Token } = require('../utils/')
+const {
+  User: { Token }
+} = require('../utils/')
 
 const getToken = req => req.headers.token
 

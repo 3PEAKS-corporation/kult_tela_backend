@@ -23,12 +23,12 @@ const init = io => {
         }
 
         try {
-          let message_id = await User.Chat.addMessage(message)
+          let message_id = await User.Chat.Message.addMessage(message)
 
           let roomInited = false
           if (!message_id) {
             roomInited = true
-            message_id = await User.Chat.initRoomWithMessage(message)
+            message_id = await User.Chat.Message.initRoomWithMessage(message)
           }
 
           if (message_id) {

@@ -5,7 +5,7 @@ const Food = require('./user/Food')
 const Photo = require('./user/Photo')
 const Payment = require('./user/Payment')
 const Notification = require('./user/Notification')
-const Chat = require('./user/Chat')
+const Chat = require('./user/Chat/')
 
 module.exports = {
   User: {

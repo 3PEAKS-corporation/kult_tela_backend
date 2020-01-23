@@ -24,9 +24,7 @@ const Chat = {
         chat.user_id = chat.user_ids.filter(id => id !== currentUser.id)[0]
         delete chat.user_ids
 
-        if (!chat.last_seen_message_id) delete chat.last_seen_message_id
         if (!chat.second_is_admin) {
-          delete chat.second_is_admin
           const user = await User.Common.getPublicUserData(user_id)
           chat.user = user
         } else {
@@ -64,7 +62,7 @@ const Chat = {
   },
   async getAll(req, res) {
     const userId = req.currentUser.id
-    const chats = await User.Chat.getAllByUserId(userId)
+    const chats = await User.Chat.Room.getAllByUserId(userId)
 
     if (chats || chats === []) return utils.response.success(res, chats)
     else if (chats === null)

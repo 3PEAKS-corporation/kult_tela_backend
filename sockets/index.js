@@ -1,5 +1,6 @@
 const { requireAuth } = require('./middleware/')
 const { db } = require('../services/')
+const { User } = require('../utils/')
 
 const { SOCKETS_CHAT } = require('./models/')
 
@@ -13,69 +14,48 @@ const init = io => {
       console.log('[chat_message]')
 
       const to_user_id = data.to_user_id
+
       if (to_user_id) {
         let message = {
-          user_id: socket.currentUser.id,
+          fromUserId: socket.currentUser.id,
+          toUserId: to_user_id,
           text: data.text
         }
 
-        let query = `INSERT INTO chat_messages(user_id, room_id, text) VALUES($1, (SELECT id FROM chat_rooms where user_ids @> ARRAY[${message.user_id},${to_user_id}]), $2) RETURNING id`
-        let values = [message.user_id, message.text]
-
         try {
-          const { rows } = await db.query(query, values)
-          const message_id = rows[0].id
+          let message_id = await User.Chat.addMessage(message)
+
+          let roomInited = false
+          if (!message_id) {
+            roomInited = true
+            message_id = await User.Chat.initRoomWithMessage(message)
+          }
 
           if (message_id) {
             query = `SELECT * FROM chat_messages_formatted() WHERE id=$1`
             values = [message_id]
 
-            message = null
             const { rows } = await db.query(query, values)
-            message = rows[0]
+            const dbMessage = rows[0]
 
-            if (message) {
-              socket.emit('chat_message', message)
-              console.log('emitted')
+            if (dbMessage) {
+              const event = roomInited ? 'chat_message_init' : 'chat_message'
 
-              const user = SOCKETS_CHAT.getUser({ id: to_user_id })
+              if (roomInited) dbMessage.to_user_id = to_user_id
 
-              const to_socket_id = user && user.socket
+              socket.emit(event, dbMessage)
 
-              if (to_socket_id)
-                io.to(to_socket_id).emit('chat_message', message)
-            }
-          } else console.log('asdasds')
-        } catch (error) {
-          query = `INSERT INTO chat_rooms(user_ids)VALUES (ARRAY[${socket.currentUser.id}, ${data.to_user_id}]);
-                  INSERT INTO chat_messages(user_id, room_id, text) VALUES(${socket.currentUser.id}, (SELECT id FROM chat_rooms where user_ids @> ARRAY[${socket.currentUser.id}, ${data.to_user_id}]), '${data.text}') RETURNING id`
-          try {
-            console.log('here im')
-            const data = await db.query(query)
-            const msg_id = data[1].rows[0].id
-            if (msg_id) {
-              query = `SELECT * FROM chat_messages_formatted() WHERE id=$1`
-              values = [msg_id]
-              const { rows } = await db.query(query, values)
-              const message = rows[0]
+              const to_user = SOCKETS_CHAT.getUser({ id: to_user_id })
 
-              if (message) {
-                message.to_user_id = to_user_id
-                socket.emit('chat_message_first', message)
-                console.log('emitted')
-
-                const user = SOCKETS_CHAT.getUser({ id: to_user_id })
-
-                const to_socket_id = user && user.socket
-
-                if (to_socket_id) message.to_user_id = socket.currentUser.id
-                io.to(to_socket_id).emit('chat_message_first', message)
+              if (to_user && to_user.length > 0) {
+                if (roomInited) dbMessage.to_user_id = socket.currentUser.id
+                to_user.forEach(user => {
+                  io.to(user.socket).emit(event, dbMessage)
+                })
               }
             }
-          } catch (error) {
-            throw error
           }
-        }
+        } catch (error) {}
       }
     })
 

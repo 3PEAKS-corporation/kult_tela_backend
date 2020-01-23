@@ -24,13 +24,11 @@ module.exports = new (function socks() {
 
   this.getUser = function({ id = null, socket = null }) {
     let user
-    if (id && !socket) user = this.data.filter(item => item.id === id)[0]
+    if (id && !socket) user = this.data.filter(item => item.id === id)
     else if (socket && !id)
-      user = this.data.filter(item => item.socket === socket)[0]
+      user = this.data.filter(item => item.socket === socket)
     else if (id && socket) {
-      user = this.data.filter(
-        item => item.id === id && item.socket === socket
-      )[0]
+      user = this.data.filter(item => item.id === id && item.socket === socket)
     }
     return user
   }

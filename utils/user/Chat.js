@@ -2,6 +2,32 @@ const { db, utils } = require('../../services/')
 const { SOCKETS_CHAT } = require('../../sockets/models/')
 
 const Chat = {
+  async initRoomWithMessage(
+    { fromUserId, toUserId, text },
+    returnMessageId = true
+  ) {
+    const uids = fromUserId + ',' + toUserId
+    const query = `INSERT INTO chat_rooms(user_ids)VALUES (ARRAY[${uids}]);
+                  INSERT INTO chat_messages(user_id, room_id, text) VALUES(${fromUserId}, (SELECT id FROM chat_rooms where user_ids @> ARRAY[${uids}]), '${text}') RETURNING id`
+    try {
+      const data = await db.query(query)
+      return returnMessageId === true ? data[1].rows[0].id : true
+    } catch (error) {
+      return null
+    }
+  },
+  async addMessage({ fromUserId, toUserId, text }, returnMessageId = true) {
+    const query = `INSERT INTO chat_messages(user_id, room_id, text) VALUES(${fromUserId}, (SELECT id FROM chat_rooms where user_ids @> ARRAY[$1::int[]]), $2) RETURNING id`
+
+    const values = [[fromUserId, toUserId], text]
+
+    try {
+      const data = await db.query(query, values)
+      return returnMessageId === true ? data.rows[0].id : true
+    } catch (error) {
+      return null
+    }
+  },
   async getAllByUserId(userId) {
     let query = `SELECT * FROM chat_rooms WHERE $1 = ANY (user_ids);`
     let values = [userId]
@@ -22,7 +48,7 @@ const Chat = {
 
         const user_ids = chats.map(chat => chat.user_id)
 
-        query = `SELECT id, first_name || ' ' || last_name as name, rank, avatar_src  FROM users WHERE id=ANY($1)`
+        query = `SELECT id, first_name || ' ' || last_name as name, rank, avatar_src  FROM users WHERE id=ANY(ARRAY[$1::int[]])`
         values = [user_ids]
 
         const { rows: users } = await db.query(query, values)

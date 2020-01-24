@@ -1,5 +1,5 @@
 const Message = require('./Message')
-const MessageStatus = require('./MessageStatus')
+const MessageUtils = require('./MessageUtils')
 const Room = require('./Room')
 
-module.exports = { Message, MessageStatus, Room }
+module.exports = { Message, MessageUtils, Room }

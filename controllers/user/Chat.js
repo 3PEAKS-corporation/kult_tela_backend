@@ -31,17 +31,16 @@ const Chat = {
           // find admin in db
         }
 
-        query = `SELECT * FROM chat_messages_formatted() as f WHERE f.room_id=$1 ORDER BY id`
+        query = `SELECT * FROM chat_messages_formatted() as f WHERE f.room_id=$1 ORDER BY id DESC LIMIT 40`
         values = [chat.id]
 
         const { rows: messages } = await db.query(query, values)
         chat.messages = messages
-        chat.messages_unread = chat.last_seen_message_id
-          ? messages[messages.length - 1].id - chat.last_seen_message_id
-          : 0
+
         console.log(SOCKETS_CHAT.data)
 
         chat.user_status = SOCKETS_CHAT.isUser({ id: chat.user_id })
+        chat.messages = chat.messages.reverse()
 
         return utils.response.success(res, chat)
       } else {

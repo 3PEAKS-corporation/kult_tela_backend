@@ -8,7 +8,6 @@ const Message = (io, socket) => {
   return {
     async message(data) {
       console.log('[chat_message]')
-      console.log(data.text.length[500])
 
       const to_user_id = data.to_user_id
 
@@ -38,14 +37,14 @@ const Message = (io, socket) => {
             if (dbMessage) {
               const event = roomInited ? 'chat_message_init' : 'chat_message'
 
-              if (roomInited) dbMessage.to_user_id = to_user_id
+              if (roomInited) dbMessage.user_id = to_user_id
 
               socket.emit(event, dbMessage)
 
               const to_user = SOCKETS_CHAT.getUser({ id: to_user_id })
 
               if (to_user && to_user.length > 0) {
-                if (roomInited) dbMessage.to_user_id = socket.currentUser.id
+                if (roomInited) dbMessage.user_id = socket.currentUser.id
 
                 to_user.forEach(user => {
                   io.to(user.socket).emit(event, dbMessage)

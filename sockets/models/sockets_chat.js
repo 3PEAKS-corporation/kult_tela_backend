@@ -1,22 +1,52 @@
+class UserWithSocket {
+  constructor(id, socket) {
+    this.id = id
+    this.sockets = [socket]
+  }
+
+  appendSocket(socket) {
+    this.sockets.push(socket)
+  }
+
+  emit(io) {
+    io.to(this.sockets)
+  }
+
+  static getIndexInArray(array, id) {
+    return array.map(e => e.id).indexOf(id)
+  }
+}
+
 module.exports = new (function socks() {
   this.data = []
 
-  this.add = function(user) {
-    this.data.push(user)
+  this.add = function(id, socket) {
+    const index = UserWithSocket.getIndexInArray(this.data, id)
+    if (index !== -1) {
+      this.data[index].appendSocket(socket)
+    } else this.data.push(new UserWithSocket(id, socket))
   }
 
   this.remove = function(socket) {
-    this.data = this.data.filter(user => user.socket !== socket)
+    let i = 0
+    for (const e of this.data) {
+      if (e.sockets.includes(socket)) {
+        this.data[i].sockets = this.data[i].sockets.filter(s => s !== socket)
+        if (e.sockets.length === 0) this.data.splice(i, 1)
+        break
+      }
+      i++
+    }
   }
 
   this.isUser = function({ id = null, socket = null }) {
     let user
     if (id && !socket) user = this.data.filter(item => item.id === id)[0]
     else if (socket && !id)
-      user = this.data.filter(item => item.socket === socket)[0]
+      user = this.data.filter(item => item.sockets.includes(socket))[0]
     else if (id && socket) {
       user = this.data.filter(
-        item => item.id === id && item.socket === socket
+        item => item.id === id && item.sockets.includes(socket)
       )[0]
     }
     return Boolean(user)
@@ -24,11 +54,13 @@ module.exports = new (function socks() {
 
   this.getUser = function({ id = null, socket = null }) {
     let user
-    if (id && !socket) user = this.data.filter(item => item.id === id)
+    if (id && !socket) user = this.data.filter(item => item.id === id)[0]
     else if (socket && !id)
-      user = this.data.filter(item => item.socket === socket)
+      user = this.data.filter(item => item.sockets.includes(socket))[0]
     else if (id && socket) {
-      user = this.data.filter(item => item.id === id && item.socket === socket)
+      user = this.data.filter(
+        item => item.id === id && item.sockets.includes(socket)
+      )[0]
     }
     return user
   }

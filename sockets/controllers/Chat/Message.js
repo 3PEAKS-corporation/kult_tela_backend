@@ -39,16 +39,16 @@ const Message = (io, socket) => {
 
               if (roomInited) dbMessage.user_id = to_user_id
 
-              socket.emit(event, dbMessage)
+              const to_cur_user = SOCKETS_CHAT.getUser({
+                id: socket.currentUser.id
+              })
+              io.emitArray(to_cur_user.sockets, event, dbMessage)
 
               const to_user = SOCKETS_CHAT.getUser({ id: to_user_id })
 
-              if (to_user && to_user.length > 0) {
+              if (to_user) {
                 if (roomInited) dbMessage.user_id = socket.currentUser.id
-
-                to_user.forEach(user => {
-                  io.to(user.socket).emit(event, dbMessage)
-                })
+                io.emitArray(to_user.sockets, event, dbMessage)
               }
             }
           }

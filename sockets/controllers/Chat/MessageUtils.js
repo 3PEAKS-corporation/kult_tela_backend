@@ -15,10 +15,8 @@ const MessageUtils = (io, socket) => {
       const user_ids = await User.Chat.MessageUtils.setLastSeenId(info)
       if (user_ids) {
         user_ids.forEach(id => {
-          io.to(SOCKETS_CHAT.getUser({ id })[0].socket).emit(
-            'chat_message_last_seen',
-            info
-          )
+          const sockets = SOCKETS_CHAT.getUser({ id }).sockets
+          io.emitArray(sockets, 'chat_message_last_seen', info)
         })
       }
     },

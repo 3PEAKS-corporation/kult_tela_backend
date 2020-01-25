@@ -7,7 +7,8 @@ const storage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     const date = new Date()
-    let name = `${date.getDate()}-${date.getMonth() +
+    let name = `${req.currentUser &&
+      req.currentUser.id}-${date.getDate()}-${date.getMonth() +
       1}-${date.getFullYear()}-${date.getSeconds()}-${file.originalname.replace(
       /\s/g,
       ''

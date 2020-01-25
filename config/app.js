@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const cors = require('cors')
+const compression = require('compression')
 
 module.exports = function() {
   let app = express(),
@@ -15,6 +16,7 @@ module.exports = function() {
     app.set('port', config.PORT)
 
     app.use(cors())
+    app.use(compression())
     app.use(express.json())
     app.use(
       env.IMAGES_FOLDER,
@@ -22,12 +24,6 @@ module.exports = function() {
     )
 
     initJsonData()
-
-    // app.all('*', (req, res, next) => {
-    //   res.header('Access-Control-Allow-Origin', '*')
-    //   res.header('Access-Control-Allow-Headers', 'X-Requested-With')
-    //   next()
-    // })
   }
 
   start = () => {

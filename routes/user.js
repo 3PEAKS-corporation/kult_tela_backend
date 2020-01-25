@@ -1,6 +1,11 @@
 const { Router } = require('express')
 const { User } = require('../controllers/')
-const { requireAuth, imageUpload, requirePlan } = require('../middleware/')
+const {
+  requireAuth,
+  imageUpload,
+  requirePlan,
+  imageCompression
+} = require('../middleware/')
 
 const router = Router()
 
@@ -14,6 +19,7 @@ router.post(
   '/user/update/info',
   requireAuth.userToken,
   imageUpload.single('avatar_src'),
+  imageCompression(false),
   User.Common.updateInfo
 )
 
@@ -43,6 +49,7 @@ router.post(
   requireAuth.userToken,
   requirePlan(1),
   imageUpload.array('images'),
+  imageCompression(true),
   User.Food.addReport
 )
 

@@ -9,6 +9,11 @@ const router = Router()
  */
 
 router.put('/admin/workout', requireAuth.adminToken, _Workout.create)
+
+/**
+ * @USER
+ */
+
 router.get('/workout/:id', requireAuth.userToken, Workout.getOneById)
 
 module.exports = router

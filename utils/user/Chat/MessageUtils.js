@@ -16,12 +16,13 @@ const MessageUtils = {
     }
   },
   async loadMessagesHistory({ room_id, from_message_id, user_id }) {
-    const query = `SELECT * FROM chat_messages_formatted() WHERE room_id=(SELECT id FROM chat_rooms WHERE id=$1 AND user_ids @> ARRAY[$2::int[]]) AND id<$3 ORDER BY id DESC LIMIT 40`
+    const query = `SELECT * FROM chat_messages_formatted WHERE room_id=(SELECT id FROM chat_rooms WHERE id=$1 AND user_ids @> ARRAY[$2::int[]]) AND id<$3 ORDER BY id DESC LIMIT 40`
     const values = [room_id, [user_id], from_message_id]
     console.log(values)
 
     try {
       const { rows: messages } = await db.query(query, values)
+      console.log('asdas:', values)
       return messages.reverse()
     } catch (error) {
       return false

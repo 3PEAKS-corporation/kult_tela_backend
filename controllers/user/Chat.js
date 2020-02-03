@@ -31,7 +31,7 @@ const Chat = {
           // find admin in db
         }
 
-        query = `SELECT * FROM chat_messages_formatted() as f WHERE f.room_id=$1 ORDER BY id DESC LIMIT 40`
+        query = `SELECT * FROM chat_messages_formatted WHERE room_id=$1 ORDER BY id DESC LIMIT 40`
         values = [chat.id]
 
         const { rows: messages } = await db.query(query, values)

@@ -3,6 +3,7 @@ const fs = require('fs')
 
 const MODELS = [
   'functions',
+
   'users',
   'tokens',
   'signup_info',
@@ -14,12 +15,9 @@ const MODELS = [
   'functions_needs_tables'
 ]
 
-const FUNCTIONS = [
-  'arr_length',
-  'arr_last_item',
-  'calc_rank',
-  'chat_messages_formatted'
-]
+const VIEWS = ['users_public', 'chat_messages_formatted']
+
+const FUNCTIONS = ['arr_length', 'arr_last_item', 'calc_rank']
 
 const rf = name => fs.readFileSync('./models/' + name).toString()
 
@@ -33,7 +31,7 @@ const createTables = () => {
   }
 
   let queryText = ''
-  MODELS.forEach(model => {
+  ;[...MODELS, ...VIEWS].forEach(model => {
     queryText += rf(model + '.sql')
   })
 
@@ -52,8 +50,9 @@ const dropTables = () => {
   let queryText = ''
   MODELS.forEach(table => (queryText += `DROP TABLE IF EXISTS ${table};`))
 
-  if (FUNCTIONS)
-    FUNCTIONS.forEach(func => (queryText += `DROP FUNCTION IF EXISTS ${func};`))
+  VIEWS.forEach(view => (queryText += `DROP VIEW IF EXISTS ${view};`))
+
+  FUNCTIONS.forEach(func => (queryText += `DROP FUNCTION IF EXISTS ${func};`))
 
   query(queryText)
     .then(res => {

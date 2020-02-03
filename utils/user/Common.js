@@ -3,7 +3,7 @@ const { DATA } = require('./../../data/')
 
 const Common = {
   async getPublicUserData(userId) {
-    const query = `SELECT id, first_name || ' ' || last_name as name, rank, avatar_src  FROM users WHERE id=$1 AND first_name IS NOT NULL AND last_name IS NOT NULL`
+    const query = `SELECT * FROM users_public WHERE id=$1 AND name IS NOT NULL`
     const values = [userId]
 
     try {

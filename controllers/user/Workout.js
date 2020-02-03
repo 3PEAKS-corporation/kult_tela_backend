@@ -24,7 +24,6 @@ const Recipe = {
         return utils.response.success(res, workout)
       } else return utils.response.error(res, 'Тренировка не найдена')
     } catch (error) {
-      throw error
       return utils.response.error(res, 'Тренировка не найдена')
     }
   }

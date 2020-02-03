@@ -4,7 +4,11 @@ const Workout = {
   async create(req, res) {
     const { name, description, exercises_home, exercises_gym } = req.body
 
-    if (!utils.verify([name, description]) && Array.isArray(exercises_gym) && Array.isArray(exercises_home))
+    if (
+      !utils.verify([name, description]) &&
+      Array.isArray(exercises_gym) &&
+      Array.isArray(exercises_home)
+    )
       return utils.response.error(res)
 
     const query = `INSERT INTO workouts(

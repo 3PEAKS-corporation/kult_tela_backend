@@ -19,10 +19,10 @@ const Common = {
     if (
       !first_name &&
       !last_name &&
-      !patronymic &&
       !height &&
       !age &&
-      !new_avatar
+      !new_avatar &&
+      !patronymic
     )
       return utils.response.error(res)
 

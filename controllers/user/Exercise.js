@@ -1,5 +1,5 @@
 const { db, utils } = require('../../services')
-
+const { DATA } = require('../../data/')
 const Exercise = {
   async getOneById(req, res) {
     const { id } = req.params
@@ -12,6 +12,9 @@ const Exercise = {
     } catch (error) {
       return utils.response.error(res, 'Упражнение не найдена')
     }
+  },
+  getAll(req, res) {
+    return utils.response.success(res, DATA.exercise_videos)
   }
 }
 

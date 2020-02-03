@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS  users(
 
     photos jsonb[] DEFAULT NULL,
     workout jsonb DEFAULT '{}',
-
+    WO
     food_menu_id INTEGER DEFAULT NULL,
     food_reports jsonb[] DEFAULT NULL,
     

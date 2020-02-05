@@ -5,8 +5,8 @@ const LOCATION = './data/json/'
 let DATA = {
   menus: null,
   plans: null,
-  physical_statuses: null,
-  exercise_videos: null
+  exercise_videos: null,
+  workout_levels: null
 }
 
 const CONFIG = [
@@ -19,12 +19,12 @@ const CONFIG = [
     file: 'food_menus.json'
   },
   {
-    name: 'physical_statuses',
-    file: 'physical_statuses.json'
-  },
-  {
     name: 'exercise_videos',
     file: 'exercise_videos.json'
+  },
+  {
+    name: 'workout_levels',
+    file: 'workout_levels.json'
   }
 ]
 

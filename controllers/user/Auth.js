@@ -145,6 +145,7 @@ const Auth = {
               url: '/top'
             })
             await User.Food.setCurrentFoodMenu(isOk.user_id)
+            await User.History.add(isOk.user_id, 'SIGNUP')
 
             return utils.response.success(res)
           } else utils.response.error(res, 'Произошла ошибка, попробуйте позже')
@@ -194,7 +195,6 @@ const Auth = {
         else return utils.response.error(res, 'Ошибка БД')
       } else return utils.response.error(res, 'Неправильный пароль')
     } catch (error) {
-      throw error
       return utils.response.error(res, 'Пользователь не существует')
     }
   },

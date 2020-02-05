@@ -2,27 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data/json/exercise_videos.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/chat_messages_formatted.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/users_public.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/json/workout_levels.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/user/History.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/user/Workout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/Workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/Workout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Exercise.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Exercise.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/User/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/User/Food.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Food.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/User/Workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Workout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/user/Workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Workout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/imageCompression.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/imageCompression.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/functions_needs_tables.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/physical_statuses.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/models/users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/users.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/exercise.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/exercise.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/workout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/MessageUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/MessageUtils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -132,7 +125,9 @@
       <workItem from="1572544477352" duration="7352000" />
       <workItem from="1573063632806" duration="775000" />
       <workItem from="1573064421587" duration="805000" />
-      <workItem from="1580719215962" duration="9530000" />
+      <workItem from="1580719215962" duration="10189000" />
+      <workItem from="1580813583431" duration="1977000" />
+      <workItem from="1580893819640" duration="14599000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -204,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572558466842</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="exercises implemented + refactoring">
+      <created>1580756867538</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1580756867538</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,6 +236,7 @@
     <MESSAGE value="fix public folder" />
     <MESSAGE value="fix login" />
     <MESSAGE value="users table enhancements + function" />
-    <option name="LAST_COMMIT_MESSAGE" value="users table enhancements + function" />
+    <MESSAGE value="exercises implemented + refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="exercises implemented + refactoring" />
   </component>
 </project>

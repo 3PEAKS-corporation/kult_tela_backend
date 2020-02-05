@@ -6,6 +6,8 @@ const Photo = require('./user/Photo')
 const Payment = require('./user/Payment')
 const Notification = require('./user/Notification')
 const Chat = require('./user/Chat/')
+const History = require('./user/History')
+const Workout = require('./user/Workout')
 
 module.exports = {
   User: {
@@ -16,6 +18,8 @@ module.exports = {
     Photo,
     Payment,
     Notification,
-    Chat
+    Chat,
+    History,
+    Workout
   }
 }

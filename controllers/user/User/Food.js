@@ -1,11 +1,9 @@
 const { utils, db } = require('../../../services/')
-const {
-  User: { Photo, Food: _Food }
-} = require('../../../utils/')
+const { User } = require('../../../utils/')
 
 const Food = {
   async getStateOfReport(req, res) {
-    const result = await _Food.getReportStatus(req.currentUser.id)
+    const result = await User.Food.getReportStatus(req.currentUser.id)
     return utils.response.success(res, result)
   },
   async addReport(req, res) {
@@ -25,7 +23,7 @@ const Food = {
       })
 
     images.forEach(image => {
-      Photo.add(req.currentUser.id, image.filename, 'FOOD_REPORT')
+      User.Photo.add(req.currentUser.id, image.filename, 'FOOD_REPORT')
     })
 
     const query = `UPDATE users SET food_reports = array_append(food_reports, jsonb_build_object(
@@ -43,8 +41,7 @@ const Food = {
         values = [item.type, item.image_src, item.date, userId]
         await db.query(query, values)
       }
-
-      const reportStatus = await _Food.getReportStatus(userId)
+      const reportStatus = await User.Food.getReportStatus(userId)
 
       return utils.response.success(res, reportStatus)
     } catch (error) {

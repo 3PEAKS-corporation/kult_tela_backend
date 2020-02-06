@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data/json/workouts.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/User/Workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Workout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/user/Workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Workout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/json/workout_levels.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/workout_levels.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Workout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/workouts.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/workouts.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +117,7 @@
       <workItem from="1580719215962" duration="10189000" />
       <workItem from="1580813583431" duration="1977000" />
       <workItem from="1580893819640" duration="14788000" />
-      <workItem from="1580976870287" duration="16915000" />
+      <workItem from="1580976870287" duration="24635000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -208,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580914535405</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="workout output">
+      <created>1581002111132</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1581002111132</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,6 +242,7 @@
     <MESSAGE value="users table enhancements + function" />
     <MESSAGE value="exercises implemented + refactoring" />
     <MESSAGE value="workout levels added and implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="workout levels added and implemented" />
+    <MESSAGE value="workout output" />
+    <option name="LAST_COMMIT_MESSAGE" value="workout output" />
   </component>
 </project>

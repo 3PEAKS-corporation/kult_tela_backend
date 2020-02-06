@@ -43,7 +43,7 @@ const Auth = {
         const { rows: signup_info } = await db.query(query, values)
 
         const payment = {
-          reason: 'BUY_PLAN',
+          reason: 'PLAN_BUY',
           amount: DATA.plans[plan_id].cost,
           key: 'sdsdsds'
         }

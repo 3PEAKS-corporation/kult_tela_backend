@@ -25,7 +25,8 @@
       "types": {
         "home": false,
         "gym": true
-      }
+      },
+      "disabled": true
     },
     {
       "id": 3,
@@ -34,7 +35,8 @@
       "types": {
         "home": false,
         "gym": true
-      }
+      },
+      "disabled": true
     },
     {
       "id": 4,
@@ -43,7 +45,8 @@
       "types": {
         "home": false,
         "gym": true
-      }
+      },
+      "disabled": true
     }
   ],
   "overweight": [

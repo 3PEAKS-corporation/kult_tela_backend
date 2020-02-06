@@ -1,28 +1,11 @@
-const { utils, db, token: _token, mail } = require('../../../services/')
+const { utils, db } = require('../../../services/')
 const { DATA } = require('../../../data/')
-
+const { User } = require('../../../utils/')
 const Workout = {
   async getLevels(req, res) {
-    const query = 'SELECT workout FROM users WHERE id=$1'
-    const values = [req.currentUser.id]
-
-    try {
-      const { rows } = await db.query(query, values)
-      const workout = rows[0].workout
-
-      if (
-        typeof workout.physical_level === 'number' &&
-        typeof workout.overweight_level === 'number'
-      ) {
-        return utils.response.success(res, null)
-      } else {
-        // TODO: add payments protection
-        let levels = DATA.workout_levels
-        return utils.response.success(res, levels)
-      }
-    } catch (e) {
-      return utils.response.error(res)
-    }
+    const levels = await User.Workout.getLevels(req.currentUser.id)
+    if (levels) return utils.response.success(res, levels)
+    else return utils.response.error(res, 'Изменение данных невозможно')
   },
   async setLevels(req, res) {
     let { physical_level, overweight_level } = req.body
@@ -40,7 +23,8 @@ const Workout = {
       return utils.response.error(res)
     const userId = parseInt(req.currentUser.id)
     const query = `UPDATE users SET workout = workout || '{"physical_level": ${physical_level}}'::jsonb WHERE id =${userId};
-                UPDATE users SET workout = workout || '{"overweight_level": ${overweight_level}}'::jsonb WHERE id =${userId};`
+                UPDATE users SET workout = workout || '{"overweight_level": ${overweight_level}}'::jsonb WHERE id =${userId};
+                UPDATE users SET workout = workout || jsonb_build_object('start_date', current_timestamp) WHERE id=${userId};`
     try {
       await db.query(query)
       return utils.response.success(res)

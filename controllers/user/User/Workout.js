@@ -1,6 +1,7 @@
 const { utils, db } = require('../../../services/')
-const { DATA } = require('../../../data/')
+//const { DATA } = require('../../../data/')
 const { User } = require('../../../utils/')
+
 const Workout = {
   async getLevels(req, res) {
     const levels = await User.Workout.getLevels(req.currentUser.id)
@@ -22,16 +23,54 @@ const Workout = {
     )
       return utils.response.error(res)
     const userId = parseInt(req.currentUser.id)
-    const query = `UPDATE users SET workout = workout || '{"physical_level": ${physical_level}}'::jsonb WHERE id =${userId};
-                UPDATE users SET workout = workout || '{"overweight_level": ${overweight_level}}'::jsonb WHERE id =${userId};
-                UPDATE users SET workout = workout || jsonb_build_object('start_date', current_timestamp) WHERE id=${userId};`
+    let query = `SELECT extract(dow from current_timestamp) as _dow;`
     try {
+      const { rows } = await db.query(query)
+      let dow = rows[0]._dow
+
+      const schedule = formSchedule(dow)
+      console.log(schedule)
+
+      query = `UPDATE users SET workout = workout || '{"physical_level": ${physical_level}}'::jsonb WHERE id =${userId};
+                UPDATE users SET workout = workout || '{"overweight_level": ${overweight_level}}'::jsonb WHERE id =${userId};
+                UPDATE users SET workout = workout || jsonb_build_object('start_date', current_timestamp) WHERE id=${userId};
+                UPDATE users SET workout = workout || jsonb_build_object('schedule', cast('${JSON.stringify(
+                  schedule
+                )}' AS jsonb)) WHERE id=${userId};`
+
       await db.query(query)
       return utils.response.success(res)
     } catch (e) {
+      console.log(e)
       return utils.response.error(res, 'Не удалось изменить данные')
     }
   }
+}
+
+function formSchedule(dow) {
+  const work_days = [
+    { number: 1, next_after: 2 },
+    { number: 3, next_after: 2 },
+    { number: 5, next_after: 3 }
+  ]
+
+  let schedule = []
+  let train_day = 0
+  for (let dfs = 0; dfs < 31 && train_day < 12; ) {
+    let train = { dfs }
+    const work_day = work_days.filter(e => e.number === dow)[0]
+    if (work_day) {
+      train.train_day = train_day
+      schedule.push(train)
+
+      train_day += 1
+    }
+    const add = work_day ? work_day.next_after : 1
+    dfs += add
+    dow += add
+    dow = dow > 6 ? dow - 7 : dow
+  }
+  return schedule
 }
 
 module.exports = Workout

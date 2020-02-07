@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const { Auth } = require('../controllers/')
-const { requireAuth, imageUpload } = require('../middleware/')
+const { requireAuth, imageUpload, imageCompression } = require('../middleware/')
 
 const router = Router()
 router
@@ -16,6 +16,7 @@ router
 router.post(
   '/auth/signup/fill',
   imageUpload.single('avatar_src'),
+  imageCompression(false),
   Auth.fillInfo
 )
 

@@ -3,7 +3,7 @@ const { env } = require('../config/')
 
 function imageCompression(array = false) {
   return function(req, res, next) {
-    if (req.file) {
+    if (req.file || req.files) {
       if (array === false) {
         const filename = req.file.filename
         gm('.' + env.IMAGES_FOLDER + '/' + filename)

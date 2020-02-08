@@ -1,7 +1,0 @@
-CREATE TABLE IF NOT EXISTS plans (
-  id serial PRIMARY KEY,
-  name VARCHAR NOT NULL UNIQUE ,
-  description VARCHAR NOT NULL ,
-  cost REAL NOT NULL,
-  color VARCHAR
-);

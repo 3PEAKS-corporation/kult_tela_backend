@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/User/Workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Workout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Workout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/json/workouts.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/workouts.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/imageCompression.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/imageCompression.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/food_menus.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/food_menus.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/exercises.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/plans.sql" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +119,8 @@
       <workItem from="1580813583431" duration="1977000" />
       <workItem from="1580893819640" duration="14788000" />
       <workItem from="1580976870287" duration="26311000" />
-      <workItem from="1581069012069" duration="10132000" />
+      <workItem from="1581069012069" duration="10791000" />
+      <workItem from="1581159994747" duration="3290000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -221,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581017628536</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="flags for workout plan done and day off">
+      <created>1581093199077</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1581093199077</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,6 +261,7 @@
     <MESSAGE value="workout levels added and implemented" />
     <MESSAGE value="workout output" />
     <MESSAGE value="workouts almost done + fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="workouts almost done + fixes" />
+    <MESSAGE value="flags for workout plan done and day off" />
+    <option name="LAST_COMMIT_MESSAGE" value="flags for workout plan done and day off" />
   </component>
 </project>

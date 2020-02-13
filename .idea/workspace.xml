@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/data/json/food_tips_videos.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Food.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Food.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Top.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Top.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/json/food_menus.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/food_menus.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/exercises.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/plans.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/food.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/food.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -120,7 +123,11 @@
       <workItem from="1580893819640" duration="14788000" />
       <workItem from="1580976870287" duration="26311000" />
       <workItem from="1581069012069" duration="10791000" />
-      <workItem from="1581159994747" duration="3290000" />
+      <workItem from="1581159994747" duration="3846000" />
+      <workItem from="1581326230356" duration="2128000" />
+      <workItem from="1581535800693" duration="240000" />
+      <workItem from="1581585478447" duration="830000" />
+      <workItem from="1581603398436" duration="8951000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -227,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581093199077</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="models deleted + json updated">
+      <created>1581165393183</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1581165393183</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,6 +276,7 @@
     <MESSAGE value="workout output" />
     <MESSAGE value="workouts almost done + fixes" />
     <MESSAGE value="flags for workout plan done and day off" />
-    <option name="LAST_COMMIT_MESSAGE" value="flags for workout plan done and day off" />
+    <MESSAGE value="models deleted + json updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="models deleted + json updated" />
   </component>
 </project>

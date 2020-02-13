@@ -7,7 +7,8 @@ let DATA = {
   plans: null,
   exercise_videos: null,
   workout_levels: null,
-  workouts: null
+  workouts: null,
+  food_tips_videos: null
 }
 
 const CONFIG = [
@@ -27,7 +28,8 @@ const CONFIG = [
     name: 'workout_levels',
     file: 'workout_levels.json'
   },
-  { name: 'workouts', file: 'workouts.json' }
+  { name: 'workouts', file: 'workouts.json' },
+  { name: 'food_tips_videos', file: 'food_tips_videos.json' }
 ]
 
 const initData = () => {

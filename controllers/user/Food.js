@@ -16,7 +16,6 @@ const Food = {
           ? 0
           : days_from_start -
             Math.floor(days_from_start / menu.days.length) * menu.days.length
-
       if (menu)
         return utils.response.success(res, {
           ...menu.days[day_id],
@@ -24,8 +23,24 @@ const Food = {
         })
       else return utils.response.error(res, 'Меню не найдено')
     } catch (error) {
+      console.log(error)
       return utils.response.error(res, 'Не удалось загрузить меню')
     }
+  },
+  async getTipsVideos(req, res) {
+    const plan_id = req.currentUser.plan_id
+    const videos = DATA.food_tips_videos
+    let filtered_videos = [...videos.common]
+    if (plan_id < 1) {
+      filtered_videos = [
+        ...videos.common,
+        ...videos.secret.map(e => ({ id: e.id, title: e.title }))
+      ]
+    } else {
+      filtered_videos = [...videos.common, ...videos.secret]
+    }
+
+    return utils.response.success(res, filtered_videos)
   }
 }
 

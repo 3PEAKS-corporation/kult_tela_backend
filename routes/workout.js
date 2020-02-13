@@ -28,6 +28,17 @@ router.post(
   User.Workout.setLevels
 )
 
-router.get('/workout/plan', requireAuth.userToken, Workout.get)
+router.get(
+  '/workout/plan',
+  requireAuth.userToken,
+  requirePlan(1),
+  Workout.get()
+)
+router.get(
+  '/workout/plan/previous',
+  requireAuth.userToken,
+  requirePlan(1),
+  Workout.get(true)
+)
 
 module.exports = router

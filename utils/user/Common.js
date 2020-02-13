@@ -40,6 +40,9 @@ const Common = {
         delete user.payments
         delete user.food_reports
         delete user.photos
+        delete user.history
+        delete user.food_menu_id
+        delete user.workout.schedule
         return user
       } else return null
     } catch (error) {

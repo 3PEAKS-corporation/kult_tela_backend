@@ -2,11 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/controllers/user/Auth/LogIn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/user/Auth/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/user/User/Subscription.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Workout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Auth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Food.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Food.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/User/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/json/workouts.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/workouts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/requireAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/requireAuth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/exercise.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/exercise.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/food.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/food.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/top.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/top.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/workout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/user/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Token.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Token.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Workout.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +64,11 @@
     <property name="prettierjs.PrettierConfiguration.Package" value="Z:\development\kult_tela_backend\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="SQL Dialects" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="Z:\development\kult_tela_backend\controllers\user\User" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -79,10 +102,21 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="dropTables" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dropTables" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="npm.dev" />
         <item itemvalue="npm.createTables" />
+        <item itemvalue="npm.dropTables" />
       </list>
     </recent_temporary>
   </component>
@@ -125,7 +159,8 @@
       <workItem from="1581326230356" duration="2128000" />
       <workItem from="1581535800693" duration="240000" />
       <workItem from="1581585478447" duration="830000" />
-      <workItem from="1581603398436" duration="13024000" />
+      <workItem from="1581603398436" duration="13467000" />
+      <workItem from="1581669525771" duration="8085000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -246,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581614784778</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="previous workout route">
+      <created>1581625514750</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1581625514750</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,6 +325,7 @@
     <MESSAGE value="flags for workout plan done and day off" />
     <MESSAGE value="models deleted + json updated" />
     <MESSAGE value="food tips enhancements + top fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="food tips enhancements + top fix" />
+    <MESSAGE value="previous workout route" />
+    <option name="LAST_COMMIT_MESSAGE" value="previous workout route" />
   </component>
 </project>

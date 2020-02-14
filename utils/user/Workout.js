@@ -26,14 +26,11 @@ const Workout = {
         const payments = rows[0].payments
         let paymentsAmount = 0
         payments.forEach(payment => {
-          paymentsAmount += ['PLAN_BUY', 'PLAN_EXTENSION'].includes(
-            payment.reason
-          )
+          paymentsAmount += ['PLAN_BUY', 'PLAN_EXTEND'].includes(payment.reason)
             ? 1
             : 0
         })
         paymentsAmount = paymentsAmount - 1
-        console.log('pa', paymentsAmount)
         let levels = JSON.parse(JSON.stringify(DATA.workout_levels))
 
         if (paymentsAmount > 0) {

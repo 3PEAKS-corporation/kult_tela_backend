@@ -10,10 +10,10 @@ const router = Router()
 
 router.get(
   '/food/daily',
-  requireAuth.userToken,
+  requireAuth.userToken(),
   requirePlan(1),
   Food.getDailyMenu
 )
-router.get('/food/tips-videos', requireAuth.userToken, Food.getTipsVideos)
+router.get('/food/tips-videos', requireAuth.userToken(), Food.getTipsVideos)
 
 module.exports = router

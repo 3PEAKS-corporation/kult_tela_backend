@@ -7,6 +7,8 @@ CREATE TABLE IF NOT EXISTS  users(
     patronymic VARCHAR ,
     date_signup TIMESTAMP DEFAULT current_timestamp,
 
+    subscription_exp TIMESTAMP,
+
     height REAL,
     age INTEGER,
     

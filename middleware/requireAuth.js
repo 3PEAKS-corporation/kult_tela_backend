@@ -6,19 +6,31 @@ const {
 const getToken = req => req.headers.token
 
 const requireAuth = {
-  async userToken(req, res, next) {
-    const token = getToken(req)
+  userToken(withoutSubscription = false) {
+    return async function(req, res, next) {
+      const token = getToken(req)
 
-    const user = await Token.getUserByToken(token)
+      const user = await Token.getUserByToken(token)
 
-    if (user) {
-      req.currentUser = {
-        id: user.id,
-        plan_id: user.plan_id
+      console.log('tyts')
+
+      if (user.is_subscription === true || withoutSubscription === true) {
+        req.currentUser = {
+          id: user.id,
+          plan_id: user.plan_id
+        }
+        return next()
+      } else if (user.is_subscription === false) {
+        console.log('erer')
+        return utils.response.error(res, 'Нет доступа, срок подписки истек')
+      } else if (user === null) {
+        return utils.response.error(
+          res,
+          'Ошибка доступа: токен отсутствует',
+          401
+        )
       }
-      return next()
-    } else
-      return utils.response.error(res, 'Ошибка доступа: токен отсутствует', 401)
+    }
   },
   async adminToken(req, res, next) {
     return next()

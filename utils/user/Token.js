@@ -4,7 +4,8 @@ const Token = {
   async getUserByToken(token) {
     if (!token) return null
 
-    const query = `SELECT users.id as id, users.plan_id as plan_id FROM tokens
+    const query = `SELECT users.id as id, users.plan_id as plan_id, users.subscription_exp > current_timestamp as is_subscription
+                    FROM tokens
                     LEFT JOIN users
                     ON tokens.user_id = users.id
                     WHERE token =$1`

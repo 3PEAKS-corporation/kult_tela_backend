@@ -13,10 +13,10 @@ const router = Router()
  * @UPDATES
  */
 
-router.post('/user/update/weight', requireAuth.userToken, User.Weight.update)
+router.post('/user/update/weight', requireAuth.userToken(), User.Weight.update)
 router.post(
   '/user/update/info',
-  requireAuth.userToken,
+  requireAuth.userToken(),
   imageUpload.single('avatar_src'),
   imageCompression(false),
   User.Common.updateInfo
@@ -28,7 +28,7 @@ router.post(
 
 router.get(
   '/user/notification/set-last-seen/:id',
-  requireAuth.userToken,
+  requireAuth.userToken(true),
   User.Notification.setLastSeen
 )
 
@@ -38,18 +38,27 @@ router.get(
 
 router.get(
   '/user/food/report',
-  requireAuth.userToken,
+  requireAuth.userToken(),
   requirePlan(1),
   User.Food.getStateOfReport
 )
 
 router.post(
   '/user/food/report',
-  requireAuth.userToken,
+  requireAuth.userToken(),
   requirePlan(1),
   imageUpload.array('images'),
   imageCompression(true),
   User.Food.addReport
+)
+
+/**
+ * @SUBSCRIPTION
+ */
+router.post(
+  '/user/subscription/extend',
+  requireAuth.userToken(true),
+  User.Subscription.Extend
 )
 
 module.exports = router

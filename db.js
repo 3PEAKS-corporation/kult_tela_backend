@@ -7,12 +7,9 @@ const MODELS = [
   'users',
   'tokens',
   'signup_info',
-  'plans',
-  'exercises',
   'workouts',
   'chat_rooms',
-  'chat_messages',
-  'functions_needs_tables'
+  'chat_messages'
 ]
 
 const VIEWS = ['users_public', 'chat_messages_formatted']
@@ -48,9 +45,10 @@ const createTables = () => {
 
 const dropTables = () => {
   let queryText = ''
-  MODELS.forEach(table => (queryText += `DROP TABLE IF EXISTS ${table};`))
 
   VIEWS.forEach(view => (queryText += `DROP VIEW IF EXISTS ${view};`))
+
+  MODELS.forEach(table => (queryText += `DROP TABLE IF EXISTS ${table};`))
 
   FUNCTIONS.forEach(func => (queryText += `DROP FUNCTION IF EXISTS ${func};`))
 

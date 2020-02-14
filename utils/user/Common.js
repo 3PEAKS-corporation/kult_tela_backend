@@ -20,9 +20,9 @@ const Common = {
   async getUserData(key, isEmail = false, returnPassword = false) {
     let query
     if (!isEmail)
-      query = `SELECT *, to_char(date_signup,'DD.MM.YYYY') as date_signup_formatted FROM users WHERE id=$1`
+      query = `SELECT *, to_char(date_signup,'DD.MM.YYYY') as date_signup_formatted, subscription_exp > current_timestamp as is_subscription  FROM users WHERE id=$1`
     else
-      query = `SELECT *, to_char(date_signup,'DD.MM.YYYY') as date_signup_formatted FROM users WHERE email=$1`
+      query = `SELECT *, to_char(date_signup,'DD.MM.YYYY') as date_signup_formatted, subscription_exp > current_timestamp as is_subscription  FROM users WHERE email=$1`
 
     const values = [key]
 

@@ -29,7 +29,6 @@ const Workout = {
       let dow = rows[0]._dow
 
       const schedule = formSchedule(dow)
-      console.log(schedule)
 
       query = `UPDATE users SET workout = workout || '{"physical_level": ${physical_level}}'::jsonb WHERE id =${userId};
                 UPDATE users SET workout = workout || '{"overweight_level": ${overweight_level}}'::jsonb WHERE id =${userId};
@@ -41,7 +40,6 @@ const Workout = {
       await db.query(query)
       return utils.response.success(res)
     } catch (e) {
-      console.log(e)
       return utils.response.error(res, 'Не удалось изменить данные')
     }
   }

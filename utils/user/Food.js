@@ -10,7 +10,7 @@ const Food = {
     try {
       await db.query(query, values)
     } catch (error) {
-      throw error
+      console.log(error)
     }
   },
   async getReportStatus(userId) {

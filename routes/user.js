@@ -58,7 +58,7 @@ router.post(
 router.post(
   '/user/subscription/extend',
   requireAuth.userToken(true),
-  User.Subscription.Extend
+  User.Subscription.extend
 )
 
 module.exports = router

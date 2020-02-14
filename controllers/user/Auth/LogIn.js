@@ -45,8 +45,6 @@ const LogIn = {
 
   async userByToken(req, res) {
     const userId = req.currentUser.id
-    console.log(userId)
-
     try {
       const user = await User.Common.getUserData(userId)
       if (user !== null) return utils.response.success(res, user)

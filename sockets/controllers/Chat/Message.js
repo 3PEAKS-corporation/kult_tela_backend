@@ -28,13 +28,16 @@ const Message = (io, socket) => {
           }
 
           if (message_id) {
-            query = `SELECT * FROM chat_messages_formatted() WHERE id=$1`
-            values = [message_id]
+            console.log('message')
+            let query = `SELECT * FROM chat_messages_formatted WHERE id=$1`
+            let values = [message_id]
 
             const { rows } = await db.query(query, values)
             const dbMessage = rows[0]
+            console.log(dbMessage)
 
             if (dbMessage) {
+              console.log(dbMessage)
               const event = roomInited ? 'chat_message_init' : 'chat_message'
 
               if (roomInited) dbMessage.user_id = to_user_id
@@ -52,7 +55,9 @@ const Message = (io, socket) => {
               }
             }
           }
-        } catch (error) {}
+        } catch (error) {
+          console.log(error)
+        }
       }
     }
   }

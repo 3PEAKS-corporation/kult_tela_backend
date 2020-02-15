@@ -3,7 +3,6 @@ const { DATA } = require('../../data/')
 
 const Food = {
   async getDailyMenu(req, res) {
-    console.log('MENY')
     const query = `SELECT food_menu_id as menu_id, to_char((current_timestamp-date_signup),'DD')::int as days_from_start FROM users WHERE id=$1`
     const values = [req.currentUser.id]
 

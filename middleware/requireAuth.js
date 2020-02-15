@@ -11,16 +11,17 @@ const requireAuth = {
       const token = getToken(req)
 
       const user = await Token.getUserByToken(token)
-
-      if (user.is_subscription === true || withoutSubscription === true) {
-        req.currentUser = {
-          id: user.id,
-          plan_id: user.plan_id
+      if (user) {
+        if (user.is_subscription === true || withoutSubscription === true) {
+          req.currentUser = {
+            id: user.id,
+            plan_id: user.plan_id
+          }
+          return next()
+        } else if (user.is_subscription === false) {
+          return utils.response.error(res, 'Нет доступа, срок подписки истек')
         }
-        return next()
-      } else if (user.is_subscription === false) {
-        return utils.response.error(res, 'Нет доступа, срок подписки истек')
-      } else if (user === null) {
+      } else {
         return utils.response.error(
           res,
           'Ошибка доступа: токен отсутствует',

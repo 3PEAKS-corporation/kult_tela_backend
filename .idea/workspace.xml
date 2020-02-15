@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
+    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="kassa">
+      <change afterPath="$PROJECT_DIR$/models/payments.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/kassa.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/signup_info.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/signup_info.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/email.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/email.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Payment.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +58,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="Z:\development\kult_tela_backend\services" />
       <recent name="Z:\development\kult_tela_backend\controllers\user\User" />
     </key>
   </component>
@@ -93,9 +107,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev" />
         <item itemvalue="npm.createTables" />
         <item itemvalue="npm.dropTables" />
+        <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
   </component>
@@ -142,7 +156,8 @@
       <workItem from="1581669525771" duration="8141000" />
       <workItem from="1581692371035" duration="6952000" />
       <workItem from="1581751356651" duration="2008000" />
-      <workItem from="1581776392072" duration="918000" />
+      <workItem from="1581776392072" duration="1476000" />
+      <workItem from="1581777876991" duration="16532000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -291,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581753405993</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="messages fix">
+      <created>1581777319948</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1581777319948</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,6 +354,7 @@
     <MESSAGE value="sub extend start" />
     <MESSAGE value="sub extend done// needs kassa" />
     <MESSAGE value="public user info" />
-    <option name="LAST_COMMIT_MESSAGE" value="public user info" />
+    <MESSAGE value="messages fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="messages fix" />
   </component>
 </project>

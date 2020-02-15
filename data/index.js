@@ -11,6 +11,10 @@ let DATA = {
   food_tips_videos: null
 }
 
+const copyDATA = () => {
+  return JSON.parse(JSON.stringify(DATA))
+}
+
 const CONFIG = [
   {
     name: 'plans',
@@ -41,5 +45,6 @@ const initData = () => {
 
 module.exports = {
   initData,
-  DATA
+  DATA,
+  copyDATA
 }

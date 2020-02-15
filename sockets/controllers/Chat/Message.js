@@ -28,7 +28,6 @@ const Message = (io, socket) => {
           }
 
           if (message_id) {
-            console.log('message')
             let query = `SELECT * FROM chat_messages_formatted WHERE id=$1`
             let values = [message_id]
 

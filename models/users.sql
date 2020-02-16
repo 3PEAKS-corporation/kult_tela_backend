@@ -23,8 +23,6 @@ CREATE TABLE IF NOT EXISTS  users(
     food_menu_id INTEGER DEFAULT NULL,
     food_reports jsonb[] DEFAULT NULL,
     
-    payments jsonb[] DEFAULT NULL,
-    
     notifications jsonb[] DEFAULT NULL,
     notifications_last_seen INT DEFAULT -1,
 

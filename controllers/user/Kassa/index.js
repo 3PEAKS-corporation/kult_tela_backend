@@ -1,5 +1,5 @@
-const { utils } = require('../../services')
-const { User } = require('../../utils')
+const { utils } = require('../../../services')
+const { User } = require('../../../utils')
 const { switchTypes } = require('./types')
 
 const kassaIps = [
@@ -32,7 +32,7 @@ const Kassa = {
         notification.object.status === 'succeeded' &&
         notification.object.metadata.type
       ) {
-        switchTypes(result.user_id, notification.object.metadata)
+        await switchTypes(result.user_id, notification.object.metadata)
       }
 
       if (result.user_id) return utils.response.success(res)

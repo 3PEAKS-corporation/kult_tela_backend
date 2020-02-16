@@ -96,7 +96,6 @@ const SignUp = {
           key: dbpayment.id
         }
 
-        await User.Payment.add(user_id, payment)
         await User.Email.firstLogin(email, hash)
         return utils.response.success(res, {
           url: kassaPayment.confirmation.confirmation_url

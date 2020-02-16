@@ -8,6 +8,7 @@ const food = require('./food')
 const chat = require('./chat')
 const public_ = require('./public')
 const kassa = require('./kassa')
+const request = require('./request')
 
 const init = (app, io) => {
   app.use(auth)
@@ -20,6 +21,7 @@ const init = (app, io) => {
   app.use(chat)
   app.use(public_)
   app.use(kassa)
+  app.use(request)
 }
 
 module.exports = {

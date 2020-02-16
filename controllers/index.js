@@ -7,8 +7,9 @@ const Workout = require('./user/Workout')
 const Food = require('./user/Food')
 const Chat = require('./user/Chat')
 const Public = require('./user/Public')
+const Request = require('./user/Request')
 
-const Kassa = require('./Kassa/')
+const Kassa = require('./user/Kassa/')
 
 const _Exercise = require('./admin/Exercise')
 const _Workout = require('./admin/Workout')
@@ -28,6 +29,7 @@ module.exports = {
   Food,
   Chat,
   Public,
+  Request,
   //Kassa
   Kassa,
   // ADMIN

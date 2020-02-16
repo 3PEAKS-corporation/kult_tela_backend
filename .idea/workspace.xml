@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/user/Request.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/requests.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/request.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Kassa/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Kassa/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Kassa/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Kassa/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/users.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Payment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/requests.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/requests.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Common.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -156,7 +148,7 @@
       <workItem from="1581751356651" duration="2008000" />
       <workItem from="1581776392072" duration="1476000" />
       <workItem from="1581777876991" duration="16861000" />
-      <workItem from="1581838426360" duration="15415000" />
+      <workItem from="1581838426360" duration="15755000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -326,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581851847559</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="little refactor + kassa for other payments + requests table and end-points">
+      <created>1581864118825</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1581864118825</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,6 +369,7 @@
     <MESSAGE value="messages fix" />
     <MESSAGE value="kassa inited + payments implemented // need refactor of payments in users table" />
     <MESSAGE value="kassa notifications + refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="kassa notifications + refactoring" />
+    <MESSAGE value="little refactor + kassa for other payments + requests table and end-points" />
+    <option name="LAST_COMMIT_MESSAGE" value="little refactor + kassa for other payments + requests table and end-points" />
   </component>
 </project>

@@ -56,7 +56,7 @@ const Common = {
   },
   async resetBeforeNewMonth(userId) {
     await Food.setCurrentFoodMenu(userId)
-    const query = `UPDATE users SET workout='{}' WHERE id=$1`
+    const query = `UPDATE users SET workout='{}', food_menu_id=NULL WHERE id=$1`
     const values = [userId]
 
     try {

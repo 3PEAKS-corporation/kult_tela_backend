@@ -4,5 +4,6 @@ CREATE TABLE IF NOT EXISTS payments (
   key VARCHAR UNIQUE NOT NULL ,
   status VARCHAR DEFAULT NULL,
   type VARCHAR DEFAULT NULL,
-  value REAL NOT NULL
+  value REAL NOT NULL,
+  date timestamp DEFAULT current_timestamp
 );

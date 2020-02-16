@@ -8,6 +8,7 @@ const Notification = require('./user/Notification')
 const Chat = require('./user/Chat/')
 const History = require('./user/History')
 const Workout = require('./user/Workout')
+const Subscription = require('./user/Subscription')
 
 module.exports = {
   User: {
@@ -20,6 +21,7 @@ module.exports = {
     Notification,
     Chat,
     History,
-    Workout
+    Workout,
+    Subscription
   }
 }

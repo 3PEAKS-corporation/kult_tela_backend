@@ -16,6 +16,9 @@ async function isHashAndPaymentDone(hash) {
     let { rows } = await db.query(query, values)
     const info = rows[0]
     if (info && info.used === false) {
+      if (info.p_status === 'succeeded')
+        return { success: true, status: 'succeeded', user_id: info.user_id }
+
       let kassaPayment = await kassa.getPaymentStatus(info.p_key)
       if (info.p_status !== kassaPayment.status)
         await User.Payment.setStatus(kassaPayment.status, { id: info.p_id })
@@ -58,7 +61,10 @@ const SignUp = {
         const kassaPayment = await kassa.createPayment({
           value: plan.cost,
           description: `Оплата плана "${plan.name}"`,
-          return_url: 'first-login/' + hash
+          return_url: 'first-login/' + hash,
+          metadata: {
+            type: 'PLAN_BUY'
+          }
         })
 
         if (!kassaPayment)
@@ -72,8 +78,6 @@ const SignUp = {
           'PLAN_BUY',
           parseInt(plan.cost)
         )
-
-        console.log('dbp: ', dbpayment)
 
         if (!dbpayment)
           return utils.response.error(res, 'Ошибка при создании платежа')

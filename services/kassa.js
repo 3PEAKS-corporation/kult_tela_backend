@@ -2,8 +2,6 @@ const { env } = require('../config')
 const kassa = require('yandex-checkout')(env.KASSA_ID, env.KASSA_KEY)
 const bcrypt = require('bcrypt')
 
-const jwt = require('jsonwebtoken')
-
 const idempotenceKey = () => {
   const random = Math.random().toString()
   const random2 = Math.random().toString()

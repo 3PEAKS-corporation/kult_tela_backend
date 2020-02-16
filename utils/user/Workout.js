@@ -1,5 +1,5 @@
 const { db } = require('../../services/')
-const { DATA } = require('../../data/')
+const { copyDATA } = require('../../data/')
 
 const Workout = {
   /**
@@ -9,7 +9,7 @@ const Workout = {
    * @returns {null|{false}} if not needed to set levels
    */
   async getLevels(userId) {
-    const query = 'SELECT workout, payments FROM users WHERE id=$1'
+    const query = `SELECT users.workout, users.id as user_id, COUNT(payments.id) as plan_payments FROM users LEFT JOIN payments ON payments.user_id=users.id  WHERE users.id=$1 AND users.plan_id > 0 AND (payments.type='PLAN_BUY' OR payments.type='PLAN_EXTEND') GROUP BY users.workout, users.id;`
     const values = [userId]
 
     try {
@@ -23,15 +23,9 @@ const Workout = {
       ) {
         return false
       } else {
-        const payments = rows[0].payments
-        let paymentsAmount = 0
-        payments.forEach(payment => {
-          paymentsAmount += ['PLAN_BUY', 'PLAN_EXTEND'].includes(payment.reason)
-            ? 1
-            : 0
-        })
+        let paymentsAmount = rows[0].plan_payments
         paymentsAmount = paymentsAmount - 1
-        let levels = JSON.parse(JSON.stringify(DATA.workout_levels))
+        let levels = copyDATA().workout_levels
 
         if (paymentsAmount > 0) {
           for (

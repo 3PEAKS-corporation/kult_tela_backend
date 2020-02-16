@@ -34,13 +34,13 @@ const Payment = {
   },
   async setStatus(status, { id, key }) {
     if (!id && !key) return false
-    console.log('sarrrdas')
     const query = `UPDATE payments SET status='${status}' WHERE ${
-      id ? 'id=' + parseInt(id) : 'key=' + key
-    }`
+      id ? 'id=' + parseInt(id) : `key='${key}'`
+    } RETURNING user_id`
     try {
-      await db.query(query)
-      return true
+      const { rows } = await db.query(query)
+      if (rows[0] && rows[0].user_id) return rows[0]
+      else return false
     } catch (e) {
       console.log(e)
       return false

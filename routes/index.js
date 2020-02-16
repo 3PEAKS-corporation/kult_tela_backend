@@ -6,7 +6,8 @@ const exercise = require('./exercise')
 const workout = require('./workout')
 const food = require('./food')
 const chat = require('./chat')
-const public = require('./public')
+const public_ = require('./public')
+const kassa = require('./kassa')
 
 const init = (app, io) => {
   app.use(auth)
@@ -17,7 +18,8 @@ const init = (app, io) => {
   app.use(workout)
   app.use(food)
   app.use(chat)
-  app.use(public)
+  app.use(public_)
+  app.use(kassa)
 }
 
 module.exports = {

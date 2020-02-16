@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/plans.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/plans.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -147,7 +148,7 @@
       <workItem from="1581751356651" duration="2008000" />
       <workItem from="1581776392072" duration="1476000" />
       <workItem from="1581777876991" duration="16861000" />
-      <workItem from="1581838426360" duration="17049000" />
+      <workItem from="1581838426360" duration="20863000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -331,7 +332,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581864466711</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="requests fix">
+      <created>1581866180119</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1581866180119</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,7 +359,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="auth" />
     <MESSAGE value="token require" />
     <MESSAGE value="refactor auth/user" />
     <MESSAGE value="auth done(except payment)" />
@@ -376,6 +383,7 @@
     <MESSAGE value="kassa notifications + refactoring" />
     <MESSAGE value="little refactor + kassa for other payments + requests table and end-points" />
     <MESSAGE value="resetbeforenewmonth fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="resetbeforenewmonth fix" />
+    <MESSAGE value="requests fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="requests fix" />
   </component>
 </project>

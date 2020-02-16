@@ -24,12 +24,8 @@ const Chat = {
         chat.user_id = chat.user_ids.filter(id => id !== currentUser.id)[0]
         delete chat.user_ids
 
-        if (!chat.second_is_admin) {
-          const user = await User.Common.getPublicUserData(user_id)
-          chat.user = user
-        } else {
-          // find admin in db
-        }
+        const user = await User.Common.getPublicUserData(user_id)
+        chat.user = user
 
         query = `SELECT * FROM chat_messages_formatted WHERE room_id=$1 ORDER BY id DESC LIMIT 40`
         values = [chat.id]

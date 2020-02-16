@@ -16,8 +16,7 @@ const Token = {
       const { rows } = await db.query(query, values)
       if (!rows[0].id) return null
       else {
-        const user = rows[0]
-        return user
+        return rows[0]
       }
     } catch (error) {
       return null

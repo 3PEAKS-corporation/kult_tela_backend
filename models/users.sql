@@ -1,5 +1,8 @@
 CREATE TABLE IF NOT EXISTS  users(
     id SERIAL PRIMARY KEY ,
+
+    admin_role_id INT DEFAULT NULL,
+
     email VARCHAR NOT NULL UNIQUE ,
     password VARCHAR ,
     first_name VARCHAR ,

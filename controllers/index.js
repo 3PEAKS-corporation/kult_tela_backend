@@ -11,8 +11,7 @@ const Request = require('./user/Request')
 
 const Kassa = require('./user/Kassa/')
 
-const _Exercise = require('./admin/Exercise')
-const _Workout = require('./admin/Workout')
+const Admin = require('./admin/index')
 
 /**
  * NAMES WITH "_" GOES AS @ADMIN CONTROLLERS
@@ -33,6 +32,5 @@ module.exports = {
   //Kassa
   Kassa,
   // ADMIN
-  _Exercise,
-  _Workout
+  Admin
 }

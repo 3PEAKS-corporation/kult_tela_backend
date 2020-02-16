@@ -10,6 +10,8 @@ const public_ = require('./public')
 const kassa = require('./kassa')
 const request = require('./request')
 
+const admin = require('./admin/')
+
 const init = (app, io) => {
   app.use(auth)
   app.use(plan)
@@ -22,6 +24,8 @@ const init = (app, io) => {
   app.use(public_)
   app.use(kassa)
   app.use(request)
+
+  app.use(admin.roles)
 }
 
 module.exports = {

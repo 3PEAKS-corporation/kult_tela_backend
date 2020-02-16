@@ -1,7 +1,5 @@
 const { utils } = require('../services/')
-const {
-  User: { Token }
-} = require('../utils/')
+const { User, Admin } = require('../utils/')
 
 const getToken = req => req.headers.token
 
@@ -10,7 +8,7 @@ const requireAuth = {
     return async function(req, res, next) {
       const token = getToken(req)
 
-      const user = await Token.getUserByToken(token)
+      const user = await User.Token.getUserByToken(token)
       if (user) {
         if (user.is_subscription === true || withoutSubscription === true) {
           req.currentUser = {
@@ -31,7 +29,18 @@ const requireAuth = {
     }
   },
   async adminToken(req, res, next) {
-    return next()
+    const token = getToken(req)
+
+    const admin = await Admin.Token.getAdminByToken(token)
+    if (admin) {
+      req.currentUser = {
+        id: admin.id,
+        role_id: admin.role_id,
+        admin: true
+      }
+      console.log(req.currentUser)
+      return next()
+    } else return utils.response.error(res, 'Ошибка доступа: токен отсутствует')
   }
 }
 

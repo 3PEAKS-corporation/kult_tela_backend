@@ -1,18 +1,8 @@
 const { Router } = require('express')
-const { _Workout, User, Workout } = require('../controllers/')
+const { User, Workout } = require('../controllers/')
 const { requireAuth, imageUpload, requirePlan } = require('../middleware/')
 
 const router = Router()
-
-/**
- * @ADMIN
- */
-
-router.put('/admin/workout', requireAuth.adminToken, _Workout.create)
-
-/**
- * @USER
- */
 
 router.get(
   '/workout/level',
@@ -30,7 +20,6 @@ router.post(
 
 router.get(
   '/workout/plan',
-  requireAuth.userToken(),
   requireAuth.userToken(),
   requirePlan(1),
   Workout.get()

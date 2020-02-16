@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const { Chat } = require('../controllers/')
-const { requireAuth, imageUpload } = require('../middleware/')
+const { requireAuth } = require('../middleware/')
 
 const router = Router()
 

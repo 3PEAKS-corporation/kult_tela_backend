@@ -1,10 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
+    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="latest data changes">
+      <change afterPath="$PROJECT_DIR$/controllers/admin/Auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/admin/Roles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/admin/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/json/admin_roles.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/admin/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/admin/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/admin/roles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/admin/Token.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/admin/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/user/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/json/plans.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/plans.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/db.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/Exercise.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/Workout.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Exercise.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Exercise.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/requireAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/requireAuth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/exercise.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/exercise.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/plan.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/plan.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/workout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Token.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Token.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -148,7 +173,7 @@
       <workItem from="1581751356651" duration="2008000" />
       <workItem from="1581776392072" duration="1476000" />
       <workItem from="1581777876991" duration="16861000" />
-      <workItem from="1581838426360" duration="20863000" />
+      <workItem from="1581838426360" duration="24986000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -339,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581866180119</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="latest data changes">
+      <created>1581877176427</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1581877176427</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,7 +391,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="token require" />
     <MESSAGE value="refactor auth/user" />
     <MESSAGE value="auth done(except payment)" />
     <MESSAGE value="new table" />
@@ -384,6 +415,7 @@
     <MESSAGE value="little refactor + kassa for other payments + requests table and end-points" />
     <MESSAGE value="resetbeforenewmonth fix" />
     <MESSAGE value="requests fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="requests fix" />
+    <MESSAGE value="latest data changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="latest data changes" />
   </component>
 </project>

@@ -8,7 +8,9 @@ let DATA = {
   exercise_videos: null,
   workout_levels: null,
   workouts: null,
-  food_tips_videos: null
+  food_tips_videos: null,
+
+  admin_roles: null
 }
 
 const copyDATA = () => {
@@ -33,7 +35,11 @@ const CONFIG = [
     file: 'workout_levels.json'
   },
   { name: 'workouts', file: 'workouts.json' },
-  { name: 'food_tips_videos', file: 'food_tips_videos.json' }
+  { name: 'food_tips_videos', file: 'food_tips_videos.json' },
+  {
+    name: 'admin_roles',
+    file: 'admin_roles.json'
+  }
 ]
 
 const initData = () => {

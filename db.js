@@ -10,7 +10,8 @@ const MODELS = [
   'workouts',
   'chat_rooms',
   'chat_messages',
-  'payments'
+  'payments',
+  'requests'
 ]
 
 const VIEWS = ['users_public', 'chat_messages_formatted']

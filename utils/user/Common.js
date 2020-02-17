@@ -12,6 +12,7 @@ const Common = {
       const user = rows[0]
       if (user) {
         user.avatar_src = utils.getImageUrl(user.avatar_src)
+        if (typeof user.admin_role_id !== 'number') delete user.admin_role_id
         return user
       } else return null
     } catch (error) {

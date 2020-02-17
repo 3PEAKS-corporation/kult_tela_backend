@@ -1,5 +1,6 @@
 const { db, utils } = require('../../../services')
 const { SOCKETS_CHAT } = require('../../../sockets/models')
+const { copyDATA } = require('../../../data/')
 
 const Room = {
   async getAllByUserId(userId) {
@@ -17,21 +18,28 @@ const Room = {
             ...chat
           }
         })
-        console.log('imag ger')
         const user_ids = chats.map(chat => chat.user_id)
 
-        query = `SELECT id, first_name || ' ' || last_name as name, rank, avatar_src  FROM users WHERE id=ANY(ARRAY[$1::int[]])`
+        query = `SELECT id, first_name || ' ' || last_name as name, admin_role_id, rank, avatar_src  FROM users WHERE id=ANY(ARRAY[$1::int[]])`
         values = [user_ids]
 
         const { rows: users } = await db.query(query, values)
 
         const valid_uids = users.map(user => user.id)
 
+        const admin_role_names = copyDATA().admin_roles
+
         chats = chats
           .filter(chat => valid_uids.includes(chat.user_id))
           .map(chat => {
             const _user = users.filter(user => user.id === chat.user_id)[0]
             _user.avatar_src = utils.getImageUrl(_user.avatar_src)
+            if (typeof _user.admin_role_id !== 'number')
+              delete _user.admin_role_id
+            else
+              _user.admin_role_name = admin_role_names.filter(
+                e => e.value === _user.admin_role_id
+              )[0].name
             return {
               ...chat,
               user: _user

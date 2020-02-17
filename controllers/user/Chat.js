@@ -1,6 +1,7 @@
 const { db, utils } = require('../../services')
 const { User } = require('../../utils/')
 const { SOCKETS_CHAT } = require('../../sockets/models/')
+const { copyDATA } = require('../../data/')
 
 const Chat = {
   async getById(req, res) {
@@ -24,8 +25,15 @@ const Chat = {
         chat.user_id = chat.user_ids.filter(id => id !== currentUser.id)[0]
         delete chat.user_ids
 
-        const user = await User.Common.getPublicUserData(user_id)
-        chat.user = user
+        let user = await User.Common.getPublicUserData(user_id)
+
+        if (typeof user.admin_role_id !== 'number') delete user.admin_role_id
+        else {
+          const admin_role_names = copyDATA().admin_roles
+          user.admin_role_name = admin_role_names.filter(
+            e => e.value === user.admin_role_id
+          )[0].name
+        }
 
         query = `SELECT * FROM chat_messages_formatted WHERE room_id=$1 ORDER BY id DESC LIMIT 40`
         values = [chat.id]
@@ -33,10 +41,9 @@ const Chat = {
         const { rows: messages } = await db.query(query, values)
         chat.messages = messages
 
-        console.log(SOCKETS_CHAT.data)
-
         chat.user_status = SOCKETS_CHAT.isUser({ id: chat.user_id })
         chat.messages = chat.messages.reverse()
+        chat.user = user
 
         return utils.response.success(res, chat)
       } else {

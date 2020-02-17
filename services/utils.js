@@ -16,8 +16,7 @@ module.exports = {
   },
   getImageUrl: image_src => {
     const folder = IMAGES_FOLDER.substring(1)
-
-    return SERVER_URL + folder + '/' + image_src
+    return image_src !== null ? SERVER_URL + folder + '/' + image_src : null
   },
   getCurrentDate: () => {
     const d = new Date()

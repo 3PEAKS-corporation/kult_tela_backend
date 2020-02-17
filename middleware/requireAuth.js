@@ -1,5 +1,5 @@
 const { utils } = require('../services/')
-const { User, Admin } = require('../utils/')
+const { User } = require('../utils/')
 
 const getToken = req => req.headers.token
 
@@ -10,32 +10,29 @@ const requireAuth = {
       const token = getToken(req)
 
       const user = await User.Token.getUserByToken(token)
+      console.log('user:', user)
       if (user) {
         /**
          * @ADMIN auth
          */
-        if (user.plan_id === null) {
-          const admin = await Admin.Token.getAdminByToken(token)
-          if (admin) {
-            req.currentUser = {
-              id: admin.id,
-              admin_role_id: admin.admin_role_id,
-              admin: true
-            }
+        if (!user.plan_id && typeof user.admin_role_id === 'number') {
+          req.currentUser = {
+            id: user.id,
+            admin_role_id: user.admin_role_id,
+            admin: true
           }
           return next()
         } else if (
-        /**
-         * @USER auth
-         */
           user.is_subscription === true ||
           withoutSubscription === true
         ) {
+          /**
+           * @USER auth
+           */
           req.currentUser = {
             id: user.id,
             plan_id: user.plan_id
           }
-          console.log('dasdas', req.currentUser)
           return next()
         } else if (user.is_subscription === false) {
           return utils.response.error(res, 'Нет доступа, срок подписки истек')
@@ -52,8 +49,8 @@ const requireAuth = {
   async adminToken(req, res, next) {
     const token = getToken(req)
 
-    const admin = await Admin.Token.getAdminByToken(token)
-    if (admin) {
+    const admin = await User.Token.getUserByToken(token)
+    if (admin && typeof admin.admin_role_id === 'number') {
       req.currentUser = {
         id: admin.id,
         admin_role_id: admin.admin_role_id,

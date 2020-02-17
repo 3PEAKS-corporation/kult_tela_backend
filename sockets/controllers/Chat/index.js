@@ -9,8 +9,12 @@ const Chat = io => {
   io.use(requireAuth.requireToken).on('connection', socket => {
     const _Message = Message(io, socket)
     const _MessageUtils = MessageUtils(io, socket)
-    console.log('[connected]', socket.id)
-    SOCKETS_CHAT.add(socket.currentUser.id, socket.id)
+    console.log('[connected]', socket.id, socket.currentUser)
+    SOCKETS_CHAT.add(
+      socket.currentUser.id,
+      socket.id,
+      socket.currentUser.admin_role_id
+    )
     console.log(SOCKETS_CHAT.data)
 
     socket.on('chat_message', _Message.message)

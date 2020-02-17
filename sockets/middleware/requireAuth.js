@@ -12,9 +12,12 @@ const requireAuth = {
 
     if (user) {
       socket.currentUser = {
-        id: user.id,
-        plan_id: user.plan_id
+        id: user.id
       }
+      if (typeof user.plan_id === 'number')
+        socket.currentUser.plan_id = user.plan_id
+      if (typeof user.admin_role_id === 'number')
+        socket.currentUser.admin_role_id = user.admin_role_id
       return next()
     } else return next(new Error('Токен не существует или отсутствует.'))
   }

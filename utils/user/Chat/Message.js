@@ -16,6 +16,7 @@ const Messages = {
     returnMessageId = true
   ) {
     text = formatChatText(text)
+    //TODO: проверка прав юзера написания наставникам или диетологу
     const uids = fromUserId + ',' + toUserId
     const query = `INSERT INTO chat_rooms(user_ids)VALUES (ARRAY[${uids}]);
                   INSERT INTO chat_messages(user_id, room_id, text) VALUES(${fromUserId}, (SELECT id FROM chat_rooms where user_ids @> ARRAY[${uids}]), '${text}') RETURNING id`

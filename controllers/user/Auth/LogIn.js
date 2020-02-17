@@ -13,6 +13,7 @@ const LogIn = {
       let user = await User.Common.getUserData(email, true, true)
 
       let isPassword = null
+      console.log(user)
       if (user && user.password)
         isPassword = await bcrypt.compare(password, user.password)
       else if (user && !user.password)
@@ -39,6 +40,7 @@ const LogIn = {
         else return utils.response.error(res, 'Ошибка БД')
       } else return utils.response.error(res, 'Неправильный пароль')
     } catch (error) {
+      console.log(error)
       return utils.response.error(res, 'Пользователь не существует')
     }
   },

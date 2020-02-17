@@ -56,6 +56,7 @@ const Chat = {
     }
   },
   async getAll(req, res) {
+    console.log('cha ghere')
     const userId = req.currentUser.id
     const chats = await User.Chat.Room.getAllByUserId(userId)
 

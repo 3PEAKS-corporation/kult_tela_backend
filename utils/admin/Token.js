@@ -4,7 +4,7 @@ const Token = {
   async getAdminByToken(token) {
     if (!token) return null
 
-    const query = `SELECT users.id as id, users.admin_role as role_id
+    const query = `SELECT users.id as id, users.admin_role_id as admin_role_id
                    FROM tokens
                             LEFT JOIN users
                                       ON tokens.user_id = users.id
@@ -16,10 +16,11 @@ const Token = {
       if (!rows[0].id) return null
       else {
         const admin = rows[0]
-        if (typeof admin.role_id !== 'number') return null
+        if (typeof admin.admin_role_id !== 'number') return null
         else return rows[0]
       }
     } catch (error) {
+      console.log(error)
       return null
     }
   }

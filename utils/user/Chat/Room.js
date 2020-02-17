@@ -17,7 +17,7 @@ const Room = {
             ...chat
           }
         })
-
+        console.log('imag ger')
         const user_ids = chats.map(chat => chat.user_id)
 
         query = `SELECT id, first_name || ' ' || last_name as name, rank, avatar_src  FROM users WHERE id=ANY(ARRAY[$1::int[]])`
@@ -63,6 +63,7 @@ const Room = {
         return chats
       } else return []
     } catch (e) {
+      console.log(e)
       return null
     }
   }

@@ -6,15 +6,36 @@ const getToken = req => req.headers.token
 const requireAuth = {
   userToken(withoutSubscription = false) {
     return async function(req, res, next) {
+      console.log('asdas')
       const token = getToken(req)
 
       const user = await User.Token.getUserByToken(token)
       if (user) {
-        if (user.is_subscription === true || withoutSubscription === true) {
+        /**
+         * @ADMIN auth
+         */
+        if (user.plan_id === null) {
+          const admin = await Admin.Token.getAdminByToken(token)
+          if (admin) {
+            req.currentUser = {
+              id: admin.id,
+              admin_role_id: admin.admin_role_id,
+              admin: true
+            }
+          }
+          return next()
+        } else if (
+        /**
+         * @USER auth
+         */
+          user.is_subscription === true ||
+          withoutSubscription === true
+        ) {
           req.currentUser = {
             id: user.id,
             plan_id: user.plan_id
           }
+          console.log('dasdas', req.currentUser)
           return next()
         } else if (user.is_subscription === false) {
           return utils.response.error(res, 'Нет доступа, срок подписки истек')
@@ -35,7 +56,7 @@ const requireAuth = {
     if (admin) {
       req.currentUser = {
         id: admin.id,
-        role_id: admin.role_id,
+        admin_role_id: admin.admin_role_id,
         admin: true
       }
       console.log(req.currentUser)

@@ -31,24 +31,37 @@ const Common = {
       const { rows } = await db.query(query, values)
       if (rows[0]) {
         let user = rows[0]
-        user.date_signup = user.date_signup_formatted
-        user.subscription_exp = user.subscription_exp_formatted
+        if (typeof user.admin_role_id === 'number') {
+          let admin = {
+            id: user.id,
+            first_name: user.first_name,
+            last_name: user.last_name,
+            admin_role_id: user.admin_role_id
+          }
+          if (returnPassword === true) admin.password = user.password
+          return admin
+        } else {
+          user.date_signup = user.date_signup_formatted
+          user.subscription_exp = user.subscription_exp_formatted
 
-        user.avatar_src = utils.getImageUrl(user.avatar_src)
-        const plans = JSON.parse(JSON.stringify(DATA.plans))
+          user.avatar_src = utils.getImageUrl(user.avatar_src)
+          const plans = JSON.parse(JSON.stringify(DATA.plans))
 
-        user.plan_name = plans.filter(item => item.id === user.plan_id)[0].name
+          user.plan_name = plans.filter(
+            item => item.id === user.plan_id
+          )[0].name
 
-        delete user.date_signup_formatted
-        delete user.subscription_exp_formatted
-        if (returnPassword === false) delete user.password
-        delete user.payments
-        delete user.food_reports
-        delete user.photos
-        delete user.history
-        delete user.food_menu_id
-        delete user.workout.schedule
-        return user
+          delete user.date_signup_formatted
+          delete user.subscription_exp_formatted
+          if (returnPassword === false) delete user.password
+          delete user.payments
+          delete user.food_reports
+          delete user.photos
+          delete user.history
+          delete user.food_menu_id
+          delete user.workout.schedule
+          return user
+        }
       } else return null
     } catch (error) {
       return null

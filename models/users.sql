@@ -32,5 +32,6 @@ CREATE TABLE IF NOT EXISTS  users(
     history jsonb[] DEFAULT NULL,
     
     avatar_src VARCHAR,
-    plan_id INT DEFAULT NULL
+    plan_id INT DEFAULT NULL,
+    tutor_id INT DEFAULT NULL
 );

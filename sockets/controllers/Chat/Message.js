@@ -19,6 +19,7 @@ const Message = (io, socket) => {
         }
 
         try {
+          //TODO: protect also normal messages like init
           let message_id = await User.Chat.Message.addMessage(message)
 
           let roomInited = false

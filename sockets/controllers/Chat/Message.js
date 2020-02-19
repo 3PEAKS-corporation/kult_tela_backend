@@ -19,7 +19,7 @@ const Message = (io, socket) => {
         }
 
         try {
-          //TODO: protect also normal messages like init
+          //TODO: protect also normal messages like init || filter chats to user based on plan_id
           let message_id = await User.Chat.Message.addMessage(message)
 
           let roomInited = false

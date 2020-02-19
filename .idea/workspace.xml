@@ -3,8 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/Auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Food.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Food.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/food_menus.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/food_menus.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/requireAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/requireAuth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Food.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Food.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -151,7 +158,9 @@
       <workItem from="1581838426360" duration="25612000" />
       <workItem from="1581929558847" duration="6017000" />
       <workItem from="1581970951920" duration="7310000" />
-      <workItem from="1582002764815" duration="2932000" />
+      <workItem from="1582002764815" duration="2992000" />
+      <workItem from="1582098512103" duration="418000" />
+      <workItem from="1582145399044" duration="1940000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -370,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581980112231</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="init message protect">
+      <created>1582006318785</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1582006318785</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,7 +406,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixes" />
     <MESSAGE value="fix public folder" />
     <MESSAGE value="fix login" />
     <MESSAGE value="users table enhancements + function" />
@@ -415,6 +430,7 @@
     <MESSAGE value="admin structure started" />
     <MESSAGE value="auth for admin and requireAuth middleware reworked for admin" />
     <MESSAGE value="admin token refactor + admin socket + messages refactor for admin to work" />
-    <option name="LAST_COMMIT_MESSAGE" value="admin token refactor + admin socket + messages refactor for admin to work" />
+    <MESSAGE value="init message protect" />
+    <option name="LAST_COMMIT_MESSAGE" value="init message protect" />
   </component>
 </project>

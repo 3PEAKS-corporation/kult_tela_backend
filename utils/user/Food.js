@@ -1,16 +1,32 @@
 const { db, utils } = require('../../services/')
+const { copyDATA } = require('../../data/')
 
 const Food = {
   async setCurrentFoodMenu(userId) {
     const menuId = 0
-    // TODO: расчет id плана питания
-    const query = `UPDATE users SET food_menu_id=$1 WHERE id=$2`
-    const values = [menuId, userId]
+    const food_menus = copyDATA().food_menus
+    let query = `SELECT weight_start - COALESCE(0, weight_diff) as current_weight FROM users WHERE id=$1`
+    let values = [userId]
 
     try {
-      await db.query(query, values)
+      const { rows } = await db.query(query, values)
+      if (rows[0]) {
+        const relations = food_menus.relation
+        const current_weight = rows[0].current_weight
+        let menu_id = relations[Object.keys(relations)[0]]
+        for (const weight in relations) {
+          if (current_weight > parseInt(weight)) {
+            menu_id = relations[weight]
+          } else break
+        }
+
+        query = `UPDATE users SET food_menu_id=$1 WHERE id=$2`
+        values = [menu_id, userId]
+        await db.query(query, values)
+        return true
+      }
     } catch (error) {
-      console.log(error)
+      return false
     }
   },
   async getReportStatus(userId) {

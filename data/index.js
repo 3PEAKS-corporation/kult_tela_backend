@@ -3,7 +3,7 @@ const fs = require('fs')
 const LOCATION = './data/json/'
 
 let DATA = {
-  menus: null,
+  food_menus: null,
   plans: null,
   exercise_videos: null,
   workout_levels: null,
@@ -23,7 +23,7 @@ const CONFIG = [
     file: 'plans.json'
   },
   {
-    name: 'menus',
+    name: 'food_menus',
     file: 'food_menus.json'
   },
   {

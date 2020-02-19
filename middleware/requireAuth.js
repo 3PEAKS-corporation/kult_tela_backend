@@ -6,11 +6,9 @@ const getToken = req => req.headers.token
 const requireAuth = {
   userToken(withoutSubscription = false) {
     return async function(req, res, next) {
-      console.log('asdas')
       const token = getToken(req)
 
       const user = await User.Token.getUserByToken(token)
-      console.log('user:', user)
       if (user) {
         /**
          * @ADMIN auth

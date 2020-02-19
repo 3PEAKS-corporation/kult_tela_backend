@@ -89,7 +89,6 @@ const SignUp = {
 
         if (!rows[0].bool)
           return utils.response.error(res, 'Ошибка создания пользователя')
-        // TODO: refactor and remove payments from users table
         const payment = {
           reason: 'PLAN_BUY',
           amount: plan.cost,

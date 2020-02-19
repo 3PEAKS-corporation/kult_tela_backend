@@ -1,5 +1,5 @@
 const { db, utils } = require('../../services')
-const { DATA } = require('../../data/')
+const { copyDATA } = require('../../data/')
 
 const Food = {
   async getDailyMenu(req, res) {
@@ -9,7 +9,9 @@ const Food = {
     try {
       const { rows } = await db.query(query, values)
       const { menu_id, days_from_start } = rows[0]
-      const menu = DATA.menus.filter(item => item.id === menu_id)[0]
+      const menu = copyDATA().food_menus.menus.filter(
+        item => item.id === menu_id
+      )[0]
 
       const day_id =
         days_from_start === 0

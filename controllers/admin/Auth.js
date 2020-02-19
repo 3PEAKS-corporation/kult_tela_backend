@@ -45,8 +45,6 @@ const Auth = {
     } catch (e) {
       return utils.response.error(res, 'email уже используется')
     }
-
-    //TODO: Доделать
   }
 }
 

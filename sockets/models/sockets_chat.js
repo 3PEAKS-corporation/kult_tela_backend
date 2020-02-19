@@ -1,8 +1,9 @@
 class UserWithSocket {
-  constructor(id, socket, admin_role_id) {
+  constructor(id, socket, admin_role_id, plan_id) {
     this.id = id
     this.sockets = [socket]
     if (typeof admin_role_id === 'number') this.admin_role_id = admin_role_id
+    if (typeof plan_id === 'number') this.plan_id = plan_id
   }
 
   appendSocket(socket) {
@@ -21,11 +22,12 @@ class UserWithSocket {
 module.exports = new (function socks() {
   this.data = []
 
-  this.add = function(id, socket, admin_role_id = null) {
+  this.add = function(id, socket, admin_role_id = null, plan_id = null) {
     const index = UserWithSocket.getIndexInArray(this.data, id)
     if (index !== -1) {
       this.data[index].appendSocket(socket)
-    } else this.data.push(new UserWithSocket(id, socket, admin_role_id))
+    } else
+      this.data.push(new UserWithSocket(id, socket, admin_role_id, plan_id))
   }
 
   this.remove = function(socket) {

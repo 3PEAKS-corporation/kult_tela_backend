@@ -13,7 +13,8 @@ const Chat = io => {
     SOCKETS_CHAT.add(
       socket.currentUser.id,
       socket.id,
-      socket.currentUser.admin_role_id
+      socket.currentUser.admin_role_id,
+      socket.currentUser.plan_id
     )
     console.log(SOCKETS_CHAT.data)
 

@@ -20,7 +20,6 @@ const isChatAllowed = (user1, user2) => {
   if (typeof user1.plan_id === 'number') {
     if (typeof user2.plan_id === 'number') allow = true
     else if (!user2.plan_id && typeof user2.admin_role_id === 'number') {
-      console.log('thst')
       if (user2.admin_role_id === 0) allow = true
       // админ
       else if (user2.admin_role_id === 1) {

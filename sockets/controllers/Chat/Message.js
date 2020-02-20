@@ -8,7 +8,6 @@ const Message = (io, socket) => {
   return {
     async message(data) {
       console.log('[chat_message]')
-
       const to_user_id = data.to_user_id
 
       if (to_user_id) {
@@ -22,21 +21,22 @@ const Message = (io, socket) => {
           let message_id = await User.Chat.Message.addMessage(message)
 
           let roomInited = false
-          if (!message_id) {
+          if (message_id === null) {
             roomInited = true
             message_id = await User.Chat.Message.initRoomWithMessage(message)
+          } else if (message_id === false) {
+            socket.emit('chat_room_locked', { room_id: data.room_id })
+            return
           }
 
-          if (message_id) {
+          if (typeof message_id === 'number') {
             let query = `SELECT * FROM chat_messages_formatted WHERE id=$1`
             let values = [message_id]
 
             const { rows } = await db.query(query, values)
             const dbMessage = rows[0]
-            console.log(dbMessage)
 
             if (dbMessage) {
-              console.log(dbMessage)
               const event = roomInited ? 'chat_message_init' : 'chat_message'
 
               if (roomInited) dbMessage.user_id = to_user_id
@@ -54,9 +54,7 @@ const Message = (io, socket) => {
               }
             }
           }
-        } catch (error) {
-          console.log(error)
-        }
+        } catch (error) {}
       }
     }
   }

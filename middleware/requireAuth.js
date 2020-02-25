@@ -54,7 +54,6 @@ const requireAuth = {
         admin_role_id: admin.admin_role_id,
         admin: true
       }
-      console.log(req.currentUser)
       return next()
     } else return utils.response.error(res, 'Ошибка доступа: токен отсутствует')
   }

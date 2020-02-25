@@ -61,4 +61,22 @@ router.post(
   User.Subscription.extend
 )
 
+/**
+ * @TUTOR
+ */
+
+router.get(
+  '/user/tutor',
+  requireAuth.userToken(),
+  requirePlan(3),
+  User.Tutor.getAll
+)
+
+router.post(
+  '/user/tutor',
+  requireAuth.userToken(),
+  requirePlan(3),
+  User.Tutor.set
+)
+
 module.exports = router

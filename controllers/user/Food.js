@@ -31,7 +31,7 @@ const Food = {
   },
   async getTipsVideos(req, res) {
     const plan_id = req.currentUser.plan_id
-    const videos = DATA.food_tips_videos
+    const videos = copyDATA().food_tips_videos
     let filtered_videos = [...videos.common]
     if (plan_id < 1) {
       filtered_videos = [

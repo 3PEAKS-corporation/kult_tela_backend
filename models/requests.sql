@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS requests (
     user_id INT NOT NULL,
     payment_id INT DEFAULT NULL,
     type INT NOT NULL,
+    status INTEGER DEFAULT 0,
     tutor VARCHAR DEFAULT NULL,
     date_from date NOT NULL ,
     date_to date NOT NULL ,

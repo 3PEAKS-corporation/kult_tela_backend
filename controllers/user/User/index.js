@@ -4,6 +4,7 @@ const Workout = require('./Workout')
 const Weight = require('./Weight')
 const Common = require('./Common')
 const Subscription = require('./Subscription')
+const Tutor = require('./Tutor')
 
 module.exports = {
   Food,
@@ -11,5 +12,6 @@ module.exports = {
   Workout,
   Weight,
   Common,
-  Subscription
+  Subscription,
+  Tutor
 }

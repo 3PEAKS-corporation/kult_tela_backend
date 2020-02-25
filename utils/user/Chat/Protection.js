@@ -27,7 +27,12 @@ const isChatAllowed = (user1, user2) => {
         if (user1.plan_id > 1) allow = true
       } else if (user2.admin_role_id === 2) {
         // наставник
-        if (user1.plan_id > 2) allow = true
+        if (
+          user1.plan_id > 2 &&
+          typeof user1.tutor_id === 'number' &&
+          user1.tutor_id === user2.id
+        )
+          allow = true
       }
     }
   }
@@ -39,7 +44,7 @@ const isMessageAllowed = async (fromUserId, toUserId) => {
     return false
 
   const uids = fromUserId + ',' + toUserId
-  let query = `SELECT id, admin_role_id, plan_id FROM users WHERE id IN (${uids});`
+  let query = `SELECT id, admin_role_id, plan_id, tutor_id FROM users WHERE id IN (${uids});`
   try {
     const { rows: users } = await db.query(query)
     if (users.length !== 2) return false

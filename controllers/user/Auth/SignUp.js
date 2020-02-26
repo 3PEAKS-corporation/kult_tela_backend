@@ -172,7 +172,7 @@ const SignUp = {
         const passwordHashed = await bcrypt.hash(password, SALT_ROUNDS)
 
         let query = `UPDATE users SET password=$1, first_name=$2, last_name=$3, patronymic=$4, weight_start=$5, avatar_src=$6, height=$8, age=$9,
-                 date_signup=current_timestamp, subscription_exp = current_timestamp + '31 days' WHERE id=$7 RETURNING TRUE`
+                 date_signup=current_timestamp, subscription_exp = current_timestamp + '31 days' WHERE id=$7 RETURNING TRUE, plan_id`
 
         let values = [
           passwordHashed,
@@ -187,17 +187,41 @@ const SignUp = {
         ]
         const { rows } = await db.query(query, values)
         if (rows[0].bool === true) {
+          const plan_id = rows[0].plan_id
           query = `UPDATE signup_info SET used=TRUE WHERE hash=$1 RETURNING TRUE`
           values = [hash]
           const { rows: result } = await db.query(query, values)
           if (result[0].bool === true) {
             await User.Photo.add(isOk.user_id, avatar_src.filename, 'AVATAR')
             await User.Notification.add(isOk.user_id, {
-              title: 'Добро пожаловать в армию!',
-              url: '/top'
+              title: 'Добро пожаловать в армию!'
             })
             await User.Food.setCurrentFoodMenu(isOk.user_id)
             await User.History.add(isOk.user_id, 'SIGNUP')
+
+            if (plan_id > 1) {
+              const dietolog = await User.Chat.InitRooms.withDietolog(
+                isOk.user_id
+              )
+              if (dietolog)
+                await User.Notification.add(isOk.user_id, {
+                  title:
+                    'Вам доступен персональный диетолог. Связаться с ним можно в разделе "Сообщения"',
+                  url: '/messages'
+                })
+            }
+
+            if (plan_id > 0) {
+              await User.Notification.add(isOk.user_id, {
+                title:
+                  'Заполните данные для составления персональной программы тренировок',
+                url: '/workout/fill-info'
+              })
+              await User.Notification.add(isOk.user_id, {
+                title: 'Персональный план питания уже готов!',
+                url: '/food/personal'
+              })
+            }
 
             return utils.response.success(res)
           } else utils.response.error(res, 'Произошла ошибка, попробуйте позже')

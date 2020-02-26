@@ -28,7 +28,12 @@ const Tutor = {
           fromUserId: tutor_id,
           toUserId: parseInt(req.currentUser.id),
           text:
-            'Здравия желаю солдат! С сегодняшнего дня я ваш персональный наставник! Давайте же пройдем этот путь вместе!'
+            'Здравия желаю, солдат! С сегодняшнего дня я ваш персональный наставник! Давайте же пройдем этот путь вместе!'
+        })
+        await User.Notification.add(req.currentUser.id, {
+          title:
+            'Вам доступен персональный наставник. Связаться с ним можно в разделе "Сообщения"',
+          url: '/messages'
         })
         return utils.response.success(res, { tutor_id: tutor_id })
       } else throw 'to catch'

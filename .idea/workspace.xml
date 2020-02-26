@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/admin/Request.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/user/User/Tutor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/admin/request.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Food.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Food.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/User/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/requireAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/requireAuth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/requests.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/requests.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/MessageUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/MessageUtils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Protection.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Protection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/User/Tutor.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Tutor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Chat/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -109,9 +99,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev" />
         <item itemvalue="npm.createTables" />
         <item itemvalue="npm.dropTables" />
+        <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
   </component>
@@ -168,7 +158,8 @@
       <workItem from="1582145399044" duration="4373000" />
       <workItem from="1582209360973" duration="4119000" />
       <workItem from="1582393071979" duration="1206000" />
-      <workItem from="1582642030529" duration="14816000" />
+      <workItem from="1582642030529" duration="14965000" />
+      <workItem from="1582698632993" duration="3875000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -422,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582230135956</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="tutor endpoint + request managing for admin">
+      <created>1582668081520</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1582668081520</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,7 +440,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="exercises implemented + refactoring" />
     <MESSAGE value="workout levels added and implemented" />
     <MESSAGE value="workout output" />
     <MESSAGE value="workouts almost done + fixes" />
@@ -467,6 +464,7 @@
     <MESSAGE value="menu plan setter refactored to last updates of tt" />
     <MESSAGE value="messages protection for both init and normal msgs" />
     <MESSAGE value="data upd + fixes in sockets" />
-    <option name="LAST_COMMIT_MESSAGE" value="data upd + fixes in sockets" />
+    <MESSAGE value="tutor endpoint + request managing for admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="tutor endpoint + request managing for admin" />
   </component>
 </project>

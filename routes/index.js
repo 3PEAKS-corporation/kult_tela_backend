@@ -28,6 +28,7 @@ const init = (app, io) => {
   app.use(admin.roles)
   app.use(admin.auth)
   app.use(admin.request)
+  app.use(admin.public_)
 }
 
 module.exports = {

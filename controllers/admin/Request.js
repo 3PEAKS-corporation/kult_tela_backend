@@ -3,9 +3,9 @@ const { DATA } = require('../../data/')
 
 const Request = {
   getAll: (history = false) => async (req, res) => {
-    const query = `SELECT requests.id, requests.user_id,requests.tutor, to_char(requests.date_from,'DD.MM.YYYY') as date_from, to_char(requests.date_to,'DD.MM.YYYY') as date_to,
+    const query = `SELECT requests.id, requests.user_id, requests.tutor, to_char(requests.date_from,'DD.MM.YYYY') as date_from, to_char(requests.date_to,'DD.MM.YYYY') as date_to,
                   to_char(requests.date,'DD.MM.YYYY') as date, requests.status,
-                  users.first_name || ' ' || users.last_name as user_name, (payments.status='succeeded') as payment_status FROM requests
+                  users.first_name || ' ' || users.last_name as user_name, payments.status as payment_status FROM requests
                   LEFT JOIN payments ON requests.payment_id= payments.id
                   LEFT JOIN users ON requests.user_id=users.id
                   ${

@@ -1,5 +1,5 @@
 const { utils, db } = require('../../services/')
-const { DATA } = require('../../data/')
+const { copyDATA } = require('../../data/')
 
 const Public = {
   async getUserById(req, res) {
@@ -13,7 +13,7 @@ const Public = {
       const { rows } = await db.query(query, values)
       let user = rows[0]
       if (user) {
-        const plans = JSON.parse(JSON.stringify(DATA.plans))
+        const plans = copyDATA()
         user.plan_name = plans.filter(item => item.id === user.plan_id)[0].name
         user.avatar_src = utils.getImageUrl(user.avatar_src)
         return utils.response.success(res, user)

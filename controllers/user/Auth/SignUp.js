@@ -198,6 +198,7 @@ const SignUp = {
             })
             await User.Food.setCurrentFoodMenu(isOk.user_id)
             await User.History.add(isOk.user_id, 'SIGNUP')
+            await User.Weight.addToHistory(isOk.user_id, weight_start)
 
             if (plan_id > 1) {
               const dietolog = await User.Chat.InitRooms.withDietolog(

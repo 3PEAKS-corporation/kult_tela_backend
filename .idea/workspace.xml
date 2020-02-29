@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="init rooms">
-      <change afterPath="$PROJECT_DIR$/controllers/admin/Public.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/admin/public.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/admin/Public.js" afterDir="false" />
+    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/utils/user/Weight.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/Request.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/Request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Public.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Public.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/admin/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/User/Weight.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Weight.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -167,7 +162,8 @@
       <workItem from="1582698632993" duration="4019000" />
       <workItem from="1582887555241" duration="1145000" />
       <workItem from="1582916090731" duration="2560000" />
-      <workItem from="1582958611827" duration="3013000" />
+      <workItem from="1582958611827" duration="3028000" />
+      <workItem from="1582994603934" duration="2634000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -435,7 +431,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582703778740</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="public user info for admin">
+      <created>1582963398575</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1582963398575</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,7 +458,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="workout output" />
     <MESSAGE value="workouts almost done + fixes" />
     <MESSAGE value="flags for workout plan done and day off" />
     <MESSAGE value="models deleted + json updated" />
@@ -480,6 +482,7 @@
     <MESSAGE value="data upd + fixes in sockets" />
     <MESSAGE value="tutor endpoint + request managing for admin" />
     <MESSAGE value="init rooms" />
-    <option name="LAST_COMMIT_MESSAGE" value="init rooms" />
+    <MESSAGE value="public user info for admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="public user info for admin" />
   </component>
 </project>

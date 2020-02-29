@@ -9,6 +9,7 @@ const Chat = require('./Chat/')
 const History = require('./History')
 const Workout = require('./Workout')
 const Subscription = require('./Subscription')
+const Weight = require('./Weight')
 
 module.exports = {
   Token,
@@ -21,5 +22,6 @@ module.exports = {
   Chat,
   History,
   Workout,
-  Subscription
+  Subscription,
+  Weight
 }

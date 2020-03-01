@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/utils/user/Email.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Email.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Protection.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Protection.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -160,7 +160,7 @@
       <workItem from="1582916090731" duration="2560000" />
       <workItem from="1582958611827" duration="3028000" />
       <workItem from="1582994603934" duration="2819000" />
-      <workItem from="1583054058927" duration="15597000" />
+      <workItem from="1583054058927" duration="16284000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -456,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583096359540</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="year fix">
+      <created>1583097152703</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1583097152703</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -476,7 +483,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="food tips enhancements + top fix" />
     <MESSAGE value="previous workout route" />
     <MESSAGE value="sub extend start" />
     <MESSAGE value="sub extend done// needs kassa" />
@@ -501,6 +507,7 @@
     <MESSAGE value="weight update + enhancements" />
     <MESSAGE value="kassa notification refactored + new types + some enhancements for admin" />
     <MESSAGE value="sockets protection for some cases + auth + admin desc" />
-    <option name="LAST_COMMIT_MESSAGE" value="sockets protection for some cases + auth + admin desc" />
+    <MESSAGE value="year fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="year fix" />
   </component>
 </project>

@@ -4,12 +4,13 @@ const Token = {
   async getUserByToken(token) {
     if (!token) return null
 
-    const query = `SELECT users.id as id, users.plan_id as plan_id, users.subscription_exp > current_timestamp as is_subscription,
-       users.admin_role_id as admin_role_id
-                    FROM tokens
-                    LEFT JOIN users
-                    ON tokens.user_id = users.id
-                    WHERE token =$1`
+    const query = `UPDATE users a
+                   SET last_online = current_timestamp
+                   FROM tokens b
+                   WHERE
+                       b.user_id = a.id AND b.token=$1
+                   RETURNING a.id as id, a.plan_id as plan_id, a.subscription_exp > current_timestamp as is_subscription,
+                       a.admin_role_id as admin_role_id`
 
     const values = [token]
 

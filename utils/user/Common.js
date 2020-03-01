@@ -79,6 +79,14 @@ const Common = {
     } catch (error) {
       return false
     }
+  },
+  async deleteUserByHash(hash) {
+    const query = `DELETE FROM users WHERE id=(SELECT user_id FROM signup_info WHERE hash=$1 AND used=false)`
+    const values = [hash]
+
+    try {
+      await db.query(query, values)
+    } catch (e) {}
   }
 }
 

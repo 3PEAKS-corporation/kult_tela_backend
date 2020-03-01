@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/utils/user/Weight.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/User/Weight.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Weight.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Kassa/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Kassa/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Kassa/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Kassa/types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/User/Food.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Food.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/admin/Public.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/admin/Public.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Food.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Food.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Token.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Token.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -163,7 +169,8 @@
       <workItem from="1582887555241" duration="1145000" />
       <workItem from="1582916090731" duration="2560000" />
       <workItem from="1582958611827" duration="3028000" />
-      <workItem from="1582994603934" duration="2634000" />
+      <workItem from="1582994603934" duration="2819000" />
+      <workItem from="1583054058927" duration="11045000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -438,7 +445,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582963398575</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="weight update + enhancements">
+      <created>1583015656478</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1583015656478</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,7 +472,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="workouts almost done + fixes" />
     <MESSAGE value="flags for workout plan done and day off" />
     <MESSAGE value="models deleted + json updated" />
     <MESSAGE value="food tips enhancements + top fix" />
@@ -483,6 +496,7 @@
     <MESSAGE value="tutor endpoint + request managing for admin" />
     <MESSAGE value="init rooms" />
     <MESSAGE value="public user info for admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="public user info for admin" />
+    <MESSAGE value="weight update + enhancements" />
+    <option name="LAST_COMMIT_MESSAGE" value="weight update + enhancements" />
   </component>
 </project>

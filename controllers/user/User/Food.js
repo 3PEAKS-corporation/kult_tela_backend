@@ -30,21 +30,22 @@ const Food = {
       'id', arr_length(food_reports),
       'type', $1::varchar,
       'image_src', $2::varchar,
-      'date', $3::varchar
+      'date', TO_CHAR(current_timestamp, 'DD.MM.YYYY HH24:MI')
     )::jsonb)
-    WHERE id=$4
+    WHERE id=$3
     RETURNING TRUE`
     let values
 
     try {
       for (const item of reports) {
-        values = [item.type, item.image_src, item.date, userId]
+        values = [item.type, item.image_src, userId]
         await db.query(query, values)
       }
       const reportStatus = await User.Food.getReportStatus(userId)
 
       return utils.response.success(res, reportStatus)
     } catch (error) {
+      console.log(error)
       return utils.response.error(res, 'Не удалось загрузить отчет')
     }
   }

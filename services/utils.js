@@ -20,6 +20,14 @@ module.exports = {
   },
   getCurrentDate: () => {
     const d = new Date()
-    return `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`
+    return `${
+      d.getDate().toString().length === 1
+        ? '0' + d.getDate().toString()
+        : d.getDate()
+    }.${
+      d.getMonth().toString().length === 1
+        ? '0' + (d.getMonth() + 1).toString()
+        : d.getMonth()
+    }.${d.getFullYear()}`
   }
 }

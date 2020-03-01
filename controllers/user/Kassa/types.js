@@ -1,15 +1,27 @@
 const { utils } = require('../../../services')
 const { User } = require('../../../utils')
 
-const switchTypes = async (userId, { type, ...metadata }) => {
-  if (type === 'PLAN_EXTEND') {
-    return await User.Subscription.extend(userId, metadata.new_plan_id)
-  } else if (type === 'CONSULTATION_BUY') {
-    await User.Notification.add(userId, {
-      title:
-        'Оплата онлайн-консультации успешно принята, позже с вами свяжется администратор'
-    })
+const switchTypes = async (userId, obj) => {
+  const metadata = obj.metadata
+  console.log(metadata)
+  const types = {
+    PLAN_EXTEND: async () => {
+      if (obj.status === 'succeeded')
+        return await User.Subscription.extend(userId, metadata.new_plan_id)
+    },
+    CONSULTATION_BUY: async () => {
+      if (obj.status === 'succeeded')
+        await User.Notification.add(userId, {
+          title:
+            'Оплата онлайн-консультации успешно принята, позже с вами свяжется администратор'
+        })
+    },
+    PLAN_BUY: async () => {
+      if (obj.status === 'canceled')
+        await User.Common.deleteUserByHash(obj.metadata.hash)
+    }
   }
+  if (types[metadata.type]) return types[metadata.type]()
 }
 
 module.exports = {

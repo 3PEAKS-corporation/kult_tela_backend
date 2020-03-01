@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS  users(
     notifications_last_seen INT DEFAULT -1,
 
     history jsonb[] DEFAULT NULL,
+    last_online TIMESTAMP DEFAULT NULL,
     
     avatar_src VARCHAR,
     plan_id INT DEFAULT NULL,

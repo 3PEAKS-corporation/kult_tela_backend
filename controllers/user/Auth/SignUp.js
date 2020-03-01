@@ -60,10 +60,11 @@ const SignUp = {
 
         const kassaPayment = await kassa.createPayment({
           value: plan.cost,
-          description: `Оплата плана "${plan.name}"`,
+          description: `Оплата плана "${plan.name} в приложении Культ Тела"`,
           return_url: 'first-login/' + hash,
           metadata: {
-            type: 'PLAN_BUY'
+            type: 'PLAN_BUY',
+            hash: hash
           }
         })
 

@@ -28,11 +28,8 @@ const Kassa = {
     })
 
     if (result.user_id) {
-      if (
-        notification.object.status === 'succeeded' &&
-        notification.object.metadata.type
-      ) {
-        await switchTypes(result.user_id, notification.object.metadata)
+      if (notification.object.status && notification.object.metadata.type) {
+        await switchTypes(result.user_id, notification.object)
       }
 
       if (result.user_id) return utils.response.success(res)

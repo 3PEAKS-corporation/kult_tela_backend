@@ -40,7 +40,10 @@ const Food = {
 
     if (reps && reps.length !== 0) {
       const date = utils.getCurrentDate()
-      const reports = reps.filter(item => item.date == date)
+      const reports = reps.filter(
+        item =>
+          date === /^([0-9]{1,2}.[0-9]{1,2}.[0-9]{3,4})/.exec(item.date)[0]
+      )
       if (reports) {
         reports.forEach(item => {
           const type = item.type

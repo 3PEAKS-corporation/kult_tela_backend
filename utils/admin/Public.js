@@ -20,7 +20,7 @@ const Public = {
 
         user.date_signup = user.date_signup_formatted
         if (user.food_reports) {
-          user.food_reports = user.food_reports.slice(-4).map(e => {
+          user.food_reports = user.food_reports.slice(-6).map(e => {
             e.image_src = utils.getImageUrl(e.image_src)
             return e
           })

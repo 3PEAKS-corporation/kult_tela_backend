@@ -3,7 +3,7 @@ const { User } = require('../../../utils/')
 
 const Tutor = {
   async getAll(req, res) {
-    const query = `SELECT id, first_name || ' ' || last_name as name FROM users WHERE admin_role_id = 2`
+    const query = `SELECT id, first_name || ' ' || last_name as name, admin_description FROM users WHERE admin_role_id = 2`
     try {
       const { rows } = await db.query(query)
       return utils.response.success(res, rows)

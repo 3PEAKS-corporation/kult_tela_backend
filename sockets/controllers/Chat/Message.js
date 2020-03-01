@@ -44,13 +44,14 @@ const Message = (io, socket) => {
               const to_cur_user = SOCKETS_CHAT.getUser({
                 id: socket.currentUser.id
               })
-              io.emitArray(to_cur_user.sockets, event, dbMessage)
+              if (to_cur_user)
+                io.emitArray(to_cur_user.sockets, event, dbMessage)
 
               const to_user = SOCKETS_CHAT.getUser({ id: to_user_id })
 
               if (to_user) {
                 if (roomInited) dbMessage.user_id = socket.currentUser.id
-                io.emitArray(to_user.sockets, event, dbMessage)
+                if (to_user) io.emitArray(to_user.sockets, event, dbMessage)
               }
             }
           }

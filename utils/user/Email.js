@@ -39,7 +39,7 @@ const Email = {
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                       <tr>
                         <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;" width="75%">
-                          &reg; Культ Тела, 2019<br/>
+                          &reg; Культ Тела, 2020<br/>
                         </td>
 
                       </tr>

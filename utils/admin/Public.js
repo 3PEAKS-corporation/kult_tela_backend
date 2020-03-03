@@ -3,7 +3,11 @@ const { copyDATA } = require('../../data/')
 
 const Public = {
   async getUserInfo(userId) {
-    const query = `SELECT *, to_char(date_signup,'DD.MM.YYYY') as date_signup_formatted, TO_CHAR((workout->>'start_date')::timestamp, 'DD.MM.YYYY') as workout_start_date FROM users WHERE id=$1 AND admin_role_id IS NULL`
+    const query = `SELECT *, 
+       to_char(date_signup,'DD.MM.YYYY') as date_signup_formatted,
+       to_char((workout->>'start_date')::timestamp, 'DD.MM.YYYY') as workout_start_date,
+       to_char(last_online,'DD.MM.YYYY HH24:MI') as last_online_formatted
+       FROM users WHERE id=$1 AND admin_role_id IS NULL`
     const values = [userId]
     try {
       const { rows } = await db.query(query, values)
@@ -18,7 +22,9 @@ const Public = {
         user.name =
           user.last_name + ' ' + user.first_name + ' ' + user.patronymic
 
+        user.last_online = user.last_online_formatted
         user.date_signup = user.date_signup_formatted
+
         if (user.food_reports) {
           user.food_reports = user.food_reports.slice(-6).map(e => {
             e.image_src = utils.getImageUrl(e.image_src)
@@ -26,7 +32,11 @@ const Public = {
           })
         }
 
-        if (user.workout) {
+        if (
+          user.workout &&
+          user.workout.overweight_level &&
+          user.workout.physical_level
+        ) {
           user.workout.overweight_level = workout_levels.overweight.filter(
             e => e.id === user.workout.overweight_level
           )[0].name
@@ -42,10 +52,14 @@ const Public = {
         delete user.notifications
         delete user.notifications_last_seen
         delete user.history
+        delete user.last_online
+
         user.avatar_src = utils.getImageUrl(user.avatar_src)
+        console.log(user)
         return user
       } else return false
     } catch (e) {
+      console.log(e)
       return null
     }
   }

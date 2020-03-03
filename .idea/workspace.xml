@@ -4,7 +4,6 @@
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/user/Public.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Public.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Protection.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Protection.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -164,7 +163,7 @@
       <workItem from="1582994603934" duration="2819000" />
       <workItem from="1583054058927" duration="16773000" />
       <workItem from="1583126318372" duration="1359000" />
-      <workItem from="1583252887431" duration="7680000" />
+      <workItem from="1583252887431" duration="7708000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -488,7 +487,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583267965438</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="fix user public error">
+      <created>1583269107761</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1583269107761</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,7 +514,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="public user info" />
     <MESSAGE value="messages fix" />
     <MESSAGE value="kassa inited + payments implemented // need refactor of payments in users table" />
     <MESSAGE value="kassa notifications + refactoring" />
@@ -533,6 +538,7 @@
     <MESSAGE value="socket fixes for chat protection" />
     <MESSAGE value="hope fixed static content error" />
     <MESSAGE value="updates from last meeting" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates from last meeting" />
+    <MESSAGE value="fix user public error" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix user public error" />
   </component>
 </project>

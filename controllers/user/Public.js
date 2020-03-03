@@ -19,7 +19,6 @@ const Public = {
         return utils.response.success(res, user)
       } else return utils.response.error(res, 'Пользователь не найден')
     } catch (e) {
-      console.log(e)
       return utils.response.error(res, 'Пользователь не найден')
     }
   }

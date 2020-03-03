@@ -34,8 +34,8 @@ const Public = {
 
         if (
           user.workout &&
-          user.workout.overweight_level &&
-          user.workout.physical_level
+          typeof user.workout.overweight_level == 'number' &&
+          typeof user.workout.physical_level == 'number'
         ) {
           user.workout.overweight_level = workout_levels.overweight.filter(
             e => e.id === user.workout.overweight_level
@@ -55,11 +55,9 @@ const Public = {
         delete user.last_online
 
         user.avatar_src = utils.getImageUrl(user.avatar_src)
-        console.log(user)
         return user
       } else return false
     } catch (e) {
-      console.log(e)
       return null
     }
   }

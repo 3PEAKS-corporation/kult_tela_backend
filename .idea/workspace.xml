@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/json/plans.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/plans.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/admin/Public.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/admin/Public.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Public.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Public.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Protection.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Protection.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -165,7 +164,7 @@
       <workItem from="1582994603934" duration="2819000" />
       <workItem from="1583054058927" duration="16773000" />
       <workItem from="1583126318372" duration="1359000" />
-      <workItem from="1583252887431" duration="6715000" />
+      <workItem from="1583252887431" duration="7680000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -482,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583256093333</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="updates from last meeting">
+      <created>1583267965438</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1583267965438</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -502,7 +508,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="sub extend done// needs kassa" />
     <MESSAGE value="public user info" />
     <MESSAGE value="messages fix" />
     <MESSAGE value="kassa inited + payments implemented // need refactor of payments in users table" />
@@ -527,6 +532,7 @@
     <MESSAGE value="year fix" />
     <MESSAGE value="socket fixes for chat protection" />
     <MESSAGE value="hope fixed static content error" />
-    <option name="LAST_COMMIT_MESSAGE" value="hope fixed static content error" />
+    <MESSAGE value="updates from last meeting" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates from last meeting" />
   </component>
 </project>

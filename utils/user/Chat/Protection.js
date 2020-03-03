@@ -24,7 +24,7 @@ const isChatAllowed = (user1, user2) => {
       // админ
       else if (user2.admin_role_id === 1) {
         // диетолог
-        if (user1.plan_id > 2) allow = true
+        if (user1.plan_id > 1) allow = true
       } else if (user2.admin_role_id === 2) {
         // наставник
         if (

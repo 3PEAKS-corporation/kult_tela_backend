@@ -12,13 +12,14 @@ const Public = {
     try {
       const { rows } = await db.query(query, values)
       let user = rows[0]
-      if (user) {
-        const plans = copyDATA()
+      if (user && typeof user.id === 'number') {
+        const plans = copyDATA().plans
         user.plan_name = plans.filter(item => item.id === user.plan_id)[0].name
         user.avatar_src = utils.getImageUrl(user.avatar_src)
         return utils.response.success(res, user)
       } else return utils.response.error(res, 'Пользователь не найден')
     } catch (e) {
+      console.log(e)
       return utils.response.error(res, 'Пользователь не найден')
     }
   }

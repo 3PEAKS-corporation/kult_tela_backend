@@ -1,7 +1,7 @@
 const { utils, db, kassa } = require('../../services/')
 const { User } = require('../../utils/')
 
-const consultationPrice = 400
+const consultationPrice = 1000
 
 const Request = {
   async add(req, res) {

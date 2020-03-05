@@ -7,7 +7,7 @@ const Top = {
                     WHERE (arr_last_item(weight_history)->>'weight')::real IS NOT NULL 
                     AND rank!=0
                     AND (arr_last_item(weight_history)->>'date')::timestamp + interval '1 month' > current_timestamp
-                    ORDER BY weight_start-(arr_last_item(weight_history)->>'weight')::real DESC`
+                    ORDER BY (arr_last_item(weight_history)->>'weight')::real/(weight_start/100)`
 
     try {
       const { rows } = await db.query(query)
@@ -22,7 +22,7 @@ const Top = {
   },
 
   async allTime(req, res) {
-    const query = `SELECT id, rank, weight_start, weight_diff, first_name, last_name FROM users WHERE weight_diff IS NOT NULL AND rank!=0 ORDER BY weight_diff DESC`
+    const query = `SELECT id, rank, weight_start, weight_diff, first_name, last_name FROM users WHERE weight_diff IS NOT NULL AND rank!=0 ORDER BY (arr_last_item(weight_history)->>'weight')::real/(weight_start/100)`
 
     try {
       const { rows } = await db.query(query)

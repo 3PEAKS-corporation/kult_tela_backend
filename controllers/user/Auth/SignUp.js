@@ -60,7 +60,7 @@ const SignUp = {
 
         const kassaPayment = await kassa.createPayment({
           value: plan.cost,
-          description: `Оплата плана "${plan.name} в приложении Культ Тела"`,
+          description: `Оплата пакета "${plan.name} в приложении Культ Тела"`,
           return_url: 'first-login/' + hash,
           metadata: {
             type: 'PLAN_BUY',
@@ -197,33 +197,9 @@ const SignUp = {
             await User.Notification.add(isOk.user_id, {
               title: 'Добро пожаловать в армию!'
             })
-            await User.Food.setCurrentFoodMenu(isOk.user_id)
             await User.History.add(isOk.user_id, 'SIGNUP')
             await User.Weight.addToHistory(isOk.user_id, weight_start)
-
-            if (plan_id > 1) {
-              const dietolog = await User.Chat.InitRooms.withDietolog(
-                isOk.user_id
-              )
-              if (dietolog)
-                await User.Notification.add(isOk.user_id, {
-                  title:
-                    'Вам доступен персональный диетолог. Связаться с ним можно в разделе "Сообщения"',
-                  url: '/messages'
-                })
-            }
-
-            if (plan_id > 0) {
-              await User.Notification.add(isOk.user_id, {
-                title:
-                  'Заполните данные для составления персональной программы тренировок',
-                url: '/workout/fill-info'
-              })
-              await User.Notification.add(isOk.user_id, {
-                title: 'Персональный план питания уже готов!',
-                url: '/food/personal'
-              })
-            }
+            await User.Common.setUserDataByPlan(parseInt(isOk.user_id), plan_id)
 
             return utils.response.success(res)
           } else utils.response.error(res, 'Произошла ошибка, попробуйте позже')
@@ -234,6 +210,7 @@ const SignUp = {
           'Платеж не обработан или завершен отказом'
         )
     } catch (error) {
+      console.log(error)
       return utils.response.error(res, 'Не удалось изменить данные')
     }
   }

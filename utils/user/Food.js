@@ -16,7 +16,7 @@ const Food = {
         let menu_id = relations[Object.keys(relations)[0]]
         for (const weight in relations) {
           if (current_weight > parseInt(weight)) {
-            menu_id = relations[weight]
+            menu_id = relations[parseInt(weight)]
           } else break
         }
 

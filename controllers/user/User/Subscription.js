@@ -15,7 +15,7 @@ const Subscription = {
     try {
       const kassaPayment = await kassa.createPayment({
         value: plan.cost,
-        description: `Продление подписки Культ Тела на план "${plan.name}"`,
+        description: `Продление подписки Культ Тела на пакет "${plan.name}"`,
         metadata: metadata
       })
 

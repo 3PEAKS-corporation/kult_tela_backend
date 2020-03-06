@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="fix user public error">
+    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/controllers/user/User/Plan.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/user/Plan.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Request.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Top.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Top.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Kassa/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Kassa/types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Plan.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Plan.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/User/Subscription.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Subscription.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/User/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/plan.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/plan.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Food.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Food.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -165,7 +174,8 @@
       <workItem from="1583054058927" duration="16773000" />
       <workItem from="1583126318372" duration="1359000" />
       <workItem from="1583252887431" duration="8811000" />
-      <workItem from="1583411020207" duration="3052000" />
+      <workItem from="1583411020207" duration="4151000" />
+      <workItem from="1583525467876" duration="6536000" />
     </task>
     <task id="LOCAL-00001" summary="db init + enhancements">
       <created>1571903752354</created>
@@ -503,7 +513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583269230479</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="changes in top and request price">
+      <created>1583439659481</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1583439659481</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +540,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="messages fix" />
     <MESSAGE value="kassa inited + payments implemented // need refactor of payments in users table" />
     <MESSAGE value="kassa notifications + refactoring" />
     <MESSAGE value="little refactor + kassa for other payments + requests table and end-points" />
@@ -548,6 +564,7 @@
     <MESSAGE value="hope fixed static content error" />
     <MESSAGE value="updates from last meeting" />
     <MESSAGE value="fix user public error" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix user public error" />
+    <MESSAGE value="changes in top and request price" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes in top and request price" />
   </component>
 </project>

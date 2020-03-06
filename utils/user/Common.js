@@ -1,6 +1,8 @@
 const { db, utils } = require('../../services/')
 const { DATA } = require('./../../data/')
 const Food = require('./Food')
+const Chat = require('./Chat')
+const Notification = require('./Notification')
 
 const Common = {
   async getPublicUserData(userId) {
@@ -78,6 +80,30 @@ const Common = {
       return true
     } catch (error) {
       return false
+    }
+  },
+  async setUserDataByPlan(userId, planId, fromPlanId = false) {
+    if (planId > 1 && (!fromPlanId || fromPlanId < 2)) {
+      const dietolog = await Chat.InitRooms.withDietolog(userId)
+      if (dietolog)
+        await Notification.add(userId, {
+          title:
+            'Вам доступен персональный диетолог. Связаться с ним можно в разделе "Сообщения"',
+          url: '/messages'
+        })
+    }
+
+    if (planId > 0 && (!fromPlanId || fromPlanId < 1)) {
+      await Food.setCurrentFoodMenu(userId)
+      await Notification.add(userId, {
+        title:
+          'Заполните данные для составления персональной программы тренировок',
+        url: '/workout/fill-info'
+      })
+      await Notification.add(userId, {
+        title: 'Персональный план питания уже готов!',
+        url: '/food/personal'
+      })
     }
   },
   async deleteUserByHash(hash) {

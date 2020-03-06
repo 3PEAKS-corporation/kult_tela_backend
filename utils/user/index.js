@@ -10,6 +10,7 @@ const History = require('./History')
 const Workout = require('./Workout')
 const Subscription = require('./Subscription')
 const Weight = require('./Weight')
+const Plan = require('./Plan')
 
 module.exports = {
   Token,
@@ -23,5 +24,6 @@ module.exports = {
   History,
   Workout,
   Subscription,
-  Weight
+  Weight,
+  Plan
 }

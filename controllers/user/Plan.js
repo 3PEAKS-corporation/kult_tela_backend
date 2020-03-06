@@ -1,9 +1,10 @@
-const { utils, db } = require('../../services/')
-const { DATA } = require('../../data/')
+const { utils, db, kassa } = require('../../services/')
+const { copyDATA } = require('../../data/')
+const { User } = require('../../utils/')
 
 const Plan = {
   getPublicInfo(req, res) {
-    return utils.response.success(res, DATA.plans)
+    return utils.response.success(res, copyDATA().plans)
   }
 }
 

@@ -1,8 +1,10 @@
 const { db } = require('../../services/')
 const { copyDATA } = require('../../data')
+const Notification = require('./Notification')
+const Common = require('./Common')
 
 const newPrice = (newPlanPrice, currentPlanPrice, daysFromStart) =>
-  newPlanPrice - (currentPlanPrice / 31) * daysFromStart
+  newPlanPrice - (currentPlanPrice / 31) * (daysFromStart + 1)
 
 const Plan = {
   async getChangePrices(userId) {
@@ -31,6 +33,40 @@ const Plan = {
       }
     } catch (e) {
       return null
+    }
+  },
+  async changePlan(userId, newPlanId) {
+    userId = parseInt(userId)
+    newPlanId = parseInt(newPlanId)
+    const query = `UPDATE users SET plan_id=$1 WHERE id=$2 RETURNING true`
+    const values = [newPlanId, userId]
+
+    try {
+      const q2 = `SELECT plan_id as current_plan_id FROM users WHERE id=$1`
+      const v2 = [userId]
+      const { rows: info } = await db.query(q2, v2)
+      if (!info[0] || typeof info[0].current_plan_id !== 'number') return false
+
+      const { rows } = await db.query(query, values)
+      if (rows[0] && rows[0].bool) {
+        console.log(userId, newPlanId, info[0].current_plan_id)
+        await Common.setUserDataByPlan(
+          userId,
+          newPlanId,
+          info[0].current_plan_id
+        )
+        await Notification.add(userId, {
+          title: 'Текущий пакет успешно изменён!'
+        })
+        return true
+      }
+    } catch (e) {
+      console.log(e)
+      await Notification.add(userId, {
+        title:
+          'Ошибка при смене пакета, пожалуйста, обратитесь к администратору'
+      })
+      return false
     }
   }
 }

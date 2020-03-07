@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Kassa/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Kassa/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Plan.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Plan.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/User/Plan.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Plan.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/plans.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/plans.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -167,14 +167,7 @@
       <workItem from="1583252887431" duration="8811000" />
       <workItem from="1583411020207" duration="4151000" />
       <workItem from="1583525467876" duration="6575000" />
-      <workItem from="1583589968186" duration="4576000" />
-    </task>
-    <task id="LOCAL-00002" summary="auth">
-      <created>1572123544504</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1572123544504</updated>
+      <workItem from="1583589968186" duration="5116000" />
     </task>
     <task id="LOCAL-00003" summary="token require">
       <created>1572125298007</created>
@@ -512,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583532091011</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="change plan fully done">
+      <created>1583596846000</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1583596846000</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,7 +532,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="kassa notifications + refactoring" />
     <MESSAGE value="little refactor + kassa for other payments + requests table and end-points" />
     <MESSAGE value="resetbeforenewmonth fix" />
     <MESSAGE value="requests fix" />
@@ -557,6 +556,7 @@
     <MESSAGE value="fix user public error" />
     <MESSAGE value="changes in top and request price" />
     <MESSAGE value="change plan + refactoring in sign up" />
-    <option name="LAST_COMMIT_MESSAGE" value="change plan + refactoring in sign up" />
+    <MESSAGE value="change plan fully done" />
+    <option name="LAST_COMMIT_MESSAGE" value="change plan fully done" />
   </component>
 </project>

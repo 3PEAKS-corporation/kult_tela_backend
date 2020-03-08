@@ -12,6 +12,7 @@ const Room = {
         chats = chats.map(chat => {
           const user_id = chat.user_ids.filter(id => id !== userId)[0]
           delete chat.user_ids
+          if (chat.conversation === false) delete chat.conversation
 
           return {
             user_id,
@@ -65,7 +66,7 @@ const Room = {
           return {
             ...chat,
             user_status: SOCKETS_CHAT.isUser({ id: chat.user_id }),
-            messages: [last_message]
+            messages: last_message ? [last_message] : null
           }
         })
         return chats

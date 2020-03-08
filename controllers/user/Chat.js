@@ -7,15 +7,23 @@ const Chat = {
   async getById(req, res) {
     const { user_id } = req.params
     const currentUser = req.currentUser
+    const isConversation = (req.query.c == 'true' && true) || false
 
     if (
       !user_id ||
-      (isNaN(user_id) === true || parseInt(user_id) === currentUser.id)
+      (isNaN(user_id) === true ||
+        (parseInt(user_id) === currentUser.id && !isConversation))
     )
       return utils.response.error(res)
 
     let query = `SELECT * FROM chat_rooms WHERE user_ids @> ARRAY[${currentUser.id},${user_id}]`
     let values
+    //TODO: refactor for groups chat
+    if (isConversation) {
+      query = `SELECT * FROM chat_rooms WHERE id=${parseInt(user_id)}`
+    } else {
+      query = `SELECT * FROM chat_rooms WHERE user_ids @> ARRAY[${currentUser.id},${user_id}]`
+    }
 
     try {
       const { rows } = await db.query(query)
@@ -68,6 +76,7 @@ const Chat = {
         } else return utils.response.error(res, 'Пользователь не существует')
       }
     } catch (error) {
+      console.log(error)
       return utils.response.error(res, 'Ошибка загрузки чата')
     }
   },

@@ -6,6 +6,7 @@ const Notification = require('./Notification')
 
 const Common = {
   async getPublicUserData(userId) {
+    //TODO: сделать обработку массива если userId массив
     const query = `SELECT * FROM users_public WHERE id=$1 AND name IS NOT NULL`
     const values = [userId]
 

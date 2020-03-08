@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/Kassa/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Kassa/types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/Request.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/Request.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/user/Request.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/json/plans.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/plans.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/user/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/request.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -171,14 +169,7 @@
       <workItem from="1583411020207" duration="4151000" />
       <workItem from="1583525467876" duration="6575000" />
       <workItem from="1583589968186" duration="7514000" />
-      <workItem from="1583667979191" duration="13267000" />
-    </task>
-    <task id="LOCAL-00005" summary="auth done(except payment)">
-      <created>1572364266897</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1572364266897</updated>
+      <workItem from="1583667979191" duration="14243000" />
     </task>
     <task id="LOCAL-00006" summary="new table">
       <created>1572364291985</created>
@@ -516,7 +507,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583679550499</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="request get price">
+      <created>1583687812659</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1583687812659</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,7 +534,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="requests fix" />
     <MESSAGE value="latest data changes" />
     <MESSAGE value="admin structure started" />
     <MESSAGE value="auth for admin and requireAuth middleware reworked for admin" />
@@ -561,6 +558,7 @@
     <MESSAGE value="change plan fully done" />
     <MESSAGE value="change plan fixes for protection" />
     <MESSAGE value="controllers and routes refactoring + new features" />
-    <option name="LAST_COMMIT_MESSAGE" value="controllers and routes refactoring + new features" />
+    <MESSAGE value="request get price" />
+    <option name="LAST_COMMIT_MESSAGE" value="request get price" />
   </component>
 </project>

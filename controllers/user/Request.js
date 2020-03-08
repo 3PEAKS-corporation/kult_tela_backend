@@ -18,7 +18,7 @@ const getPrice = async user => {
       const { rows } = await db.query(query, values)
       const count = rows[0] ? parseInt(rows[0].count) : null
       if (typeof count === 'number') {
-        if (freeTimesForBestPlan - count !== 0)
+        if (freeTimesForBestPlan - count > 0)
           return { price: 0, free_times_left: freeTimesForBestPlan - count }
         else return { price: consultationPrice }
       }

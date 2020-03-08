@@ -5,5 +5,6 @@ const { requireAuth } = require('../../middleware')
 const router = Router()
 
 router.post('/request', requireAuth.userToken(), user.Request.add)
+router.get('/request', requireAuth.userToken(), user.Request.getPrice)
 
 module.exports = router

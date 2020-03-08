@@ -14,7 +14,7 @@ const switchTypes = async (userId, obj) => {
       if (obj.status === 'succeeded')
         await User.Notification.add(userId, {
           title:
-            'Оплата онлайн-консультации успешно принята, позже с вами свяжется администратор'
+            'Оплата онлайн-консультации успешно принята, позже с вами свяжется администратор!'
         })
     },
     PLAN_BUY: async () => {

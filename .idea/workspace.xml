@@ -2,52 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/user/Support.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/user/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/user/chat.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/user/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/user/public.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/user/top.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/Auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/Request.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/Request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/LogIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/LogIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Exercise.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Exercise.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Food.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Food.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Kassa/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Kassa/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Kassa/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Kassa/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Plan.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Plan.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Public.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Public.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/User/Subscription.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Subscription.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/User/Workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Workout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Kassa/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Kassa/types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Request.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Request.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/json/plans.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/plans.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/public.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/public.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/roles.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/roles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/chat.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/exercise.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/exercise.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/food.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/food.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/plan.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/plan.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/public.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/support.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/top.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/workout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/admin/Public.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/admin/Public.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Food.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Food.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Plan.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Plan.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Subscription.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Subscription.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Workout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/user/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/request.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -212,14 +171,7 @@
       <workItem from="1583411020207" duration="4151000" />
       <workItem from="1583525467876" duration="6575000" />
       <workItem from="1583589968186" duration="7514000" />
-      <workItem from="1583667979191" duration="9180000" />
-    </task>
-    <task id="LOCAL-00004" summary="refactor auth/user">
-      <created>1572189733549</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1572189733549</updated>
+      <workItem from="1583667979191" duration="13267000" />
     </task>
     <task id="LOCAL-00005" summary="auth done(except payment)">
       <created>1572364266897</created>
@@ -557,7 +509,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583597369899</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="controllers and routes refactoring + new features">
+      <created>1583679550499</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1583679550499</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -577,7 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="resetbeforenewmonth fix" />
     <MESSAGE value="requests fix" />
     <MESSAGE value="latest data changes" />
     <MESSAGE value="admin structure started" />
@@ -602,6 +560,7 @@
     <MESSAGE value="change plan + refactoring in sign up" />
     <MESSAGE value="change plan fully done" />
     <MESSAGE value="change plan fixes for protection" />
-    <option name="LAST_COMMIT_MESSAGE" value="change plan fixes for protection" />
+    <MESSAGE value="controllers and routes refactoring + new features" />
+    <option name="LAST_COMMIT_MESSAGE" value="controllers and routes refactoring + new features" />
   </component>
 </project>

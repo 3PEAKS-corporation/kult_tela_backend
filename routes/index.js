@@ -1,34 +1,26 @@
-const auth = require('./auth')
-const plan = require('./plan')
-const user = require('./user')
-const top = require('./top')
-const exercise = require('./exercise')
-const workout = require('./workout')
-const food = require('./food')
-const chat = require('./chat')
-const public_ = require('./public')
 const kassa = require('./kassa')
-const request = require('./request')
-
+const user = require('./user/')
 const admin = require('./admin/')
 
 const init = (app, io) => {
-  app.use(auth)
-  app.use(plan)
-  app.use(user)
-  app.use(top)
-  app.use(exercise)
-  app.use(workout)
-  app.use(food)
-  app.use(chat)
-  app.use(public_)
+  app.use(user.auth)
+  app.use(user.plan)
+  app.use(user.user)
+  app.use(user.top)
+  app.use(user.exercise)
+  app.use(user.workout)
+  app.use(user.food)
+  app.use(user.chat)
+  app.use(user.public)
+  app.use(user.request)
+  app.use(user.support)
+
   app.use(kassa)
-  app.use(request)
 
   app.use(admin.roles)
   app.use(admin.auth)
   app.use(admin.request)
-  app.use(admin.public_)
+  app.use(admin.public)
 }
 
 module.exports = {

@@ -1,5 +1,5 @@
-const { utils } = require('../../../services')
-const { User } = require('../../../utils')
+const { utils } = require('../../services')
+const { User } = require('../../utils')
 const { switchTypes } = require('./types')
 
 const kassaIps = [

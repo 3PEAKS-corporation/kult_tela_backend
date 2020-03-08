@@ -1,0 +1,9 @@
+const { Router } = require('express')
+const { user } = require('../../controllers')
+const { requireAuth } = require('../../middleware')
+
+const router = Router()
+
+router.post('/request', requireAuth.userToken(), user.Request.add)
+
+module.exports = router

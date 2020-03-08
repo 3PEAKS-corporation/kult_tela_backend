@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt')
 const { utils, db, token: _token } = require('../../../services')
 const { User } = require('../../../utils/')
-const { DATA } = require('../../../data/')
 
 const LogIn = {
   async login(req, res) {

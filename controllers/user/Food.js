@@ -9,7 +9,7 @@ const Food = {
     try {
       const { rows } = await db.query(query, values)
       const { menu_id, days_from_start } = rows[0]
-      const menu = copyDATA().food_menus.menus.filter(
+      const menu = copyDATA('food_menus').menus.filter(
         item => item.id === menu_id
       )[0]
 
@@ -31,7 +31,7 @@ const Food = {
   },
   async getTipsVideos(req, res) {
     const plan_id = req.currentUser.plan_id
-    const videos = copyDATA().food_tips_videos
+    const videos = copyDATA('food_tips_videos')
     let filtered_videos = [...videos.common]
     if (plan_id < 1) {
       filtered_videos = [

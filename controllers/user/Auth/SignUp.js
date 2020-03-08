@@ -46,7 +46,7 @@ const SignUp = {
     let query = `INSERT INTO users(email, plan_id) VALUES($1, $2) RETURNING id, email`
     let values = [email, plan_id]
 
-    const plans = copyDATA().plans
+    const plans = copyDATA('plans')
     const plan = plans.filter(e => parseInt(e.id) === parseInt(plan_id))[0]
 
     try {

@@ -1,13 +1,14 @@
-const { utils } = require('../../../services')
-const { User } = require('../../../utils')
+const { utils } = require('../../services')
+const { User } = require('../../utils')
 
 const switchTypes = async (userId, obj) => {
   const metadata = obj.metadata
   console.log(metadata)
   const types = {
     PLAN_EXTEND: async () => {
-      if (obj.status === 'succeeded')
-        return await User.Subscription.extend(userId, metadata.new_plan_id)
+      if (obj.status === 'succeeded') {
+        await User.Subscription.extend(userId, metadata.new_plan_id)
+      }
     },
     CONSULTATION_BUY: async () => {
       if (obj.status === 'succeeded')

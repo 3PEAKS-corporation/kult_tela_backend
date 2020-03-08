@@ -13,8 +13,9 @@ let DATA = {
   admin_roles: null
 }
 
-const copyDATA = () => {
-  return JSON.parse(JSON.stringify(DATA))
+const copyDATA = key => {
+  if (key && DATA[key]) return JSON.parse(JSON.stringify(DATA[key]))
+  else return JSON.parse(JSON.stringify(DATA))
 }
 
 const CONFIG = [

@@ -1,5 +1,4 @@
 const { utils, db } = require('../../services/')
-const { DATA } = require('../../data/')
 
 const Request = {
   getAll: (history = false) => async (req, res) => {

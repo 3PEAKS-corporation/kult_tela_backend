@@ -13,7 +13,7 @@ const Public = {
       const { rows } = await db.query(query, values)
       let user = rows[0]
       if (user && typeof user.id === 'number') {
-        const plans = copyDATA().plans
+        const plans = copyDATA('plans')
         user.plan_name = plans.filter(item => item.id === user.plan_id)[0].name
         user.avatar_src = utils.getImageUrl(user.avatar_src)
         return utils.response.success(res, user)

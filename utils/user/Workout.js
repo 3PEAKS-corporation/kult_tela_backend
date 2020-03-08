@@ -25,7 +25,7 @@ const Workout = {
       } else {
         let paymentsAmount = rows[0].plan_payments
         paymentsAmount = paymentsAmount - 1
-        let levels = copyDATA().workout_levels
+        let levels = copyDATA('workout_levels')
 
         if (paymentsAmount > 0) {
           for (

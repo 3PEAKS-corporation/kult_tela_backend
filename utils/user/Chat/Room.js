@@ -27,7 +27,7 @@ const Room = {
 
         const valid_uids = users.map(user => user.id)
 
-        const admin_role_names = copyDATA().admin_roles
+        const admin_role_names = copyDATA('admin_roles')
 
         chats = chats
           .filter(chat => valid_uids.includes(chat.user_id))

@@ -1,5 +1,5 @@
 const { db, utils } = require('../../services/')
-const { DATA } = require('./../../data/')
+const { copyDATA } = require('./../../data/')
 const Food = require('./Food')
 const Chat = require('./Chat')
 const Notification = require('./Notification')
@@ -48,7 +48,7 @@ const Common = {
           user.subscription_exp = user.subscription_exp_formatted
 
           user.avatar_src = utils.getImageUrl(user.avatar_src)
-          const plans = JSON.parse(JSON.stringify(DATA.plans))
+          const plans = copyDATA('plans')
 
           user.plan_name = plans.filter(
             item => item.id === user.plan_id

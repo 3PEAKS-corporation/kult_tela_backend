@@ -5,7 +5,7 @@ const { copyDATA } = require('../../../data/')
 const Subscription = {
   async extend(req, res) {
     const { plan_id } = req.body
-    const plans = copyDATA().plans
+    const plans = copyDATA('plans')
     const plan = plans.filter(e => parseInt(e.id) === plan_id)[0]
     const metadata = {
       type: 'PLAN_EXTEND',

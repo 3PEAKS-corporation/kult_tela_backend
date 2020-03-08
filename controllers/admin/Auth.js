@@ -1,6 +1,5 @@
 const { utils, db } = require('../../services/')
 const { env } = require('../../config/')
-const { DATA } = require('../../data/')
 const bcrypt = require('bcrypt')
 
 const SALT_ROUNDS = 10

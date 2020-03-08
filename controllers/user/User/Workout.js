@@ -1,5 +1,4 @@
 const { utils, db } = require('../../../services/')
-//const { DATA } = require('../../../data/')
 const { User } = require('../../../utils/')
 
 const Workout = {

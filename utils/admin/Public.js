@@ -14,9 +14,8 @@ const Public = {
       if (rows[0]) {
         let user = rows[0]
 
-        const DATA = copyDATA()
-        const plans = DATA.plans
-        const workout_levels = DATA.workout_levels
+        const plans = copyDATA('plans')
+        const workout_levels = copyDATA('workout_levels')
 
         user.plan_name = plans.filter(e => e.id === user.plan_id)[0].name
         user.name =

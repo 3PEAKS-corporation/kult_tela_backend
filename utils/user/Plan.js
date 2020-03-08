@@ -16,7 +16,7 @@ const Plan = {
       const { rows } = await db.query(query, values)
       let data = rows[0]
       if (data && typeof data.plan_id === 'number') {
-        const plans = copyDATA().plans
+        const plans = copyDATA('plans')
         const currentPrice = plans.filter(e => e.id === data.plan_id)[0].cost
         const newPlans = plans.map(e => {
           if (e.id > data.plan_id) {
@@ -49,7 +49,6 @@ const Plan = {
 
       const { rows } = await db.query(query, values)
       if (rows[0] && rows[0].bool) {
-        console.log(userId, newPlanId, info[0].current_plan_id)
         await Common.setUserDataByPlan(
           userId,
           newPlanId,

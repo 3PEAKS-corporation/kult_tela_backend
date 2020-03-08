@@ -29,7 +29,7 @@ const Chat = {
 
         if (typeof user.admin_role_id !== 'number') delete user.admin_role_id
         else {
-          const admin_role_names = copyDATA().admin_roles
+          const admin_role_names = copyDATA('admin_roles')
           user.admin_role_name = admin_role_names.filter(
             e => e.value === user.admin_role_id
           )[0].name
@@ -48,7 +48,16 @@ const Chat = {
         return utils.response.success(res, chat)
       } else {
         const user = await User.Common.getPublicUserData(user_id)
+
         if (user) {
+          if (typeof user.admin_role_id !== 'number') delete user.admin_role_id
+          else {
+            const admin_role_names = copyDATA('admin_roles')
+            user.admin_role_name = admin_role_names.filter(
+              e => e.value === user.admin_role_id
+            )[0].name
+          }
+
           const info = {
             user,
             user_id: user.id,

@@ -7,5 +7,5 @@ module.exports = {
   roles,
   auth,
   request,
-  public_
+  public: public_
 }

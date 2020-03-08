@@ -1,11 +1,11 @@
 const { Router } = require('express')
-const { User } = require('../controllers/')
+const { user } = require('../../controllers')
 const {
   requireAuth,
   imageUpload,
   requirePlan,
   imageCompression
-} = require('../middleware/')
+} = require('../../middleware')
 
 const router = Router()
 
@@ -13,13 +13,17 @@ const router = Router()
  * @UPDATES
  */
 
-router.post('/user/update/weight', requireAuth.userToken(), User.Weight.update)
+router.post(
+  '/user/update/weight',
+  requireAuth.userToken(),
+  user.User.Weight.update
+)
 router.post(
   '/user/update/info',
   requireAuth.userToken(),
   imageUpload.single('avatar_src'),
   imageCompression(false),
-  User.Common.updateInfo
+  user.User.Common.updateInfo
 )
 
 /**
@@ -29,7 +33,7 @@ router.post(
 router.get(
   '/user/notification/set-last-seen/:id',
   requireAuth.userToken(true),
-  User.Notification.setLastSeen
+  user.User.Notification.setLastSeen
 )
 
 /**
@@ -40,7 +44,7 @@ router.get(
   '/user/food/report',
   requireAuth.userToken(),
   requirePlan(1),
-  User.Food.getStateOfReport
+  user.User.Food.getStateOfReport
 )
 
 router.post(
@@ -49,7 +53,7 @@ router.post(
   requirePlan(1),
   imageUpload.array('images'),
   imageCompression(true),
-  User.Food.addReport
+  user.User.Food.addReport
 )
 
 /**
@@ -58,7 +62,7 @@ router.post(
 router.post(
   '/user/subscription/extend',
   requireAuth.userToken(true),
-  User.Subscription.extend
+  user.User.Subscription.extend
 )
 
 /**
@@ -69,14 +73,14 @@ router.get(
   '/user/tutor',
   requireAuth.userToken(),
   requirePlan(3),
-  User.Tutor.getAll
+  user.User.Tutor.getAll
 )
 
 router.post(
   '/user/tutor',
   requireAuth.userToken(),
   requirePlan(3),
-  User.Tutor.set
+  user.User.Tutor.set
 )
 
 module.exports = router

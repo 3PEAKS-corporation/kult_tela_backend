@@ -4,7 +4,7 @@ const { User } = require('../../utils/')
 
 const Plan = {
   getPublicInfo(req, res) {
-    return utils.response.success(res, copyDATA().plans)
+    return utils.response.success(res, copyDATA('plans'))
   }
 }
 

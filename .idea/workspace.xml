@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
+    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="request get price fix">
+      <change afterPath="$PROJECT_DIR$/data/json/tutors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tutors/limonova.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tutors/mamelina.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tutors/razvojaeva.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/admin/Email.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/Request.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/Request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/Auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/user/Request.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/User/Tutor.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Tutor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/data/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/chat_rooms.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/chat_rooms.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/user/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/email.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/email.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/admin/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Email.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Email.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,11 +63,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="Z:\development\kult_tela_backend\public\images" />
+      <recent name="Z:\development\kult_tela_backend\public" />
+      <recent name="Z:\development\kult_tela_backend\public\images\tutors" />
       <recent name="Z:\development\kult_tela_backend\routes\user" />
       <recent name="Z:\development\kult_tela_backend\controllers" />
-      <recent name="Z:\development\kult_tela_backend\routes" />
-      <recent name="Z:\development\kult_tela_backend\controllers\user" />
-      <recent name="Z:\development\kult_tela_backend\controllers\Kassa" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -169,14 +186,7 @@
       <workItem from="1583411020207" duration="4151000" />
       <workItem from="1583525467876" duration="6575000" />
       <workItem from="1583589968186" duration="7514000" />
-      <workItem from="1583667979191" duration="14243000" />
-    </task>
-    <task id="LOCAL-00006" summary="new table">
-      <created>1572364291985</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1572364291985</updated>
+      <workItem from="1583667979191" duration="20882000" />
     </task>
     <task id="LOCAL-00007" summary="fixes">
       <created>1572383586543</created>
@@ -514,7 +524,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583687812659</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="request get price fix">
+      <created>1583688859316</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1583688859316</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -534,7 +551,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="latest data changes" />
     <MESSAGE value="admin structure started" />
     <MESSAGE value="auth for admin and requireAuth middleware reworked for admin" />
     <MESSAGE value="admin token refactor + admin socket + messages refactor for admin to work" />
@@ -559,6 +575,7 @@
     <MESSAGE value="change plan fixes for protection" />
     <MESSAGE value="controllers and routes refactoring + new features" />
     <MESSAGE value="request get price" />
-    <option name="LAST_COMMIT_MESSAGE" value="request get price" />
+    <MESSAGE value="request get price fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="request get price fix" />
   </component>
 </project>

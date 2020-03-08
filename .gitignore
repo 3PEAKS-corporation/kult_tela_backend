@@ -16,7 +16,7 @@ build
 config.js
 
 docker-compose.yml
-public/
-
+public/images/*
+!public/tutors/
 .env
 index.html

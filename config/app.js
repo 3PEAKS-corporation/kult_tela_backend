@@ -19,7 +19,7 @@ module.exports = function() {
     app.use(compression())
     app.use(express.json())
     app.use(
-      env.IMAGES_FOLDER,
+      '/public',
       (req, res, next) => {
         res.set('Access-Control-Allow-Origin', '*')
         res.set('Access-Control-Allow-Headers', 'Content-Type,X-Requested-With')
@@ -28,7 +28,7 @@ module.exports = function() {
         res.type('application/json')
         next()
       },
-      express.static(process.cwd() + env.IMAGES_FOLDER)
+      express.static(process.cwd() + '/public')
     )
 
     initJsonData()

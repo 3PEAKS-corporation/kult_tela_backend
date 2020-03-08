@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "name": "Ирина Мамелина",
+    "description": "Подполковник похудения.\n Минус 50кг за 20 месяцев",
+    "img_src": "tutors/mamelina.jpg"
+  },
+  {
+    "id": 1,
+    "name": "Юлия Развозжаева",
+    "description": "Подполковник похудения.\n Минус 31кг за 6 месяцев",
+    "img_src": "tutors/razvojaeva.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Ольга Лимонова",
+    "description": "Подполковник похудения.\n Минус 30кг за 6 месяцев",
+    "img_src": "tutors/limonova.jpg"
+  }
+]

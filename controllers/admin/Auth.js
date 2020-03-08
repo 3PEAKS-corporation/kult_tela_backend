@@ -18,8 +18,7 @@ const Auth = {
         user.password,
         user.secret,
         user.email,
-        user.role_id,
-        user.description
+        user.role_id
       ])
     )
       return utils.response.error(res)
@@ -33,7 +32,7 @@ const Auth = {
       user.last_name,
       passwordHashed,
       user.role_id,
-      user.description
+      user.description || ''
     ]
 
     try {

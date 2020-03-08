@@ -1,5 +1,5 @@
 const { utils, db } = require('../../../services/')
-const { User } = require('../../../utils/')
+const { User, Admin } = require('../../../utils/')
 
 const Tutor = {
   async getAll(req, res) {
@@ -18,12 +18,13 @@ const Tutor = {
     const tutor_id = parseInt(req.body.tutor_id)
     if (typeof tutor_id !== 'number') return utils.response.error(res)
 
-    let query = `UPDATE users SET tutor_id=$1 WHERE id=$2 AND tutor_id IS NULL AND EXISTS(SELECT id FROM users WHERE id=$1 AND admin_role_id=2) RETURNING TRUE`
+    let query = `UPDATE users SET tutor_id=$1 WHERE id=$2 AND tutor_id IS NULL AND EXISTS(SELECT id FROM users WHERE id=$1 AND admin_role_id=2) RETURNING (SELECT email FROM users WHERE id=$1)`
     let values = [tutor_id, parseInt(req.currentUser.id)]
 
     try {
       const { rows } = await db.query(query, values)
-      if (rows[0] && rows[0].bool) {
+      if (rows[0] && rows[0].email) {
+        const tutorEmail = rows[0].email
         await User.Chat.Message.initRoomWithMessage({
           fromUserId: tutor_id,
           toUserId: parseInt(req.currentUser.id),
@@ -35,6 +36,7 @@ const Tutor = {
             'Вам доступен персональный наставник. Связаться с ним можно в разделе "Сообщения"',
           url: '/messages'
         })
+        await Admin.Email.newStudent(tutorEmail)
         return utils.response.success(res, { tutor_id: tutor_id })
       } else throw 'to catch'
     } catch (e) {

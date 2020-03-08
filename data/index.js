@@ -40,6 +40,10 @@ const CONFIG = [
   {
     name: 'admin_roles',
     file: 'admin_roles.json'
+  },
+  {
+    name: 'tutors',
+    file: 'tutors.json'
   }
 ]
 

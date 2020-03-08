@@ -1,5 +1,6 @@
 const { utils, db, kassa } = require('../../services/')
 const { User } = require('../../utils/')
+const { copyDATA } = require('../../data/')
 
 const consultationPrice = 960
 const freeTimesForBestPlan = 2
@@ -110,9 +111,15 @@ const Request = {
       )
     }
   },
-  async getPrice(req, res) {
+  async getInfo(req, res) {
     const info = await getPrice(req.currentUser)
-    return utils.response.success(res, info)
+    return utils.response.success(res, {
+      tutors: copyDATA('tutors').map(e => {
+        e.img_src = utils.getImageUrl(e.img_src, 'public')
+        return e
+      }),
+      price: info
+    })
   }
 }
 

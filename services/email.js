@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer')
 const { env } = require('../config/')
 
-var transporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
   service: 'Yandex',
   auth: {
     user: env.EMAIL,

@@ -98,8 +98,7 @@ const Room = {
             const { rows: messages } = await db.query(query, values)
 
             if (messages.length < 40) chats[0].history_is_full = true
-            if (messages.length === 0 || !messages)
-              chats[0].chat_is_empty = true
+            if (messages.length === 0 || !messages) chats[0].is_empty = true
 
             chats[0].messages = messages.reverse().map(e => {
               delete e.room_id
@@ -131,6 +130,7 @@ const Room = {
         }
       }
     } catch (e) {
+      console.log(e)
       return null
     }
   }

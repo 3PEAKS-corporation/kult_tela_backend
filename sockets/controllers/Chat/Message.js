@@ -15,44 +15,44 @@ const Message = (io, socket) => {
         let message = {
           fromUserId: socket.currentUser.id,
           toUserId: to_user_id,
-          text: data.text
+          text: data.text,
+          roomId: data.room_id
         }
-        //TODO: починить под новую структруу данных
         try {
-          let message_id = await User.Chat.Message.addMessage(message)
-
-          let roomInited = false
-          if (message_id === null) {
-            roomInited = true
-            message_id = await User.Chat.Message.initRoomWithMessage(message)
-          } else if (message_id === false) {
-            socket.emit('chat_room_locked', { room_id: data.room_id })
-            return
-          }
-
-          if (typeof message_id === 'number') {
+          let info = await User.Chat.Message.addMessage(message)
+          console.log(info)
+          if (info && typeof info.message_id === 'number') {
             let query = `SELECT * FROM chat_messages_formatted WHERE id=$1`
-            let values = [message_id]
+            let values = [info.message_id]
 
             const { rows } = await db.query(query, values)
-            const dbMessage = rows[0]
+            let dbMessage = rows[0]
 
             if (dbMessage) {
-              const event = roomInited ? 'chat_message_init' : 'chat_message'
+              const event = info.inited ? 'chat_message_init' : 'chat_message'
 
-              if (roomInited) dbMessage.user_id = to_user_id
+              if (info.inited) {
+                let dbMessageTo = JSON.parse(JSON.stringify(dbMessage))
+                dbMessageTo.user_id = to_user_id
 
-              const to_cur_user = SOCKETS_CHAT.getUser({
-                id: socket.currentUser.id
-              })
-              if (to_cur_user)
-                io.emitArray(to_cur_user.sockets, event, dbMessage)
-
-              const to_user = SOCKETS_CHAT.getUser({ id: to_user_id })
-
-              if (to_user) {
-                if (roomInited) dbMessage.user_id = socket.currentUser.id
-                if (to_user) io.emitArray(to_user.sockets, event, dbMessage)
+                info.user_ids.forEach(id => {
+                  const sock = SOCKETS_CHAT.getUser({
+                    id: id
+                  })
+                  if (sock)
+                    io.emitArray(
+                      sock.sockets,
+                      event,
+                      id === message.fromUserId ? dbMessageTo : dbMessage
+                    )
+                })
+              } else {
+                info.user_ids.forEach(id => {
+                  const sock = SOCKETS_CHAT.getUser({
+                    id: id
+                  })
+                  if (sock) io.emitArray(sock.sockets, event, dbMessage)
+                })
               }
             }
           }

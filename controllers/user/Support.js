@@ -14,7 +14,7 @@ const Support = {
         if (rows.length === 1)
           return utils.response.success(res, { id: rows[0].id })
         else if (rows.length > 1) {
-          const id = rows[Math.floor(Math.random() * rows.length)]
+          const id = rows[Math.floor(Math.random() * rows.length)].id
           return utils.response.success(res, { id })
         }
       }

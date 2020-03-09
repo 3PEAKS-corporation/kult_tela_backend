@@ -8,6 +8,7 @@ const Message = (io, socket) => {
   return {
     async message(data) {
       console.log('[chat_message]')
+      console.log(data)
       const to_user_id = data.to_user_id
 
       if (to_user_id) {
@@ -16,7 +17,7 @@ const Message = (io, socket) => {
           toUserId: to_user_id,
           text: data.text
         }
-
+        //TODO: починить под новую структруу данных
         try {
           let message_id = await User.Chat.Message.addMessage(message)
 

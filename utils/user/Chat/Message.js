@@ -38,18 +38,21 @@ const Messages = {
       return null
     }
   },
-  async addMessage({ fromUserId, toUserId, text }, returnMessageId = true) {
-    const isAllowed = await Protection.isMessageAllowed(fromUserId, toUserId)
-    if (!isAllowed) return false
+  async addMessage({ fromUserId, toUserId, text }, returnMeta = true) {
+    if (typeof fromUserId === 'number' && typeof toUserId === 'number') {
+      const isAllowed = await Protection.isMessageAllowed(fromUserId, toUserId)
+      if (!isAllowed) return false
+    }
 
     text = formatChatText(text)
-    const query = `INSERT INTO chat_messages(user_id, room_id, text) VALUES(${fromUserId}, (SELECT id FROM chat_rooms where user_ids @> ARRAY[$1::int[]]), $2) RETURNING id`
-
+    const query = `INSERT INTO chat_messages(user_id, room_id, text) VALUES(${fromUserId}, (SELECT id FROM chat_rooms where user_ids @> ARRAY[$1::int[]]), $2) RETURNING id, user_ids`
     const values = [[fromUserId, toUserId], text]
 
     try {
       const data = await db.query(query, values)
-      return returnMessageId === true ? data.rows[0].id : true
+      return returnMeta === true && data.rows[0]
+        ? { message_id: data.rows[0].id, user_ids: data.rows[0].user_ids }
+        : true
     } catch (error) {
       return null
     }

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
+    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="chat refactoring for conversation started">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/user/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/chat_rooms.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/chat_rooms.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Support.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Support.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/User/Weight.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Weight.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Message.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/user/Chat/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Room.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/user/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Common.js" afterDir="false" />
     </list>
@@ -171,14 +174,9 @@
       <workItem from="1583411020207" duration="4151000" />
       <workItem from="1583525467876" duration="6575000" />
       <workItem from="1583589968186" duration="7514000" />
-      <workItem from="1583667979191" duration="24485000" />
-    </task>
-    <task id="LOCAL-00008" summary="fix public folder">
-      <created>1572421660150</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1572421660150</updated>
+      <workItem from="1583667979191" duration="24618000" />
+      <workItem from="1583741796720" duration="681000" />
+      <workItem from="1583757032781" duration="17821000" />
     </task>
     <task id="LOCAL-00009" summary="fix login">
       <created>1572472642867</created>
@@ -516,7 +514,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583699213636</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="chat refactoring for conversation started">
+      <created>1583705850412</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1583705850412</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,7 +541,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="auth for admin and requireAuth middleware reworked for admin" />
     <MESSAGE value="admin token refactor + admin socket + messages refactor for admin to work" />
     <MESSAGE value="init message protect" />
     <MESSAGE value="menu plan setter refactored to last updates of tt" />
@@ -561,6 +565,7 @@
     <MESSAGE value="request get price" />
     <MESSAGE value="request get price fix" />
     <MESSAGE value="emails to tutors and diets / new public folder / emailGenerator" />
-    <option name="LAST_COMMIT_MESSAGE" value="emails to tutors and diets / new public folder / emailGenerator" />
+    <MESSAGE value="chat refactoring for conversation started" />
+    <option name="LAST_COMMIT_MESSAGE" value="chat refactoring for conversation started" />
   </component>
 </project>

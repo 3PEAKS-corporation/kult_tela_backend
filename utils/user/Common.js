@@ -1,12 +1,11 @@
 const { db, utils } = require('../../services/')
 const { copyDATA } = require('./../../data/')
 const Food = require('./Food')
-const Chat = require('./Chat')
+const InitRooms = require('./Chat/InitRooms')
 const Notification = require('./Notification')
 
 const Common = {
   async getPublicUserData(userId) {
-    //TODO: сделать обработку массива если userId массив
     const query = `SELECT * FROM users_public WHERE id=$1 AND name IS NOT NULL`
     const values = [userId]
 
@@ -85,7 +84,7 @@ const Common = {
   },
   async setUserDataByPlan(userId, planId, fromPlanId = false) {
     if (planId > 1 && (!fromPlanId || fromPlanId < 2)) {
-      const dietolog = await Chat.InitRooms.withDietolog(userId)
+      const dietolog = await InitRooms.withDietolog(userId)
       if (dietolog)
         await Notification.add(userId, {
           title:

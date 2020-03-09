@@ -7,8 +7,10 @@ const Weight = {
     if (!new_weight) return utils.response.error(res)
 
     const r = await User.Weight.addToHistory(req.currentUser.id, new_weight)
-    if (r) return utils.response.success(res, r)
-    else return utils.response.error(res, 'Не удалось обновить вес')
+    if (r) {
+      await User.Food.setCurrentFoodMenu(parseInt(req.currentUser.id))
+      return utils.response.success(res, r)
+    } else return utils.response.error(res, 'Не удалось обновить вес')
   }
 }
 

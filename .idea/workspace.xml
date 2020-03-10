@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="chat refactoring almost done //sockets left">
+    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="sockets refactored for new chat .2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/User/Tutor.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Tutor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Room.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -172,14 +173,8 @@
       <workItem from="1583589968186" duration="7514000" />
       <workItem from="1583667979191" duration="24618000" />
       <workItem from="1583741796720" duration="681000" />
-      <workItem from="1583757032781" duration="24300000" />
-    </task>
-    <task id="LOCAL-00010" summary="users table enhancements + function">
-      <created>1572558466842</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1572558466842</updated>
+      <workItem from="1583757032781" duration="24567000" />
+      <workItem from="1583849741444" duration="2746000" />
     </task>
     <task id="LOCAL-00011" summary="exercises implemented + refactoring">
       <created>1580756867538</created>
@@ -517,7 +512,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583784093841</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="sockets refactored for new chat">
+      <created>1583791461112</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1583791461112</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,7 +539,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="init message protect" />
     <MESSAGE value="menu plan setter refactored to last updates of tt" />
     <MESSAGE value="messages protection for both init and normal msgs" />
     <MESSAGE value="data upd + fixes in sockets" />
@@ -562,6 +563,7 @@
     <MESSAGE value="emails to tutors and diets / new public folder / emailGenerator" />
     <MESSAGE value="chat refactoring for conversation started" />
     <MESSAGE value="chat refactoring almost done //sockets left" />
-    <option name="LAST_COMMIT_MESSAGE" value="chat refactoring almost done //sockets left" />
+    <MESSAGE value="sockets refactored for new chat" />
+    <option name="LAST_COMMIT_MESSAGE" value="sockets refactored for new chat" />
   </component>
 </project>

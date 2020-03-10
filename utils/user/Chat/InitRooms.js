@@ -11,7 +11,7 @@ const InitRooms = {
       const { rows } = await db.query(query)
       const dietolog = rows[0]
       if (dietolog) {
-        await Message.initRoomWithMessage({
+        await Message.addMessage({
           fromUserId: dietolog.id,
           toUserId: userId,
           text:

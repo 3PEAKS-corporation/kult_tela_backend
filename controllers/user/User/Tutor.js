@@ -25,7 +25,7 @@ const Tutor = {
       const { rows } = await db.query(query, values)
       if (rows[0] && rows[0].email) {
         const tutorEmail = rows[0].email
-        await User.Chat.Message.initRoomWithMessage({
+        await User.Chat.Message.addMessage({
           fromUserId: tutor_id,
           toUserId: parseInt(req.currentUser.id),
           text:

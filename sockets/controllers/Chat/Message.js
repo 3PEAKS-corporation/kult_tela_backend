@@ -20,7 +20,7 @@ const Message = (io, socket) => {
         }
         try {
           let info = await User.Chat.Message.addMessage(message)
-          console.log(info)
+
           if (info && typeof info.message_id === 'number') {
             let query = `SELECT * FROM chat_messages_formatted WHERE id=$1`
             let values = [info.message_id]
@@ -55,6 +55,8 @@ const Message = (io, socket) => {
                 })
               }
             }
+          } else {
+            socket.emit('chat_room_locked', { room_id: data.room_id })
           }
         } catch (error) {}
       }

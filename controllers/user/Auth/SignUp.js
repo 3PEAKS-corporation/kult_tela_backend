@@ -116,7 +116,6 @@ const SignUp = {
 
     try {
       let isOk = await isHashAndPaymentDone(hash)
-      console.log('isok, ', isOk)
 
       if (isOk.success === true) {
         let query = `SELECT email FROM users WHERE id=$1`
@@ -167,7 +166,8 @@ const SignUp = {
       return utils.response.error(res)
 
     try {
-      const isOk = await isHashAndPaymentDone(hash)
+      let isOk = await isHashAndPaymentDone(hash)
+      isOk.user_id = parseInt(isOk.user_id)
 
       if (isOk.success === true && isOk.status === 'succeeded') {
         const passwordHashed = await bcrypt.hash(password, SALT_ROUNDS)
@@ -189,9 +189,12 @@ const SignUp = {
         const { rows } = await db.query(query, values)
         if (rows[0].bool === true) {
           const plan_id = rows[0].plan_id
-          query = `UPDATE signup_info SET used=TRUE WHERE hash=$1 RETURNING TRUE`
-          values = [hash]
-          const { rows: result } = await db.query(query, values)
+          query = `UPDATE signup_info SET used=TRUE WHERE hash='${hash}' RETURNING TRUE;
+          UPDATE chat_rooms SET user_ids = user_ids || ${isOk.user_id} WHERE name='Курилка за казармой (беседа)' AND NOT (${isOk.user_id}=ANY(user_ids))`
+
+          const data = await db.query(query)
+          const result = data[0].rows
+
           if (result[0].bool === true) {
             await User.Photo.add(isOk.user_id, avatar_src.filename, 'AVATAR')
             await User.Notification.add(isOk.user_id, {
@@ -199,7 +202,7 @@ const SignUp = {
             })
             await User.History.add(isOk.user_id, 'SIGNUP')
             await User.Weight.addToHistory(isOk.user_id, weight_start)
-            await User.Common.setUserDataByPlan(parseInt(isOk.user_id), plan_id)
+            await User.Common.setUserDataByPlan(isOk.user_id, plan_id)
 
             return utils.response.success(res)
           } else utils.response.error(res, 'Произошла ошибка, попробуйте позже')
@@ -210,7 +213,6 @@ const SignUp = {
           'Платеж не обработан или завершен отказом'
         )
     } catch (error) {
-      console.log(error)
       return utils.response.error(res, 'Не удалось изменить данные')
     }
   }

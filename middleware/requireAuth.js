@@ -15,8 +15,8 @@ const requireAuth = {
          */
         if (!user.plan_id && typeof user.admin_role_id === 'number') {
           req.currentUser = {
-            id: user.id,
-            admin_role_id: user.admin_role_id,
+            id: parseInt(user.id),
+            admin_role_id: parseInt(user.admin_role_id),
             admin: true
           }
           return next()
@@ -28,8 +28,8 @@ const requireAuth = {
            * @USER auth
            */
           req.currentUser = {
-            id: user.id,
-            plan_id: user.plan_id
+            id: parseInt(user.id),
+            plan_id: parseInt(user.plan_id)
           }
           return next()
         } else if (user.is_subscription === false) {

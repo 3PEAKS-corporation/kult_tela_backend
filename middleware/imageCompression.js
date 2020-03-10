@@ -11,8 +11,9 @@ function imageCompression(array = false) {
           .autoOrient()
           .compress('JPEG')
           .write('.' + env.IMAGES_FOLDER + '/' + filename, err => {
-            if (err) console.log(err)
+            if (err) console.log('ERRR', err)
           })
+        next()
       } else {
         let res = true
         req.files.forEach(file => {
@@ -25,9 +26,9 @@ function imageCompression(array = false) {
               if (err) console.log(err)
             })
         })
+        next()
       }
     }
-    next()
   }
 }
 

@@ -8,6 +8,7 @@ const Message = (io, socket) => {
   return {
     async message(data) {
       console.log('[chat_message]')
+      console.log(data)
       const to_user_id = data.to_user_id
 
       if (typeof to_user_id === 'number' || typeof data.room_id === 'number') {
@@ -15,7 +16,8 @@ const Message = (io, socket) => {
           fromUserId: socket.currentUser.id,
           toUserId: to_user_id,
           text: data.text,
-          roomId: data.room_id
+          roomId: data.room_id,
+          attachments: data.attachments || null
         }
         try {
           console.log('info')

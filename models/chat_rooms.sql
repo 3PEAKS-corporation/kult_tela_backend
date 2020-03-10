@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS chat_rooms (
   user_ids INTEGER[] DEFAULT '{}',
   last_seen_message_id INTEGER DEFAULT NULL,
   name VARCHAR DEFAULT NULL,
-  conversation BOOLEAN DEFAULT FALSE
+  conversation BOOLEAN DEFAULT FALSE,
+  image_src VARCHAR DEFAULT NULL
 );
 INSERT INTO chat_rooms(name, conversation) VALUES('Курилка за казармой (беседа)', true);

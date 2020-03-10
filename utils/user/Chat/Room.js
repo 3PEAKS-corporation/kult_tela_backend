@@ -63,6 +63,8 @@ const Room = {
             return e
           })
           if (!chat.conversation) delete chat.conversation
+          if (chat.image_src) chat.image_src = utils.getImageUrl(chat.image_src)
+          else delete chat.image_src
           return chat
         })
 

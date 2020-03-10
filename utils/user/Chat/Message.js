@@ -32,7 +32,9 @@ const Messages = {
         throw 'init room'
       }
     } catch (error) {
+      console.log('US', fromUserId, toUserId, text)
       const r = await initRoomWithMessage({ fromUserId, toUserId, text })
+      console.log(r)
       if (r) {
         return { ...r, inited: true }
       } else return null
@@ -54,12 +56,11 @@ const initRoomWithMessage = async (
 
   const uids = fromUserId + ',' + toUserId
 
-  console.log('uids', uids)
   let query = `SELECT id, admin_role_id, plan_id FROM users WHERE id IN (${uids});`
   try {
     text = formatChatText(text)
     query = `INSERT INTO chat_rooms(user_ids)VALUES (ARRAY[${uids}]) RETURNING user_ids;
-                  INSERT INTO chat_messages(user_id, room_id, text) VALUES(${fromUserId}, (SELECT id FROM chat_rooms where user_ids @> ARRAY[${uids}]), '${text}') RETURNING id`
+                  INSERT INTO chat_messages(user_id, room_id, text) VALUES(${fromUserId}, (SELECT id FROM chat_rooms where user_ids @> ARRAY[${uids}] AND conversation=false), '${text}') RETURNING id`
 
     const data = await db.query(query)
 

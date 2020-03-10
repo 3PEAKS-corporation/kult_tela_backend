@@ -8,10 +8,9 @@ const Message = (io, socket) => {
   return {
     async message(data) {
       console.log('[chat_message]')
-      console.log(data)
       const to_user_id = data.to_user_id
 
-      if (to_user_id) {
+      if (typeof to_user_id === 'number' || typeof data.room_id === 'number') {
         let message = {
           fromUserId: socket.currentUser.id,
           toUserId: to_user_id,
@@ -19,7 +18,9 @@ const Message = (io, socket) => {
           roomId: data.room_id
         }
         try {
+          console.log('info')
           let info = await User.Chat.Message.addMessage(message)
+          console.log('info', info)
 
           if (info && typeof info.message_id === 'number') {
             let query = `SELECT * FROM chat_messages_formatted WHERE id=$1`
@@ -58,7 +59,9 @@ const Message = (io, socket) => {
           } else {
             socket.emit('chat_room_locked', { room_id: data.room_id })
           }
-        } catch (error) {}
+        } catch (error) {
+          console.log(error)
+        }
       }
     }
   }

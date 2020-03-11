@@ -102,8 +102,15 @@ const Room = {
             if (messages.length < 40) chats[0].history_is_full = true
             if (messages.length === 0 || !messages) chats[0].is_empty = true
 
+            //// TODO: выделить это в отдельную функцию сборки сообщений [2]
             chats[0].messages = messages.reverse().map(e => {
               delete e.room_id
+              if (e.attachments) {
+                e.attachments = e.attachments.map(a => {
+                  a.src = utils.getImageUrl(a.src)
+                  return a
+                })
+              }
               return e
             })
           }

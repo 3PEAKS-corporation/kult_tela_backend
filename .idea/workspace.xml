@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/imageCompression.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/imageCompression.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/requireAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/requireAuth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/chat_messages.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/chat_messages.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/user/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/User/Tutor.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Tutor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/plans.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/plans.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/workout_levels.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/workout_levels.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/user/Chat/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Room.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -177,14 +176,8 @@
       <workItem from="1583667979191" duration="24618000" />
       <workItem from="1583741796720" duration="681000" />
       <workItem from="1583757032781" duration="24567000" />
-      <workItem from="1583849741444" duration="14711000" />
-    </task>
-    <task id="LOCAL-00013" summary="workout output">
-      <created>1581002111132</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1581002111132</updated>
+      <workItem from="1583849741444" duration="16640000" />
+      <workItem from="1583912081824" duration="3224000" />
     </task>
     <task id="LOCAL-00014" summary="workouts almost done + fixes">
       <created>1581017628536</created>
@@ -522,7 +515,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583861281995</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="chat attachments//need refactoring">
+      <created>1583876143766</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1583876143766</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -542,7 +542,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="data upd + fixes in sockets" />
     <MESSAGE value="tutor endpoint + request managing for admin" />
     <MESSAGE value="init rooms" />
     <MESSAGE value="public user info for admin" />
@@ -567,6 +566,7 @@
     <MESSAGE value="sockets refactored for new chat" />
     <MESSAGE value="fix for latest messages refactor" />
     <MESSAGE value="STABLE v0.99 / group chats ++" />
-    <option name="LAST_COMMIT_MESSAGE" value="STABLE v0.99 / group chats ++" />
+    <MESSAGE value="chat attachments//need refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="chat attachments//need refactoring" />
   </component>
 </project>

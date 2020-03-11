@@ -1,5 +1,5 @@
 const { requireAuth } = require('../../middleware/')
-const { db } = require('../../../services/')
+const { db, utils } = require('../../../services/')
 const { User } = require('../../../utils/')
 
 const { SOCKETS_CHAT } = require('../../models/')
@@ -32,7 +32,14 @@ const Message = (io, socket) => {
             let dbMessage = rows[0]
 
             if (dbMessage) {
+              // TODO: выделить это в отдельную функцию сборки сообщений [1]
               const event = info.inited ? 'chat_message_init' : 'chat_message'
+              if (dbMessage.attachments) {
+                dbMessage.attachments = dbMessage.attachments.map(e => {
+                  e.src = utils.getImageUrl(e.src)
+                  return e
+                })
+              }
 
               if (info.inited) {
                 let dbMessageTo = JSON.parse(JSON.stringify(dbMessage))

@@ -24,6 +24,7 @@ const Messages = {
 
     text = formatChatText(text)
     let query, values
+    //TODO: отрефакторить до приемлемого вида
     if (
       !attachments ||
       !attachments[0] ||
@@ -39,7 +40,7 @@ const Messages = {
     $3, 
     array_append('{}', jsonb_build_object(
     'type', $4::varchar,
-    'image_src', $5::varchar
+    'src', $5::varchar
     )::jsonb)) RETURNING id, (SELECT user_ids FROM chat_rooms WHERE user_ids @> ARRAY[$1::int[]] AND id=$2)`
       values = [
         [fromUserId],
@@ -72,6 +73,7 @@ const Messages = {
   }
 }
 
+//TODO: поддержка вложения в ините
 const initRoomWithMessage = async (
   { fromUserId, toUserId, text },
   returnMeta = true
@@ -89,6 +91,7 @@ const initRoomWithMessage = async (
   let query = `SELECT id, admin_role_id, plan_id FROM users WHERE id IN (${uids});`
   try {
     text = formatChatText(text)
+    //TODO сделать отдельно только создание chat_room, отправка сообщения в другой функции
     query = `INSERT INTO chat_rooms(user_ids)VALUES (ARRAY[${uids}]) RETURNING user_ids;
                   INSERT INTO chat_messages(user_id, room_id, text) VALUES(${fromUserId}, (SELECT id FROM chat_rooms where user_ids @> ARRAY[${uids}] AND conversation=false), '${text}') RETURNING id`
 

@@ -7,6 +7,7 @@ const SALT_ROUNDS = 10
 const Auth = {
   async signUp(req, res) {
     const user = req.body
+    const file = req.file
 
     if (user.secret !== env.ADMIN_SECRET)
       return utils.response.error(res, 'Секретный код неправильный')
@@ -25,14 +26,15 @@ const Auth = {
 
     const passwordHashed = await bcrypt.hash(user.password, SALT_ROUNDS)
 
-    const query = `INSERT INTO users(email, first_name, last_name, password, admin_role_id, admin_description) VALUES($1, $2, $3, $4, $5, $6)`
+    const query = `INSERT INTO users(email, first_name, last_name, password, admin_role_id, admin_description, avatar_src) VALUES($1, $2, $3, $4, $5, $6, $7)`
     const values = [
       user.email,
       user.first_name,
       user.last_name,
       passwordHashed,
       user.role_id,
-      user.description || ''
+      user.description || '',
+      file.filename || ''
     ]
 
     try {

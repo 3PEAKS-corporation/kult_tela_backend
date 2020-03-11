@@ -28,7 +28,7 @@ function imageCompression(array = false) {
         })
         next()
       }
-    }
+    } else next()
   }
 }
 

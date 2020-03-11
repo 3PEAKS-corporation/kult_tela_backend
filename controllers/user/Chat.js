@@ -7,11 +7,15 @@ const path = require('path')
 
 const Chat = {
   async getById(req, res) {
+    console.log('body', req.params)
     const user_id = parseInt(req.params.user_id)
     const currentUser = req.currentUser
     const isConversation = (req.query.c == 'true' && true) || false
 
-    if (typeof user_id !== 'number' || user_id === currentUser.id)
+    if (
+      typeof user_id !== 'number' ||
+      (user_id === currentUser.id && !isConversation)
+    )
       return utils.response.error(res, 'Чат не существует!')
 
     let meta = { all: false }

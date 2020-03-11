@@ -3,11 +3,18 @@ const { User, Admin } = require('../../../utils/')
 
 const Tutor = {
   async getAll(req, res) {
-    const query = `SELECT id, first_name || ' ' || last_name as name, admin_description FROM users WHERE admin_role_id = 2`
+    const query = `SELECT id, first_name || ' ' || last_name as name, admin_description, avatar_src FROM users WHERE admin_role_id = 2`
     try {
-      const { rows } = await db.query(query)
+      let { rows } = await db.query(query)
+      if (rows) {
+        rows = rows.map(e => {
+          e.avatar_src = utils.getImageUrl(e.avatar_src)
+          return e
+        })
+      }
       return utils.response.success(res, rows)
     } catch (e) {
+      console.log(e)
       return utils.response.error(
         res,
         'Не удалось загрузить наставников, попробуйте позже'
@@ -30,7 +37,7 @@ const Tutor = {
           toUserId: parseInt(req.currentUser.id),
           text:
             '\n' +
-            'Здравия желаю! С сегодняшнего дня я являюсь вашим персональным диетологом! По любым вопросам касательно питания - можете спрашивать меня! У нас чат тет-а-тет. Рекомендую также высылать отчеты по питанию!'
+            'Здравия желаю, солдат! С сегодняшнего дня - я ваш персональный наставник! Давайте же пройдем этот путь вместе!'
         })
         await User.Notification.add(req.currentUser.id, {
           title:

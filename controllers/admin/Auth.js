@@ -34,8 +34,10 @@ const Auth = {
       passwordHashed,
       user.role_id,
       user.description || '',
-      file.filename || ''
+      file ? file.filename : ''
     ]
+
+    //TODO что то мешает зарегаться если нет фото
 
     try {
       await db.query(query, values)

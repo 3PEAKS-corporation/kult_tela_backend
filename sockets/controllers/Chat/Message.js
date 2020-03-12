@@ -20,9 +20,7 @@ const Message = (io, socket) => {
           attachments: data.attachments || null
         }
         try {
-          console.log('info')
           let info = await User.Chat.Message.addMessage(message)
-          console.log('info', info)
 
           if (info && typeof info.message_id === 'number') {
             let query = `SELECT * FROM chat_messages_formatted WHERE id=$1`

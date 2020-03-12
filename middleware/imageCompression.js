@@ -12,8 +12,8 @@ function imageCompression(array = false) {
           .compress('JPEG')
           .write('.' + env.IMAGES_FOLDER + '/' + filename, err => {
             if (err) console.log('ERRR', err)
+            next()
           })
-        next()
       } else {
         let res = true
         req.files.forEach(file => {

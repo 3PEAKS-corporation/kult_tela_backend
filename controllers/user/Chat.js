@@ -7,7 +7,6 @@ const path = require('path')
 
 const Chat = {
   async getById(req, res) {
-    console.log('body', req.params)
     const user_id = parseInt(req.params.user_id)
     const currentUser = req.currentUser
     const isConversation = (req.query.c == 'true' && true) || false
@@ -98,8 +97,6 @@ async function isUploadAllowed(fromUserId, toUserId) {
     data[0] && data[0].rows[0] ? parseInt(data[0].rows[0].count) : null
   const adminRoleId =
     data[1] && data[1].rows[0] ? parseInt(data[1].rows[0].admin_role_id) : null
-
-  console.log('role', typeof adminRoleId)
 
   if (typeof adminRoleId !== 'number' || isNaN(adminRoleId)) {
     return { access: false }

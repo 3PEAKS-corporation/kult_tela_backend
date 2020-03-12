@@ -13,7 +13,9 @@ const Common = {
       const { rows } = await db.query(query, values)
       const user = rows[0]
       if (user) {
-        user.avatar_src = utils.getImageUrl(user.avatar_src)
+        if (user.avatar_src)
+          user.avatar_src = utils.getImageUrl(user.avatar_src)
+        else delete user.avatar_src
         if (typeof user.admin_role_id !== 'number') delete user.admin_role_id
         return user
       } else return null

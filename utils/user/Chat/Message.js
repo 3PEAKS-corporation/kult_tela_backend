@@ -16,7 +16,6 @@ const Messages = {
     { fromUserId, toUserId, roomId, text, attachments },
     returnMeta = true
   ) {
-    console.log('inside', attachments)
     if (typeof fromUserId === 'number' && typeof toUserId === 'number') {
       const isAllowed = await Protection.isMessageAllowed(fromUserId, toUserId)
       if (!isAllowed) return false
@@ -53,7 +52,6 @@ const Messages = {
 
     try {
       const data = await db.query(query, values)
-      console.log('rows', data.rows)
       if (data.rows[0]) {
         const message_id = data.rows[0] && data.rows[0].id
         return returnMeta === true && data.rows[0]
@@ -63,9 +61,7 @@ const Messages = {
         throw 'init room'
       }
     } catch (error) {
-      console.log(error)
       const r = await initRoomWithMessage({ fromUserId, toUserId, text })
-      console.log(r)
       if (r) {
         return { ...r, inited: true }
       } else return null

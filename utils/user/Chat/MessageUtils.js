@@ -21,7 +21,6 @@ const MessageUtils = {
 
     try {
       const { rows: messages } = await db.query(query, values)
-      console.log('asdas:', values)
       return messages.reverse()
     } catch (error) {
       return false

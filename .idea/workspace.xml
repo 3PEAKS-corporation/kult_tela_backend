@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="json restore">
+    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/controllers/admin/Stats.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/admin/stats.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/Auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/json/plans.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/plans.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/imageCompression.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/imageCompression.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/MessageUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/MessageUtils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -183,14 +179,7 @@
       <workItem from="1583849741444" duration="16640000" />
       <workItem from="1583912081824" duration="4055000" />
       <workItem from="1583950665417" duration="5487000" />
-      <workItem from="1584016987892" duration="3599000" />
-    </task>
-    <task id="LOCAL-00016" summary="models deleted + json updated">
-      <created>1581165393183</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1581165393183</updated>
+      <workItem from="1584016987892" duration="6759000" />
     </task>
     <task id="LOCAL-00017" summary="food tips enhancements + top fix">
       <created>1581614784778</created>
@@ -528,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583962578297</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="fixes for auth and chat">
+      <created>1584022552188</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1584022552188</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,7 +544,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="public user info for admin" />
     <MESSAGE value="weight update + enhancements" />
     <MESSAGE value="kassa notification refactored + new types + some enhancements for admin" />
     <MESSAGE value="sockets protection for some cases + auth + admin desc" />
@@ -573,6 +568,7 @@
     <MESSAGE value="chat attachments//need refactoring" />
     <MESSAGE value="0.999 latest fixes" />
     <MESSAGE value="admin auth refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="admin auth refactor" />
+    <MESSAGE value="fixes for auth and chat" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes for auth and chat" />
   </component>
 </project>

@@ -23,6 +23,24 @@ const InitRooms = {
     } catch (e) {
       return false
     }
+  },
+  async convWithDietolog(userId, removeUser = false) {
+    let query,
+      values = [parseInt(userId)]
+
+    if (!removeUser) {
+      query = `UPDATE chat_rooms SET user_ids = user_ids || $1::int WHERE name='Общий чат с диетологом' AND conversation=true`
+    } else {
+      query = `UPDATE chat_rooms SET user_ids = array_remove(user_ids, $1::int) WHERE name='Общий чат с диетологом' AND conversation=true`
+    }
+
+    try {
+      await db.query(query, values)
+      return true
+    } catch (e) {
+      console.log('diet err', e)
+      return false
+    }
   }
 }
 

@@ -74,38 +74,42 @@ const Common = {
   },
   async resetBeforeNewMonth(userId) {
     await Food.setCurrentFoodMenu(userId)
-    const query = `UPDATE users SET workout='{}', food_menu_id=NULL, tutor_id=NULL WHERE id=$1`
-    const values = [userId]
+    const query = `UPDATE users SET workout='{}', food_menu_id=NULL, tutor_id=NULL WHERE id=${userId}`
 
     try {
-      await db.query(query, values)
+      await db.query(query)
+      await InitRooms.convWithDietolog(userId, true)
       return true
     } catch (error) {
       return false
     }
   },
   async setUserDataByPlan(userId, planId, fromPlanId = false) {
-    if (planId > 1 && (!fromPlanId || fromPlanId < 2)) {
-      const dietolog = await InitRooms.withDietolog(userId)
-      if (dietolog)
-        await Notification.add(userId, {
-          title:
-            'Вам доступен персональный диетолог. Связаться с ним можно в разделе "Сообщения"',
-          url: '/messages'
-        })
+    if (planId > 1) {
+      if (!fromPlanId || fromPlanId < 2) {
+        const dietolog = await InitRooms.withDietolog(userId)
+        if (dietolog)
+          await Notification.add(userId, {
+            title:
+              'Вам доступен персональный диетолог. Связаться с ним можно в разделе "Сообщения"',
+            url: '/messages'
+          })
+      }
     }
 
-    if (planId > 0 && (!fromPlanId || fromPlanId < 1)) {
-      await Food.setCurrentFoodMenu(userId)
-      await Notification.add(userId, {
-        title:
-          'Заполните данные для составления персональной программы тренировок',
-        url: '/workout/fill-info'
-      })
-      await Notification.add(userId, {
-        title: 'Персональный план питания уже готов!',
-        url: '/food/personal'
-      })
+    if (planId > 0) {
+      if (!fromPlanId || fromPlanId < 1) {
+        await Food.setCurrentFoodMenu(userId)
+        await Notification.add(userId, {
+          title:
+            'Заполните данные для составления персональной программы тренировок',
+          url: '/workout/fill-info'
+        })
+        await Notification.add(userId, {
+          title: 'Персональный план питания уже готов!',
+          url: '/food/personal'
+        })
+      }
     }
   },
   async deleteUserByHash(hash) {

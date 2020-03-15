@@ -190,7 +190,7 @@ const SignUp = {
         if (rows[0].bool === true) {
           const plan_id = rows[0].plan_id
           query = `UPDATE signup_info SET used=TRUE WHERE hash='${hash}' RETURNING TRUE;
-          UPDATE chat_rooms SET user_ids = user_ids || ${isOk.user_id} WHERE name='Курилка за казармой (беседа)' AND NOT (${isOk.user_id}=ANY(user_ids))`
+          UPDATE chat_rooms SET user_ids = user_ids || ${isOk.user_id} WHERE name='Курилка за казармой' AND NOT (${isOk.user_id}=ANY(user_ids))`
 
           const data = await db.query(query)
           const result = data[0].rows

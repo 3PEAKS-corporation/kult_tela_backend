@@ -6,4 +6,5 @@ CREATE TABLE IF NOT EXISTS chat_rooms (
   conversation BOOLEAN DEFAULT FALSE,
   image_src VARCHAR DEFAULT NULL
 );
-INSERT INTO chat_rooms(name, conversation) VALUES('Курилка за казармой (беседа)', true);
+INSERT INTO chat_rooms(name, conversation) VALUES('Курилка за казармой', true);
+INSERT INTO chat_rooms(name, conversation) VALUES ('Общий чат с диетологом', true);

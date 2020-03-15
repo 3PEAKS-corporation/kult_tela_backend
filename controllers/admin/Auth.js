@@ -1,6 +1,7 @@
 const { utils, db } = require('../../services/')
 const { env } = require('../../config/')
 const bcrypt = require('bcrypt')
+const { User } = require('../../utils/')
 
 const SALT_ROUNDS = 10
 
@@ -26,8 +27,8 @@ const Auth = {
 
     const passwordHashed = await bcrypt.hash(user.password, SALT_ROUNDS)
 
-    const query = `INSERT INTO users(email, first_name, last_name, password, admin_role_id, admin_description, avatar_src) VALUES($1, $2, $3, $4, $5, $6, $7)`
-    const values = [
+    let query = `INSERT INTO users(email, first_name, last_name, password, admin_role_id, admin_description, avatar_src) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING id`
+    let values = [
       user.email,
       user.first_name,
       user.last_name,
@@ -37,10 +38,13 @@ const Auth = {
       file ? file.filename : ''
     ]
 
-    //TODO что то мешает зарегаться если нет фото
-
     try {
-      await db.query(query, values)
+      const { rows } = await db.query(query, values)
+
+      if (parseInt(user.role_id) === 1 && rows[0]) {
+        await User.Chat.InitRooms.convWithDietolog(rows[0].id)
+      }
+
       return utils.response.success(
         res,
         'Регистрация успешна, теперь вы можете войти по своим данным.'

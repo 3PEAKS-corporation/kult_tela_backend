@@ -13,6 +13,7 @@ const Chat = {
 
     if (
       typeof user_id !== 'number' ||
+      isNaN(user_id) ||
       (user_id === currentUser.id && !isConversation)
     )
       return utils.response.error(res, 'Чат не существует!')

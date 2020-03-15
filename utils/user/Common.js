@@ -86,6 +86,7 @@ const Common = {
   },
   async setUserDataByPlan(userId, planId, fromPlanId = false) {
     if (planId > 1) {
+      await InitRooms.convWithDietolog(userId)
       if (!fromPlanId || fromPlanId < 2) {
         const dietolog = await InitRooms.withDietolog(userId)
         if (dietolog)

@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/chat_rooms.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/chat_rooms.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/Auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Chat.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/user/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Common.js" afterDir="false" />
     </list>
@@ -181,14 +181,8 @@
       <workItem from="1584016987892" duration="7368000" />
       <workItem from="1584081118041" duration="9000" />
       <workItem from="1584081137848" duration="114000" />
-      <workItem from="1584272726340" duration="6397000" />
-    </task>
-    <task id="LOCAL-00019" summary="sub extend start">
-      <created>1581680804220</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1581680804220</updated>
+      <workItem from="1584272726340" duration="6556000" />
+      <workItem from="1584293878944" duration="4903000" />
     </task>
     <task id="LOCAL-00020" summary="sub extend done// needs kassa">
       <created>1581705619518</created>
@@ -526,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584278527132</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="group chat with dietolog">
+      <created>1584282001064</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1584282001064</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +547,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="sockets protection for some cases + auth + admin desc" />
     <MESSAGE value="year fix" />
     <MESSAGE value="socket fixes for chat protection" />
     <MESSAGE value="hope fixed static content error" />
@@ -571,18 +571,7 @@
     <MESSAGE value="fixes for auth and chat" />
     <MESSAGE value="stats module" />
     <MESSAGE value="next days viewing for food menus" />
-    <option name="LAST_COMMIT_MESSAGE" value="next days viewing for food menus" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/utils/user/Common.js</url>
-          <line>88</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="group chat with dietolog" />
+    <option name="LAST_COMMIT_MESSAGE" value="group chat with dietolog" />
   </component>
 </project>

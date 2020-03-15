@@ -25,17 +25,18 @@ const InitRooms = {
     }
   },
   async convWithDietolog(userId, removeUser = false) {
-    let query,
-      values = [parseInt(userId)]
+    let query
+
+    userId = parseInt(userId)
 
     if (!removeUser) {
-      query = `UPDATE chat_rooms SET user_ids = user_ids || $1::int WHERE name='Общий чат с диетологом' AND conversation=true`
+      query = `UPDATE chat_rooms SET user_ids = user_ids || ${userId} WHERE name='Общий чат с диетологом' AND conversation=true`
     } else {
-      query = `UPDATE chat_rooms SET user_ids = array_remove(user_ids, $1::int) WHERE name='Общий чат с диетологом' AND conversation=true`
+      query = `UPDATE chat_rooms SET user_ids = array_remove(user_ids, ${userId}) WHERE name='Общий чат с диетологом' AND conversation=true`
     }
 
     try {
-      await db.query(query, values)
+      await db.query(query)
       return true
     } catch (e) {
       console.log('diet err', e)

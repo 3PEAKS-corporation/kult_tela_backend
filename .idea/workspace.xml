@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/admin/Stats.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/admin/stats.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Food.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Food.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/workout_levels.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/workout_levels.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/user/food.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/food.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Workout.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -179,14 +179,10 @@
       <workItem from="1583849741444" duration="16640000" />
       <workItem from="1583912081824" duration="4055000" />
       <workItem from="1583950665417" duration="5487000" />
-      <workItem from="1584016987892" duration="6759000" />
-    </task>
-    <task id="LOCAL-00017" summary="food tips enhancements + top fix">
-      <created>1581614784778</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1581614784778</updated>
+      <workItem from="1584016987892" duration="7368000" />
+      <workItem from="1584081118041" duration="9000" />
+      <workItem from="1584081137848" duration="114000" />
+      <workItem from="1584272726340" duration="3067000" />
     </task>
     <task id="LOCAL-00018" summary="previous workout route">
       <created>1581625514750</created>
@@ -524,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584022552188</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="stats module">
+      <created>1584031054850</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1584031054850</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -544,7 +547,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="weight update + enhancements" />
     <MESSAGE value="kassa notification refactored + new types + some enhancements for admin" />
     <MESSAGE value="sockets protection for some cases + auth + admin desc" />
     <MESSAGE value="year fix" />
@@ -569,6 +571,7 @@
     <MESSAGE value="0.999 latest fixes" />
     <MESSAGE value="admin auth refactor" />
     <MESSAGE value="fixes for auth and chat" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes for auth and chat" />
+    <MESSAGE value="stats module" />
+    <option name="LAST_COMMIT_MESSAGE" value="stats module" />
   </component>
 </project>

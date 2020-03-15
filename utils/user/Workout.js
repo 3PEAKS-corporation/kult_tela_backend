@@ -15,7 +15,6 @@ const Workout = {
     try {
       const { rows } = await db.query(query, values)
       const workout = rows[0].workout
-      console.log(rows)
 
       if (
         typeof workout.physical_level === 'number' &&
@@ -29,7 +28,7 @@ const Workout = {
 
         if (paymentsAmount > 0) {
           for (
-            let i = 2;
+            let i = 3;
             paymentsAmount !== 0 && i < 5;
             i++, paymentsAmount--
           ) {

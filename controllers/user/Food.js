@@ -29,6 +29,37 @@ const Food = {
       return utils.response.error(res, 'Не удалось загрузить меню')
     }
   },
+  async getNextDays(req, res) {
+    const query = `SELECT food_menu_id as menu_id, to_char((current_timestamp-date_signup),'DD')::int as days_from_start FROM users WHERE id=$1`
+    const values = [req.currentUser.id]
+
+    try {
+      const { rows } = await db.query(query, values)
+      const { menu_id, days_from_start } = rows[0]
+      const menu = copyDATA('food_menus').menus.filter(
+        item => item.id === menu_id
+      )[0]
+
+      const offset_1 =
+        days_from_start +
+        1 -
+        Math.floor((days_from_start + 1) / menu.days.length) * menu.days.length
+
+      const offset_2 =
+        days_from_start +
+        2 -
+        Math.floor((days_from_start + 2) / menu.days.length) * menu.days.length
+
+      if (menu)
+        return utils.response.success(res, {
+          offset_1: menu.days[offset_1],
+          offset_2: menu.days[offset_2]
+        })
+      else return utils.response.error(res, 'Меню не найдено')
+    } catch (error) {
+      return utils.response.error(res, 'Не удалось загрузить меню')
+    }
+  },
   async getTipsVideos(req, res) {
     const plan_id = req.currentUser.plan_id
     const videos = copyDATA('food_tips_videos')

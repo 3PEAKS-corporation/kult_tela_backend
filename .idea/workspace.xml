@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/controllers/admin/Common.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/admin/admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/Auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/user/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Common.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -182,14 +184,8 @@
       <workItem from="1584081118041" duration="9000" />
       <workItem from="1584081137848" duration="114000" />
       <workItem from="1584272726340" duration="6556000" />
-      <workItem from="1584293878944" duration="4903000" />
-    </task>
-    <task id="LOCAL-00020" summary="sub extend done// needs kassa">
-      <created>1581705619518</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1581705619518</updated>
+      <workItem from="1584293878944" duration="4938000" />
+      <workItem from="1584345332318" duration="3916000" />
     </task>
     <task id="LOCAL-00021" summary="public user info">
       <created>1581753405993</created>
@@ -527,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584282001064</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="add dietolog to chat when SignUp">
+      <created>1584307345105</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1584307345105</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -547,7 +550,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="year fix" />
     <MESSAGE value="socket fixes for chat protection" />
     <MESSAGE value="hope fixed static content error" />
     <MESSAGE value="updates from last meeting" />
@@ -572,6 +574,7 @@
     <MESSAGE value="stats module" />
     <MESSAGE value="next days viewing for food menus" />
     <MESSAGE value="group chat with dietolog" />
-    <option name="LAST_COMMIT_MESSAGE" value="group chat with dietolog" />
+    <MESSAGE value="add dietolog to chat when SignUp" />
+    <option name="LAST_COMMIT_MESSAGE" value="add dietolog to chat when SignUp" />
   </component>
 </project>

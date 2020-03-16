@@ -41,7 +41,9 @@ const Common = {
             id: user.id,
             first_name: user.first_name,
             last_name: user.last_name,
-            admin_role_id: user.admin_role_id
+            admin_role_id: user.admin_role_id,
+            avatar_src: utils.getImageUrl(user.avatar_src),
+            admin_description: user.admin_description
           }
           if (returnPassword === true) admin.password = user.password
           return admin

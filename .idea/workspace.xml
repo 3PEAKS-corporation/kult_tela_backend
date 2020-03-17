@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/admin/Common.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/admin/admin.js" afterDir="false" />
+    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="admin edit info endpoint">
+      <change afterPath="$PROJECT_DIR$/controllers/user/User/Password.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/hashes.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Top.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Top.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/User/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/chat_messages_formatted.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/chat_messages_formatted.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/users_public.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/users_public.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/user/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/token.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/token.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Email.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Email.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,8 +108,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev" />
         <item itemvalue="npm.createTables" />
+        <item itemvalue="npm.dev" />
         <item itemvalue="npm.dropTables" />
       </list>
     </recent_temporary>
@@ -185,14 +190,8 @@
       <workItem from="1584081137848" duration="114000" />
       <workItem from="1584272726340" duration="6556000" />
       <workItem from="1584293878944" duration="4938000" />
-      <workItem from="1584345332318" duration="3916000" />
-    </task>
-    <task id="LOCAL-00021" summary="public user info">
-      <created>1581753405993</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1581753405993</updated>
+      <workItem from="1584345332318" duration="7153000" />
+      <workItem from="1584440932452" duration="7202000" />
     </task>
     <task id="LOCAL-00022" summary="messages fix">
       <created>1581777319948</created>
@@ -530,7 +529,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584307345105</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="admin edit info endpoint">
+      <created>1584353698178</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1584353698178</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -550,7 +556,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="socket fixes for chat protection" />
     <MESSAGE value="hope fixed static content error" />
     <MESSAGE value="updates from last meeting" />
     <MESSAGE value="fix user public error" />
@@ -575,6 +580,7 @@
     <MESSAGE value="next days viewing for food menus" />
     <MESSAGE value="group chat with dietolog" />
     <MESSAGE value="add dietolog to chat when SignUp" />
-    <option name="LAST_COMMIT_MESSAGE" value="add dietolog to chat when SignUp" />
+    <MESSAGE value="admin edit info endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="admin edit info endpoint" />
   </component>
 </project>

@@ -1,4 +1,4 @@
-CREATE VIEW users_public AS
+CREATE OR REPLACE VIEW users_public AS
 SELECT  id,
     first_name || ' ' || last_name as name,
     plan_id,

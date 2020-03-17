@@ -30,7 +30,6 @@ const Message = (io, socket) => {
             let dbMessage = rows[0]
 
             if (dbMessage) {
-              // TODO: выделить это в отдельную функцию сборки сообщений [1]
               const event = info.inited ? 'chat_message_init' : 'chat_message'
               if (dbMessage.attachments) {
                 dbMessage.attachments = dbMessage.attachments.map(e => {

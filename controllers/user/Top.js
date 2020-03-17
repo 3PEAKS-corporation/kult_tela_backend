@@ -6,7 +6,7 @@ const Top = {
                     FROM users 
                     WHERE (arr_last_item(weight_history)->>'weight')::real IS NOT NULL 
                     AND rank!=0
-                    AND (arr_last_item(weight_history)->>'date')::timestamp + interval '1 month' > current_timestamp
+                    AND to_timestamp(arr_last_item(weight_history)->>'date', 'DD.MM.YYYY HH24:MI') + interval '1 month' > current_timestamp
                     ORDER BY (arr_last_item(weight_history)->>'weight')::real/(weight_start/100)`
 
     try {

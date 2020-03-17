@@ -10,6 +10,14 @@ const {
 const router = Router()
 
 /**
+ * @PASSWORD-RESET
+ */
+
+router.post('/user/password', user.User.Password.request)
+router.post('/user/password/verify', user.User.Password.verifyHash)
+router.post('/user/password/reset', user.User.Password.reset)
+
+/**
  * @UPDATES
  */
 

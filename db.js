@@ -6,6 +6,7 @@ const MODELS = [
 
   'users',
   'tokens',
+  'hashes',
   'signup_info',
   'workouts',
   'chat_rooms',

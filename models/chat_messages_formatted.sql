@@ -1,4 +1,4 @@
-CREATE VIEW chat_messages_formatted AS
+CREATE OR REPLACE VIEW chat_messages_formatted AS
 SELECT id,
    user_id,
    room_id,

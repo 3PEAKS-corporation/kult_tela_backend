@@ -116,7 +116,7 @@ const Common = {
     }
   },
   async deleteUserByHash(hash) {
-    const query = `DELETE FROM users WHERE id=(SELECT user_id FROM signup_info WHERE hash=$1 AND used=false)`
+    const query = `DELETE FROM users WHERE id=(SELECT user_id FROM hashes WHERE hash=$1 AND used=false)`
     const values = [hash]
 
     try {

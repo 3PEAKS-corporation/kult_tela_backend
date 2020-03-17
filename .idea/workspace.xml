@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="admin edit info endpoint">
-      <change afterPath="$PROJECT_DIR$/controllers/user/User/Password.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/hashes.sql" afterDir="false" />
+    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Top.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Top.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/User/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/chat_messages_formatted.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/chat_messages_formatted.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/users_public.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/users_public.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/user/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/token.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/token.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Email.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Email.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -191,14 +181,7 @@
       <workItem from="1584272726340" duration="6556000" />
       <workItem from="1584293878944" duration="4938000" />
       <workItem from="1584345332318" duration="7153000" />
-      <workItem from="1584440932452" duration="7202000" />
-    </task>
-    <task id="LOCAL-00022" summary="messages fix">
-      <created>1581777319948</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1581777319948</updated>
+      <workItem from="1584440932452" duration="8427000" />
     </task>
     <task id="LOCAL-00023" summary="kassa inited + payments implemented // need refactor of payments in users table">
       <created>1581803189540</created>
@@ -536,7 +519,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584353698178</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="password reset and fix for top + new table 'hashes'">
+      <created>1584453992102</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1584453992102</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -556,7 +546,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="hope fixed static content error" />
     <MESSAGE value="updates from last meeting" />
     <MESSAGE value="fix user public error" />
     <MESSAGE value="changes in top and request price" />
@@ -581,6 +570,7 @@
     <MESSAGE value="group chat with dietolog" />
     <MESSAGE value="add dietolog to chat when SignUp" />
     <MESSAGE value="admin edit info endpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="admin edit info endpoint" />
+    <MESSAGE value="password reset and fix for top + new table 'hashes'" />
+    <option name="LAST_COMMIT_MESSAGE" value="password reset and fix for top + new table 'hashes'" />
   </component>
 </project>

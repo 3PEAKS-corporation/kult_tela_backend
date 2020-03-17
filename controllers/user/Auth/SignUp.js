@@ -6,11 +6,11 @@ const { copyDATA } = require('../../../data/')
 const SALT_ROUNDS = 10
 
 async function isHashAndPaymentDone(hash) {
-  let query = `SELECT signup_info.id, signup_info.user_id, signup_info.used, signup_info.hash, payments.id as p_id, payments.status as p_status, payments.key as p_key
-               FROM signup_info
+  let query = `SELECT hashes.id, hashes.user_id, hashes.used, hashes.hash, payments.id as p_id, payments.status as p_status, payments.key as p_key
+               FROM hashes
                         LEFT JOIN payments
-                                  ON signup_info.payment_id::int = payments.id AND payments.type='PLAN_BUY'
-               WHERE signup_info.hash=$1`
+                                  ON hashes.payment_id = payments.id AND payments.type='PLAN_BUY'
+               WHERE hashes.hash=$1 AND hashes.used=false AND hashes.type='PLAN_BUY'`
   let values = [hash]
   try {
     let { rows } = await db.query(query, values)
@@ -34,6 +34,7 @@ async function isHashAndPaymentDone(hash) {
         return { success: false, status: 'canceled' }
     } else return false
   } catch (e) {
+    console.log(e)
     return false
   }
 }
@@ -83,7 +84,7 @@ const SignUp = {
         if (!dbpayment)
           return utils.response.error(res, 'Ошибка при создании платежа')
 
-        query = `INSERT INTO signup_info(user_id, hash, payment_id) VALUES($1,$2,$3) RETURNING TRUE`
+        query = `INSERT INTO hashes(user_id, hash, payment_id, type) VALUES($1,$2,$3, 'PLAN_BUY') RETURNING TRUE`
 
         values = [user_id, hash, dbpayment.id]
         const { rows } = await db.query(query, values)
@@ -189,7 +190,7 @@ const SignUp = {
         const { rows } = await db.query(query, values)
         if (rows[0].bool === true) {
           const plan_id = rows[0].plan_id
-          query = `UPDATE signup_info SET used=TRUE WHERE hash='${hash}' RETURNING TRUE;
+          query = `UPDATE hashes SET used=TRUE WHERE hash='${hash}' RETURNING TRUE;
           UPDATE chat_rooms SET user_ids = user_ids || ${isOk.user_id} WHERE name='Курилка за казармой' AND NOT (${isOk.user_id}=ANY(user_ids))`
 
           const data = await db.query(query)

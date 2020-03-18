@@ -5,7 +5,7 @@ const Food = {
   async setCurrentFoodMenu(userId) {
     const menuId = 0
     const food_menus = copyDATA('food_menus')
-    let query = `SELECT weight_start - COALESCE(0, weight_diff) as current_weight FROM users WHERE id=$1`
+    let query = `SELECT weight_start - COALESCE(weight_diff, 0) as current_weight FROM users WHERE id=$1`
     let values = [userId]
 
     try {

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="fix">
+    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/json/food_menus.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/food_menus.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/workouts.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/workouts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Food.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Food.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,8 +101,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.createTables" />
         <item itemvalue="npm.dev" />
+        <item itemvalue="npm.createTables" />
         <item itemvalue="npm.dropTables" />
       </list>
     </recent_temporary>
@@ -182,14 +185,7 @@
       <workItem from="1584293878944" duration="4938000" />
       <workItem from="1584345332318" duration="7153000" />
       <workItem from="1584440932452" duration="9634000" />
-      <workItem from="1584517742162" duration="2261000" />
-    </task>
-    <task id="LOCAL-00025" summary="little refactor + kassa for other payments + requests table and end-points">
-      <created>1581864118825</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1581864118825</updated>
+      <workItem from="1584517742162" duration="8265000" />
     </task>
     <task id="LOCAL-00026" summary="resetbeforenewmonth fix">
       <created>1581864466711</created>
@@ -527,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584455295561</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="food menus data done">
+      <created>1584524278636</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1584524278636</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -547,7 +550,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changes in top and request price" />
     <MESSAGE value="change plan + refactoring in sign up" />
     <MESSAGE value="change plan fully done" />
     <MESSAGE value="change plan fixes for protection" />
@@ -572,6 +574,7 @@
     <MESSAGE value="password reset and fix for top + new table 'hashes'" />
     <MESSAGE value="Signup refactoring for new table" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="food menus data done" />
+    <option name="LAST_COMMIT_MESSAGE" value="food menus data done" />
   </component>
 </project>

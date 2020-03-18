@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/json/workouts.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/workouts.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/functions.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/chat_messages_formatted.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Chat/MessageUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/MessageUtils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Room.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -183,14 +187,7 @@
       <workItem from="1584293878944" duration="4938000" />
       <workItem from="1584345332318" duration="7153000" />
       <workItem from="1584440932452" duration="9634000" />
-      <workItem from="1584517742162" duration="12048000" />
-    </task>
-    <task id="LOCAL-00028" summary="latest data changes">
-      <created>1581877176427</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1581877176427</updated>
+      <workItem from="1584517742162" duration="15880000" />
     </task>
     <task id="LOCAL-00029" summary="admin structure started">
       <created>1581887812437</created>
@@ -528,7 +525,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584532872614</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="workouts data edit">
+      <created>1584544931280</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1584544931280</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,7 +552,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="change plan fixes for protection" />
     <MESSAGE value="controllers and routes refactoring + new features" />
     <MESSAGE value="request get price" />
     <MESSAGE value="request get price fix" />
@@ -573,6 +576,7 @@
     <MESSAGE value="food menus data done" />
     <MESSAGE value="workouts data full + fix food menus relations" />
     <MESSAGE value="gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="gitignore" />
+    <MESSAGE value="workouts data edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="workouts data edit" />
   </component>
 </project>

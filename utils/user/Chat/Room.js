@@ -75,7 +75,7 @@ const Room = {
                 FROM chat_messages
                 WHERE room_id = ANY(ARRAY[$1::int[]])
                 GROUP BY room_id )
-                SELECT * FROM chat_messages_formatted WHERE id= ANY(ARRAY(SELECT id FROM ids))`
+                SELECT * FROM chat_messages WHERE id= ANY(ARRAY(SELECT id FROM ids))`
           values = [chat_ids]
 
           const { rows: last_messages } = await db.query(query, values)
@@ -91,7 +91,7 @@ const Room = {
           const chat_id = chats[0].id
           if (typeof chat_id === 'number') {
             query = `SELECT *
-                     FROM chat_messages_formatted
+                     FROM chat_messages
                      WHERE room_id = $1
                      ORDER BY id DESC
                      LIMIT 40`

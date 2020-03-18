@@ -14,7 +14,7 @@ const MODELS = [
   'requests'
 ]
 
-const VIEWS = ['users_public', 'chat_messages_formatted']
+const VIEWS = ['users_public']
 
 const FUNCTIONS = ['arr_length', 'arr_last_item', 'calc_rank']
 

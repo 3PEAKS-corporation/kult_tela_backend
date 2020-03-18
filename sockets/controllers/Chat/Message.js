@@ -23,7 +23,7 @@ const Message = (io, socket) => {
           let info = await User.Chat.Message.addMessage(message)
 
           if (info && typeof info.message_id === 'number') {
-            let query = `SELECT * FROM chat_messages_formatted WHERE id=$1`
+            let query = `SELECT * FROM chat_messages WHERE id=$1`
             let values = [info.message_id]
 
             const { rows } = await db.query(query, values)

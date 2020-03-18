@@ -19,7 +19,7 @@ DECLARE
    percent numeric;
    rank integer;
 BEGIN
-	percent:=start_weight/100.0*diff_weight;
+	percent:=((start_weight-diff_weight)/start_weight)*100.0;
 
    CASE
    WHEN percent >= 8.0 AND percent < 13.0 THEN

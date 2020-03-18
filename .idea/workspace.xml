@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/workouts.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/workouts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/functions.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,11 +47,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="Z:\development\kult_tela_backend" />
       <recent name="Z:\development\kult_tela_backend\public\images" />
       <recent name="Z:\development\kult_tela_backend\public" />
       <recent name="Z:\development\kult_tela_backend\public\images\tutors" />
       <recent name="Z:\development\kult_tela_backend\routes\user" />
-      <recent name="Z:\development\kult_tela_backend\controllers" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -183,14 +183,7 @@
       <workItem from="1584293878944" duration="4938000" />
       <workItem from="1584345332318" duration="7153000" />
       <workItem from="1584440932452" duration="9634000" />
-      <workItem from="1584517742162" duration="8443000" />
-    </task>
-    <task id="LOCAL-00027" summary="requests fix">
-      <created>1581866180119</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1581866180119</updated>
+      <workItem from="1584517742162" duration="12048000" />
     </task>
     <task id="LOCAL-00028" summary="latest data changes">
       <created>1581877176427</created>
@@ -528,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584532710810</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="gitignore">
+      <created>1584532872614</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1584532872614</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,7 +548,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="change plan fully done" />
     <MESSAGE value="change plan fixes for protection" />
     <MESSAGE value="controllers and routes refactoring + new features" />
     <MESSAGE value="request get price" />
@@ -573,6 +572,7 @@
     <MESSAGE value="fix" />
     <MESSAGE value="food menus data done" />
     <MESSAGE value="workouts data full + fix food menus relations" />
-    <option name="LAST_COMMIT_MESSAGE" value="workouts data full + fix food menus relations" />
+    <MESSAGE value="gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="gitignore" />
   </component>
 </project>

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
+    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/signup_info.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/food_menus.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/food_menus.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -183,14 +181,8 @@
       <workItem from="1584272726340" duration="6556000" />
       <workItem from="1584293878944" duration="4938000" />
       <workItem from="1584345332318" duration="7153000" />
-      <workItem from="1584440932452" duration="8571000" />
-    </task>
-    <task id="LOCAL-00024" summary="kassa notifications + refactoring">
-      <created>1581851847559</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1581851847559</updated>
+      <workItem from="1584440932452" duration="9634000" />
+      <workItem from="1584517742162" duration="2261000" />
     </task>
     <task id="LOCAL-00025" summary="little refactor + kassa for other payments + requests table and end-points">
       <created>1581864118825</created>
@@ -528,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584455243603</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="fix">
+      <created>1584455295561</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1584455295561</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,7 +547,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix user public error" />
     <MESSAGE value="changes in top and request price" />
     <MESSAGE value="change plan + refactoring in sign up" />
     <MESSAGE value="change plan fully done" />
@@ -573,6 +571,7 @@
     <MESSAGE value="admin edit info endpoint" />
     <MESSAGE value="password reset and fix for top + new table 'hashes'" />
     <MESSAGE value="Signup refactoring for new table" />
-    <option name="LAST_COMMIT_MESSAGE" value="Signup refactoring for new table" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
 </project>

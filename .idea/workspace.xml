@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
+    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="deleted chat messages formatted view">
+      <change afterPath="$PROJECT_DIR$/controllers/admin/Promo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/user/Auth/Promo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/promo_codes.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/admin/promo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/user/Promo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/chat_messages_formatted.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/sockets/controllers/Chat/Message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/MessageUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/MessageUtils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Room.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hashes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/hashes.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/payments.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/payments.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/user/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Payment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,11 +60,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="Z:\development\kult_tela_backend\controllers\user\Auth" />
       <recent name="Z:\development\kult_tela_backend" />
       <recent name="Z:\development\kult_tela_backend\public\images" />
       <recent name="Z:\development\kult_tela_backend\public" />
       <recent name="Z:\development\kult_tela_backend\public\images\tutors" />
-      <recent name="Z:\development\kult_tela_backend\routes\user" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -187,14 +196,8 @@
       <workItem from="1584293878944" duration="4938000" />
       <workItem from="1584345332318" duration="7153000" />
       <workItem from="1584440932452" duration="9634000" />
-      <workItem from="1584517742162" duration="15880000" />
-    </task>
-    <task id="LOCAL-00029" summary="admin structure started">
-      <created>1581887812437</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1581887812437</updated>
+      <workItem from="1584517742162" duration="17750000" />
+      <workItem from="1584607388088" duration="11401000" />
     </task>
     <task id="LOCAL-00030" summary="auth for admin and requireAuth middleware reworked for admin">
       <created>1581940136179</created>
@@ -532,7 +535,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584544931280</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="deleted chat messages formatted view">
+      <created>1584562196810</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1584562196810</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -552,7 +562,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="controllers and routes refactoring + new features" />
     <MESSAGE value="request get price" />
     <MESSAGE value="request get price fix" />
     <MESSAGE value="emails to tutors and diets / new public folder / emailGenerator" />
@@ -577,6 +586,7 @@
     <MESSAGE value="workouts data full + fix food menus relations" />
     <MESSAGE value="gitignore" />
     <MESSAGE value="workouts data edit" />
-    <option name="LAST_COMMIT_MESSAGE" value="workouts data edit" />
+    <MESSAGE value="deleted chat messages formatted view" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted chat messages formatted view" />
   </component>
 </project>

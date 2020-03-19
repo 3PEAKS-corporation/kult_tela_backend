@@ -23,6 +23,7 @@ const init = (app, io) => {
   app.use(admin.public)
   app.use(admin.stats)
   app.use(admin.admin)
+  app.use(admin.promo)
 }
 
 module.exports = {

@@ -18,6 +18,8 @@ async function isHashAndPaymentDone(hash) {
     if (info && info.used === false) {
       if (info.p_status === 'succeeded')
         return { success: true, status: 'succeeded', user_id: info.user_id }
+      else if (info.p_status === 'promo_code')
+        return { success: true, status: 'promo_code', user_id: info.user_id }
 
       let kassaPayment = await kassa.getPaymentStatus(info.p_key)
       if (info.p_status !== kassaPayment.status)
@@ -41,8 +43,10 @@ async function isHashAndPaymentDone(hash) {
 
 const SignUp = {
   async createBlankProfile(req, res) {
-    const { email, plan_id } = req.body
-    if (!email || plan_id === undefined) return utils.response.error(res)
+    const { email, code } = req.body
+    const plan_id = parseInt(req.body.plan_id)
+    if (!email || typeof plan_id !== 'number' || isNaN(plan_id))
+      return utils.response.error(res)
 
     let query = `INSERT INTO users(email, plan_id) VALUES($1, $2) RETURNING id, email`
     let values = [email, plan_id]
@@ -55,34 +59,51 @@ const SignUp = {
       if (user[0]) {
         const { id: user_id, email } = user[0]
         const hash = _token.generateToken({
-          id: user_id + '_PAYMENT',
+          id: user_id,
           email: email
         })
 
-        const kassaPayment = await kassa.createPayment({
-          value: plan.cost,
-          description: `Оплата пакета "${plan.name} в приложении Культ Тела"`,
-          return_url: 'first-login/' + hash,
-          metadata: {
-            type: 'PLAN_BUY',
-            hash: hash
+        let dbpayment = null,
+          kassaPayment = null
+        if (!code) {
+          kassaPayment = await kassa.createPayment({
+            value: plan.cost,
+            description: `Оплата пакета "${plan.name} в приложении Культ Тела"`,
+            return_url: 'first-login/' + hash,
+            metadata: {
+              type: 'PLAN_BUY',
+              hash: hash
+            }
+          })
+
+          if (!kassaPayment)
+            return utils.response.error(res, 'Ошибка при создании платежа')
+
+          dbpayment = await User.Payment.create(
+            user_id,
+            kassaPayment.id,
+            'PLAN_BUY',
+            parseInt(plan.cost)
+          )
+        } else if (code) {
+          const codeStatus = await User.Promo.getStatus(code, true)
+          if (codeStatus && codeStatus.plan_id === plan_id) {
+            dbpayment = await User.Payment.create(
+              user_id,
+              null,
+              'PLAN_BUY',
+              0,
+              'promo_code'
+            )
           }
-        })
+        }
 
-        if (!kassaPayment)
-          return utils.response.error(res, 'Ошибка при создании платежа')
-
-        console.log('kassa: ', kassaPayment)
-
-        const dbpayment = await User.Payment.create(
-          user_id,
-          kassaPayment.id,
-          'PLAN_BUY',
-          parseInt(plan.cost)
-        )
-
-        if (!dbpayment)
-          return utils.response.error(res, 'Ошибка при создании платежа')
+        if (!dbpayment) {
+          query = `DELETE FROM users WHERE id=$1`
+          values = [user_id]
+          await db.query(query, values)
+          return utils.response.error(res, 'Ошибка при попытке регистрации')
+        }
 
         query = `INSERT INTO hashes(user_id, hash, payment_id, type) VALUES($1,$2,$3, 'PLAN_BUY') RETURNING TRUE`
 
@@ -91,15 +112,11 @@ const SignUp = {
 
         if (!rows[0].bool)
           return utils.response.error(res, 'Ошибка создания пользователя')
-        const payment = {
-          reason: 'PLAN_BUY',
-          amount: plan.cost,
-          key: dbpayment.id
-        }
 
         await User.Email.firstLogin(email, hash)
         return utils.response.success(res, {
-          url: kassaPayment.confirmation.confirmation_url
+          url: kassaPayment ? kassaPayment.confirmation.confirmation_url : null,
+          codeUsed: !!code
         })
       } else return utils.response.error(res, 'Email уже зарегистрирован')
     } catch (error) {
@@ -170,7 +187,10 @@ const SignUp = {
       let isOk = await isHashAndPaymentDone(hash)
       isOk.user_id = parseInt(isOk.user_id)
 
-      if (isOk.success === true && isOk.status === 'succeeded') {
+      if (
+        isOk.success === true &&
+        (isOk.status === 'succeeded' || isOk.status === 'promo_code')
+      ) {
         const passwordHashed = await bcrypt.hash(password, SALT_ROUNDS)
 
         let query = `UPDATE users SET password=$1, first_name=$2, last_name=$3, patronymic=$4, weight_start=$5, avatar_src=$6, height=$8, age=$9,

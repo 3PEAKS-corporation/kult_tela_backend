@@ -24,4 +24,6 @@ router.post(
   user.Auth.fillInfo
 )
 
+router.post('/promo', user.Auth.Promo.getStatus)
+
 module.exports = router

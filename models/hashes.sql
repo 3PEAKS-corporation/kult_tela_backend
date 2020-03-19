@@ -4,5 +4,6 @@ CREATE TABLE IF NOT EXISTS hashes (
    type VARCHAR NOT NULL,
    hash VARCHAR NOT NULL,
    payment_id INT DEFAULT NULL,
-   used BOOLEAN NOT NULL DEFAULT FALSE
+   used BOOLEAN NOT NULL DEFAULT FALSE,
+   date timestamp DEFAULT current_timestamp
 );

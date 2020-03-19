@@ -11,6 +11,7 @@ const Workout = require('./Workout')
 const Subscription = require('./Subscription')
 const Weight = require('./Weight')
 const Plan = require('./Plan')
+const Promo = require('./Promo')
 
 module.exports = {
   Token,
@@ -25,5 +26,6 @@ module.exports = {
   Workout,
   Subscription,
   Weight,
-  Plan
+  Plan,
+  Promo
 }

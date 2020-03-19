@@ -4,6 +4,7 @@ const Request = require('./Request')
 const Public = require('./Public')
 const Stats = require('./Stats')
 const Common = require('./Common')
+const Promo = require('./Promo')
 
 module.exports = {
   Roles,
@@ -11,5 +12,6 @@ module.exports = {
   Request,
   Public,
   Stats,
-  Common
+  Common,
+  Promo
 }

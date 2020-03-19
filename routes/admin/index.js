@@ -4,6 +4,7 @@ const request = require('./request')
 const public_ = require('./public')
 const stats = require('./stats')
 const admin = require('./admin')
+const promo = require('./promo')
 
 module.exports = {
   roles,
@@ -11,5 +12,6 @@ module.exports = {
   request,
   public: public_,
   stats,
-  admin
+  admin,
+  promo
 }

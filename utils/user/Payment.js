@@ -1,9 +1,9 @@
 const { db } = require('../../services/')
 
 const Payment = {
-  async create(userId, key, type, value) {
-    const query = `INSERT INTO payments(user_id, key, type, value) VALUES ($1, $2, $3, $4) RETURNING *;`
-    const values = [userId, key, type, value]
+  async create(userId, key, type, value, status = null) {
+    const query = `INSERT INTO payments(user_id, key, type, value, status) VALUES ($1, $2, $3, $4, $5) RETURNING *;`
+    const values = [userId, key, type, value, status]
 
     try {
       const { rows } = await db.query(query, values)

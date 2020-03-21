@@ -7,7 +7,6 @@ const MODELS = [
   'users',
   'tokens',
   'hashes',
-  'workouts',
   'chat_rooms',
   'chat_messages',
   'payments',

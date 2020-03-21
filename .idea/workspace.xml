@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="deleted chat messages formatted view">
-      <change afterPath="$PROJECT_DIR$/controllers/admin/Promo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/user/Auth/Promo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/promo_codes.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/admin/promo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/user/Promo.js" afterDir="false" />
+    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/hashes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/hashes.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/payments.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/payments.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/user/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Payment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/Auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/admin_roles.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/admin_roles.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Protection.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Protection.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +46,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="Z:\development\kult_tela_backend\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="SQL Dialects" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -197,14 +187,11 @@
       <workItem from="1584345332318" duration="7153000" />
       <workItem from="1584440932452" duration="9634000" />
       <workItem from="1584517742162" duration="17750000" />
-      <workItem from="1584607388088" duration="11401000" />
-    </task>
-    <task id="LOCAL-00030" summary="auth for admin and requireAuth middleware reworked for admin">
-      <created>1581940136179</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1581940136179</updated>
+      <workItem from="1584607388088" duration="12976000" />
+      <workItem from="1584630826562" duration="288000" />
+      <workItem from="1584710034671" duration="32000" />
+      <workItem from="1584731535901" duration="600000" />
+      <workItem from="1584771924579" duration="2549000" />
     </task>
     <task id="LOCAL-00031" summary="admin token refactor + admin socket + messages refactor for admin to work">
       <created>1581980112231</created>
@@ -542,7 +529,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584562196810</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="promocodes fully implemented">
+      <created>1584627267019</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1584627267019</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +556,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="request get price" />
     <MESSAGE value="request get price fix" />
     <MESSAGE value="emails to tutors and diets / new public folder / emailGenerator" />
     <MESSAGE value="chat refactoring for conversation started" />
@@ -587,6 +580,19 @@
     <MESSAGE value="gitignore" />
     <MESSAGE value="workouts data edit" />
     <MESSAGE value="deleted chat messages formatted view" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted chat messages formatted view" />
+    <MESSAGE value="promocodes fully implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="promocodes fully implemented" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/controllers/admin/Auth.js</url>
+          <line>13</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

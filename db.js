@@ -11,7 +11,8 @@ const MODELS = [
   'chat_rooms',
   'chat_messages',
   'payments',
-  'requests'
+  'requests',
+  'promo_codes'
 ]
 
 const VIEWS = ['users_public']

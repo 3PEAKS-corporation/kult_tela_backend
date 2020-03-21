@@ -9,9 +9,15 @@ const Auth = {
   async signUp(req, res) {
     const user = req.body
     const file = req.file
+    user.role_id = parseInt(user.role_id)
 
-    if (user.secret !== env.ADMIN_SECRET)
-      return utils.response.error(res, 'Секретный код неправильный')
+    if ([0, 1, 2].includes(user.role_id)) {
+      if (user.secret !== env.ADMIN_SECRET)
+        return utils.response.error(res, 'Секретный код неправильный')
+    } else if (user.role_id === -1) {
+      if (user.secret !== env.SUPERADMIN_SECRET)
+        return utils.response.error(res, 'Секретный код неправильный')
+    } else return utils.response.error(res, 'Секретный код неправильный')
 
     if (
       !utils.verify([

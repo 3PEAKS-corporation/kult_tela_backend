@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/Auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/json/admin_roles.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/admin_roles.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Protection.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Protection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/food_tips_videos.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/food_tips_videos.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/workouts.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/workouts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -191,21 +189,8 @@
       <workItem from="1584630826562" duration="288000" />
       <workItem from="1584710034671" duration="32000" />
       <workItem from="1584731535901" duration="600000" />
-      <workItem from="1584771924579" duration="2549000" />
-    </task>
-    <task id="LOCAL-00031" summary="admin token refactor + admin socket + messages refactor for admin to work">
-      <created>1581980112231</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1581980112231</updated>
-    </task>
-    <task id="LOCAL-00032" summary="init message protect">
-      <created>1582006318785</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1582006318785</updated>
+      <workItem from="1584771924579" duration="5322000" />
+      <workItem from="1584887906532" duration="3916000" />
     </task>
     <task id="LOCAL-00033" summary="menu plan setter refactored to last updates of tt">
       <created>1582147372814</created>
@@ -536,7 +521,21 @@
       <option name="project" value="LOCAL" />
       <updated>1584627267019</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="4th role - super admin">
+      <created>1584776233638</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1584776233639</updated>
+    </task>
+    <task id="LOCAL-00081" summary="table deleted">
+      <created>1584776365590</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1584776365590</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -556,8 +555,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="request get price fix" />
-    <MESSAGE value="emails to tutors and diets / new public folder / emailGenerator" />
     <MESSAGE value="chat refactoring for conversation started" />
     <MESSAGE value="chat refactoring almost done //sockets left" />
     <MESSAGE value="sockets refactored for new chat" />
@@ -581,18 +578,8 @@
     <MESSAGE value="workouts data edit" />
     <MESSAGE value="deleted chat messages formatted view" />
     <MESSAGE value="promocodes fully implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="promocodes fully implemented" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/controllers/admin/Auth.js</url>
-          <line>13</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="4th role - super admin" />
+    <MESSAGE value="table deleted" />
+    <option name="LAST_COMMIT_MESSAGE" value="table deleted" />
   </component>
 </project>

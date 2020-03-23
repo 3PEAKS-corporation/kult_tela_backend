@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
+    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="latest fixes">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/saveactions_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/json/food_tips_videos.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/food_tips_videos.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/json/workouts.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/workouts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/admin/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/Auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/LogIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/LogIn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Top.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Top.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/User/Password.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Password.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/plans.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/plans.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/functions.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/admin/Public.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/admin/Public.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Common.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,14 +46,22 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="NewWatcherDialog.advanced.open" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="Z:\development\kult_tela_backend\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -54,18 +71,6 @@
       <recent name="Z:\development\kult_tela_backend\public" />
       <recent name="Z:\development\kult_tela_backend\public\images\tutors" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="npm.dev">
     <configuration name="createTables" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -190,14 +195,8 @@
       <workItem from="1584710034671" duration="32000" />
       <workItem from="1584731535901" duration="600000" />
       <workItem from="1584771924579" duration="5322000" />
-      <workItem from="1584887906532" duration="3916000" />
-    </task>
-    <task id="LOCAL-00033" summary="menu plan setter refactored to last updates of tt">
-      <created>1582147372814</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1582147372814</updated>
+      <workItem from="1584887906532" duration="5191000" />
+      <workItem from="1584987826008" duration="9172000" />
     </task>
     <task id="LOCAL-00034" summary="messages protection for both init and normal msgs">
       <created>1582148538817</created>
@@ -535,7 +534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584776365590</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="latest fixes">
+      <created>1584904470615</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1584904470615</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -555,7 +561,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chat refactoring for conversation started" />
     <MESSAGE value="chat refactoring almost done //sockets left" />
     <MESSAGE value="sockets refactored for new chat" />
     <MESSAGE value="fix for latest messages refactor" />
@@ -580,6 +585,41 @@
     <MESSAGE value="promocodes fully implemented" />
     <MESSAGE value="4th role - super admin" />
     <MESSAGE value="table deleted" />
-    <option name="LAST_COMMIT_MESSAGE" value="table deleted" />
+    <MESSAGE value="latest fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="latest fixes" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="168" y="331" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584988281834">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="168" y="331" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1584988281834" />
+    <state x="208" y="275" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584988285555">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="208" y="275" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1584988285555" />
+    <state width="951" height="285" key="GridCell.Tab.0.bottom" timestamp="1584995753057">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="951" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1584995753057" />
+    <state width="951" height="285" key="GridCell.Tab.0.center" timestamp="1584995753057">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="951" height="285" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1584995753057" />
+    <state width="951" height="285" key="GridCell.Tab.0.left" timestamp="1584995753057">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="951" height="285" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1584995753057" />
+    <state width="951" height="285" key="GridCell.Tab.0.right" timestamp="1584995753057">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="951" height="285" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1584995753057" />
+    <state x="18" y="167" key="SettingsEditor" timestamp="1584989004825">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="18" y="167" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1584989004825" />
+    <state x="146" y="141" width="665" height="774" key="find.popup" timestamp="1584996962990">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="146" y="141" width="665" height="774" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1584996962990" />
   </component>
 </project>

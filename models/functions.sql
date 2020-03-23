@@ -1,7 +1,3 @@
-
-SET TIME ZONE 'Europe/Moscow';
-
-
 CREATE OR REPLACE FUNCTION arr_length(arr jsonb[]) RETURNS integer AS $$
 SELECT COALESCE(array_length(arr, 1), 0)
 $$ LANGUAGE sql IMMUTABLE;
@@ -19,7 +15,7 @@ DECLARE
    percent numeric;
    rank integer;
 BEGIN
-	percent:=((start_weight-diff_weight)/start_weight)*100.0;
+	percent:=(diff_weight/start_weight)*100.0;
 
    CASE
    WHEN percent >= 8.0 AND percent < 13.0 THEN

@@ -43,10 +43,12 @@ async function isHashAndPaymentDone(hash) {
 
 const SignUp = {
   async createBlankProfile(req, res) {
-    const { email, code } = req.body
+    let { email, code } = req.body
     const plan_id = parseInt(req.body.plan_id)
     if (!email || typeof plan_id !== 'number' || isNaN(plan_id))
       return utils.response.error(res)
+
+    email = email.toLowerCase()
 
     let query = `INSERT INTO users(email, plan_id) VALUES($1, $2) RETURNING id, email`
     let values = [email, plan_id]

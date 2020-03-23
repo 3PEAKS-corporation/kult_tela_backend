@@ -6,9 +6,11 @@ const SALT_ROUNDS = 10
 
 const Password = {
   async request(req, res) {
-    const email = req.body.email
+    let email = req.body.email
 
     if (!email) return utils.response.error(res)
+
+    email = email.toLowerCase()
 
     const query = `INSERT INTO hashes(user_id, type, hash) SELECT id, 'PASSWORD_RESET', $1 FROM users WHERE email=$2 RETURNING id`
 

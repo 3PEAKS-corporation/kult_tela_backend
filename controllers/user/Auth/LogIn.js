@@ -4,9 +4,11 @@ const { User } = require('../../../utils/')
 
 const LogIn = {
   async login(req, res) {
-    const { password, email } = req.body
+    let { password, email } = req.body
 
     if (!utils.verify([password, email])) return utils.response.error(res)
+
+    email = email.toLowerCase()
 
     try {
       let user = await User.Common.getUserData(email, true, true)

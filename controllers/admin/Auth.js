@@ -7,7 +7,7 @@ const SALT_ROUNDS = 10
 
 const Auth = {
   async signUp(req, res) {
-    const user = req.body
+    let user = req.body
     const file = req.file
     user.role_id = parseInt(user.role_id)
 
@@ -30,6 +30,8 @@ const Auth = {
       ])
     )
       return utils.response.error(res)
+
+    user.email = user.email.toLowerCase()
 
     const passwordHashed = await bcrypt.hash(user.password, SALT_ROUNDS)
 

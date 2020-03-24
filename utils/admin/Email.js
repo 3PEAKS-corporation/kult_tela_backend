@@ -15,6 +15,19 @@ const Email = {
       }),
       subject: 'Оповещение Культ Тела'
     })
+  },
+  async newMessage(email) {
+    sendEmail(email, {
+      html: utils.generateEmail({
+        title: 'Новое сообщение!',
+        body: 'У вас новое сообщение, проверьте панель управления!',
+        link: {
+          text: 'К панели управления',
+          url: env.ADMIN_URL
+        }
+      }),
+      subject: 'Оповещение Культ Тела'
+    })
   }
 }
 

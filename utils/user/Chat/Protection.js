@@ -1,4 +1,21 @@
 const { db } = require('../../../services')
+const Email = require('../../admin/Email')
+
+const sendEmailToAdmin = async id => {
+  const query = `SELECT email FROM users WHERE id=$1 AND admin_role_id=0`
+  const values = [parseInt(id)]
+
+  try {
+    const { rows } = await db.query(query, values)
+    if (rows) {
+      const email = rows[0].email
+      await Email.newMessage(email)
+      return true
+    } else return false
+  } catch (e) {
+    return false
+  }
+}
 
 /**
  * @params {userObject: {id, plan_id, admin_role_id}}
@@ -20,8 +37,10 @@ const isChatAllowed = (user1, user2) => {
   if (typeof user1.plan_id === 'number') {
     if (typeof user2.plan_id === 'number') allow = true
     else if (!user2.plan_id && typeof user2.admin_role_id === 'number') {
-      if (user2.admin_role_id === 0 || user2.admin_role_id === -1) allow = true
       // админ
+      if (user2.admin_role_id === 0) allow = true
+      // суперадмин
+      else if (user2.admin_role_id === -1) allow = true
       else if (user2.admin_role_id === 1) {
         // диетолог
         if (user1.plan_id > 1) allow = true
@@ -54,6 +73,12 @@ const isMessageAllowed = async (fromUserId, toUserId) => {
 
     let chatAllowed = isChatAllowed(fromUser, toUser)
     if (!chatAllowed) chatAllowed = isChatAllowed(toUser, fromUser)
+
+    if (chatAllowed) {
+      if (toUser.admin_role_id === 0) {
+        sendEmailToAdmin(toUser.id)
+      }
+    }
     return chatAllowed
   } catch (e) {
     return null

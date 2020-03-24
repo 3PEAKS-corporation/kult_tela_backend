@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="send email to admin">
+    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/Protection.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/Protection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/plans.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/plans.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,14 +189,7 @@
       <workItem from="1584887906532" duration="5191000" />
       <workItem from="1584987826008" duration="9376000" />
       <workItem from="1585039640027" duration="6347000" />
-      <workItem from="1585069004332" duration="3781000" />
-    </task>
-    <task id="LOCAL-00037" summary="tutor endpoint + request managing for admin">
-      <created>1582668081520</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1582668081520</updated>
+      <workItem from="1585069004332" duration="4850000" />
     </task>
     <task id="LOCAL-00038" summary="init rooms">
       <created>1582703778740</created>
@@ -535,7 +527,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585074308391</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="fixed duped messages">
+      <created>1585075129805</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1585075129805</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -555,7 +554,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="STABLE v0.99 / group chats ++" />
     <MESSAGE value="chat attachments//need refactoring" />
     <MESSAGE value="0.999 latest fixes" />
     <MESSAGE value="admin auth refactor" />
@@ -580,7 +578,8 @@
     <MESSAGE value="fixes + new info about user" />
     <MESSAGE value="yandex kassa ip checking" />
     <MESSAGE value="send email to admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="send email to admin" />
+    <MESSAGE value="fixed duped messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed duped messages" />
   </component>
   <component name="WindowStateProjectService">
     <state x="168" y="331" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585056936866">
@@ -591,10 +590,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="208" y="275" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585058522002" />
-    <state x="48" y="122" key="CommitChangelistDialog2" timestamp="1585074476733">
+    <state x="48" y="122" key="CommitChangelistDialog2" timestamp="1585075129205">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="48" y="122" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1585074476733" />
+    <state x="48" y="122" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1585075129205" />
     <state width="937" height="348" key="GridCell.Tab.0.bottom" timestamp="1585073297099">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -663,10 +662,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="18" y="167" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1585056333895" />
-    <state x="79" y="261" key="Vcs.Push.Dialog.v2" timestamp="1585074310709">
+    <state x="79" y="261" key="Vcs.Push.Dialog.v2" timestamp="1585075134319">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="79" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1585074310709" />
+    <state x="79" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1585075134319" />
     <state x="146" y="141" width="665" height="774" key="find.popup" timestamp="1584996962990">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

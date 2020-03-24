@@ -58,7 +58,7 @@ const isChatAllowed = (user1, user2) => {
   return allow
 }
 
-const isMessageAllowed = async (fromUserId, toUserId) => {
+const isMessageAllowed = async (fromUserId, toUserId, sendMessage = true) => {
   if (typeof fromUserId !== 'number' || typeof toUserId !== 'number')
     return false
 
@@ -74,7 +74,7 @@ const isMessageAllowed = async (fromUserId, toUserId) => {
     let chatAllowed = isChatAllowed(fromUser, toUser)
     if (!chatAllowed) chatAllowed = isChatAllowed(toUser, fromUser)
 
-    if (chatAllowed) {
+    if (chatAllowed && sendMessage) {
       if (toUser.admin_role_id === 0) {
         sendEmailToAdmin(toUser.id)
       }

@@ -79,7 +79,11 @@ const initRoomWithMessage = async (
   if (typeof fromUserId !== 'number' || typeof toUserId !== 'number')
     return false
 
-  const chatAllowed = await Protection.isMessageAllowed(fromUserId, toUserId)
+  const chatAllowed = await Protection.isMessageAllowed(
+    fromUserId,
+    toUserId,
+    false
+  )
   if (!chatAllowed) return false
 
   const uids = fromUserId + ',' + toUserId

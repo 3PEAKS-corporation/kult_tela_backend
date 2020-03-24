@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="latest fixes">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/saveactions_settings.xml" afterDir="false" />
+    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="fixes + new info about user">
+      <change beforePath="$PROJECT_DIR$/.idea/saveactions_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/saveactions_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin/Auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/LogIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/LogIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Top.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Top.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/User/Password.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Password.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/json/plans.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/plans.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/functions.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Kassa/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Kassa/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/Kassa/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/Kassa/types.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/admin/Public.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/admin/Public.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Common.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +33,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
   <component name="ProjectId" id="1ScO6SxQB0I42Q6jxkH2RwMzVv2" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -61,7 +55,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="Z:\development\kult_tela_backend\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="settings.saveactions" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -196,14 +190,8 @@
       <workItem from="1584731535901" duration="600000" />
       <workItem from="1584771924579" duration="5322000" />
       <workItem from="1584887906532" duration="5191000" />
-      <workItem from="1584987826008" duration="9172000" />
-    </task>
-    <task id="LOCAL-00034" summary="messages protection for both init and normal msgs">
-      <created>1582148538817</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1582148538817</updated>
+      <workItem from="1584987826008" duration="9376000" />
+      <workItem from="1585039640027" duration="5041000" />
     </task>
     <task id="LOCAL-00035" summary="messages protection for both init and normal msgs">
       <created>1582148556231</created>
@@ -541,7 +529,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584904470615</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="fixes + new info about user">
+      <created>1585001942268</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1585001942269</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -561,7 +556,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chat refactoring almost done //sockets left" />
     <MESSAGE value="sockets refactored for new chat" />
     <MESSAGE value="fix for latest messages refactor" />
     <MESSAGE value="STABLE v0.99 / group chats ++" />
@@ -586,37 +580,94 @@
     <MESSAGE value="4th role - super admin" />
     <MESSAGE value="table deleted" />
     <MESSAGE value="latest fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="latest fixes" />
+    <MESSAGE value="fixes + new info about user" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes + new info about user" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="168" y="331" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584988281834">
+    <state x="168" y="331" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585056936866">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="168" y="331" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1584988281834" />
-    <state x="208" y="275" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584988285555">
+    <state x="168" y="331" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1585056936866" />
+    <state x="208" y="275" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585056950120">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="208" y="275" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1584988285555" />
-    <state width="951" height="285" key="GridCell.Tab.0.bottom" timestamp="1584995753057">
+    <state x="208" y="275" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585056950120" />
+    <state x="48" y="122" key="CommitChangelistDialog2" timestamp="1585057321189">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="951" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1584995753057" />
-    <state width="951" height="285" key="GridCell.Tab.0.center" timestamp="1584995753057">
+    <state x="48" y="122" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1585057321189" />
+    <state width="937" height="348" key="GridCell.Tab.0.bottom" timestamp="1585057184340">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="951" height="285" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1584995753057" />
-    <state width="951" height="285" key="GridCell.Tab.0.left" timestamp="1584995753057">
+    <state width="937" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1585057184340" />
+    <state width="937" height="348" key="GridCell.Tab.0.center" timestamp="1585057184340">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="951" height="285" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1584995753057" />
-    <state width="951" height="285" key="GridCell.Tab.0.right" timestamp="1584995753057">
+    <state width="937" height="348" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1585057184340" />
+    <state width="937" height="348" key="GridCell.Tab.0.left" timestamp="1585057184340">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="951" height="285" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1584995753057" />
-    <state x="18" y="167" key="SettingsEditor" timestamp="1584989004825">
+    <state width="937" height="348" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1585057184340" />
+    <state width="937" height="348" key="GridCell.Tab.0.right" timestamp="1585057184340">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="18" y="167" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1584989004825" />
+    <state width="937" height="348" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1585057184340" />
+    <state width="937" height="348" key="GridCell.Tab.1.bottom" timestamp="1585057184341">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="937" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1585057184341" />
+    <state width="937" height="348" key="GridCell.Tab.1.center" timestamp="1585057184340">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="937" height="348" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1585057184340" />
+    <state width="937" height="348" key="GridCell.Tab.1.left" timestamp="1585057184340">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="937" height="348" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1585057184340" />
+    <state width="937" height="348" key="GridCell.Tab.1.right" timestamp="1585057184341">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="937" height="348" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1585057184341" />
+    <state width="937" height="348" key="GridCell.Tab.2.bottom" timestamp="1585057184341">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="937" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1585057184341" />
+    <state width="937" height="348" key="GridCell.Tab.2.center" timestamp="1585057184341">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="937" height="348" key="GridCell.Tab.2.center/0.0.1920.1050@0.0.1920.1050" timestamp="1585057184341" />
+    <state width="937" height="348" key="GridCell.Tab.2.left" timestamp="1585057184341">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="937" height="348" key="GridCell.Tab.2.left/0.0.1920.1050@0.0.1920.1050" timestamp="1585057184341" />
+    <state width="937" height="348" key="GridCell.Tab.2.right" timestamp="1585057184341">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="937" height="348" key="GridCell.Tab.2.right/0.0.1920.1050@0.0.1920.1050" timestamp="1585057184341" />
+    <state width="937" height="348" key="GridCell.Tab.3.bottom" timestamp="1585057184341">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="937" height="348" key="GridCell.Tab.3.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1585057184341" />
+    <state width="937" height="348" key="GridCell.Tab.3.center" timestamp="1585057184341">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="937" height="348" key="GridCell.Tab.3.center/0.0.1920.1050@0.0.1920.1050" timestamp="1585057184341" />
+    <state width="937" height="348" key="GridCell.Tab.3.left" timestamp="1585057184341">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="937" height="348" key="GridCell.Tab.3.left/0.0.1920.1050@0.0.1920.1050" timestamp="1585057184341" />
+    <state width="937" height="348" key="GridCell.Tab.3.right" timestamp="1585057184341">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="937" height="348" key="GridCell.Tab.3.right/0.0.1920.1050@0.0.1920.1050" timestamp="1585057184341" />
+    <state x="18" y="167" key="SettingsEditor" timestamp="1585056333895">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="18" y="167" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1585056333895" />
+    <state x="79" y="261" key="Vcs.Push.Dialog.v2" timestamp="1585001944017">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="79" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1585001944017" />
     <state x="146" y="141" width="665" height="774" key="find.popup" timestamp="1584996962990">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

@@ -8,7 +8,7 @@ const newPrice = (newPlanPrice, currentPlanPrice, daysFromStart) =>
 
 const Plan = {
   async getChangePrices(userId) {
-    const query = `SELECT id, plan_id, TO_CHAR((current_timestamp - (subscription_exp - interval '31 day')), 'DD')::int  as days_from_sub FROM users WHERE id=$1`
+    const query = `SELECT id, plan_id, (SELECT status FROM payments WHERE user_id=$1 AND type='PLAN_BUY' ORDER BY id DESC LIMIT 1) as payment_status, TO_CHAR((current_timestamp - (subscription_exp - interval '31 day')), 'DD')::int  as days_from_sub FROM users WHERE id=$1`
 
     const values = [parseInt(userId)]
 
@@ -17,19 +17,29 @@ const Plan = {
       let data = rows[0]
       if (data && typeof data.plan_id === 'number') {
         const plans = copyDATA('plans')
-        const currentPrice = plans.filter(e => e.id === data.plan_id)[0].cost
-        const newPlans = plans.map(e => {
-          if (e.id > data.plan_id) {
-            e.newCost = Math.round(
-              newPrice(e.cost, currentPrice, data.days_from_sub)
-            )
-          }
-          return e
-        })
-        return newPlans.filter(
-          (e, i) =>
-            !newPlans[i + 1] || typeof newPlans[i + 1].newCost === 'number'
-        )
+        if (data.payment_status === 'promo_code') {
+          return plans
+            .map(e => {
+              if (e.id !== data.plan_id) e.newCost = e.cost
+              delete e.cost
+              return e
+            })
+            .filter(e => e.id >= data.plan_id)
+        } else {
+          const currentPrice = plans.filter(e => e.id === data.plan_id)[0].cost
+          const newPlans = plans.map(e => {
+            if (e.id > data.plan_id) {
+              e.newCost = Math.round(
+                newPrice(e.cost, currentPrice, data.days_from_sub)
+              )
+            }
+            return e
+          })
+          return newPlans.filter(
+            (e, i) =>
+              !newPlans[i + 1] || typeof newPlans[i + 1].newCost === 'number'
+          )
+        }
       }
     } catch (e) {
       return null

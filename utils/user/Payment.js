@@ -24,7 +24,6 @@ const Payment = {
       if (rows[0] && rows[0].user_id) return rows[0]
       else return false
     } catch (e) {
-      console.log(e)
       return false
     }
   }

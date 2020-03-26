@@ -21,7 +21,9 @@ const switchTypes = async (userId, obj) => {
         await User.Common.deleteUserByHash(obj.metadata.hash)
     },
     PLAN_CHANGE: async () => {
-      await User.Plan.changePlan(userId, obj.metadata.new_plan_id)
+      if (obj.status === 'succeeded') {
+        await User.Plan.changePlan(userId, obj.metadata.new_plan_id)
+      }
     }
   }
   if (types[metadata.type]) return types[metadata.type]()

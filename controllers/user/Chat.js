@@ -49,13 +49,16 @@ const Chat = {
       return utils.response.error(res, 'Ошибка загрузки сообщений')
   },
   async uploadImage(req, res) {
+    const image = req.file
+
+    if (req.body.to_user_id.indexOf('c') !== -1)
+      return utils.response.success(res, { src: image.filename })
+
     const toUserId = parseInt(req.body.to_user_id)
     const fromUserId = parseInt(req.currentUser.id)
 
     if (!req.file || typeof toUserId !== 'number')
       return utils.response.error(res)
-
-    const image = req.file
 
     try {
       let access = false

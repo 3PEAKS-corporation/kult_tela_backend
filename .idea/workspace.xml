@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="">
+    <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="data upd">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/json/food_tips_videos.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/food_tips_videos.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/json/tutors.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/tutors.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Chat.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +39,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -53,7 +51,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="Z:\development\kult_tela_backend\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="settings.saveactions" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -196,14 +194,11 @@
       <workItem from="1585218271168" duration="2309000" />
       <workItem from="1585224165521" duration="9026000" />
       <workItem from="1585340768069" duration="624000" />
-      <workItem from="1585385920473" duration="63000" />
-    </task>
-    <task id="LOCAL-00042" summary="sockets protection for some cases + auth + admin desc">
-      <created>1583096359540</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1583096359540</updated>
+      <workItem from="1585385920473" duration="361000" />
+      <workItem from="1585399785904" duration="627000" />
+      <workItem from="1585420556483" duration="60000" />
+      <workItem from="1585644710195" duration="672000" />
+      <workItem from="1586513525236" duration="1633000" />
     </task>
     <task id="LOCAL-00043" summary="year fix">
       <created>1583097152703</created>
@@ -541,27 +536,32 @@
       <option name="project" value="LOCAL" />
       <updated>1585232317832</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="data upd">
+      <created>1585385999657</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1585385999658</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="stats module" />
     <MESSAGE value="next days viewing for food menus" />
     <MESSAGE value="group chat with dietolog" />
     <MESSAGE value="add dietolog to chat when SignUp" />
@@ -586,7 +586,8 @@
     <MESSAGE value="promo code prices change for plan change + new images" />
     <MESSAGE value="plan change fix for notification" />
     <MESSAGE value="ip checking" />
-    <option name="LAST_COMMIT_MESSAGE" value="ip checking" />
+    <MESSAGE value="data upd" />
+    <option name="LAST_COMMIT_MESSAGE" value="data upd" />
   </component>
   <component name="WindowStateProjectService">
     <state x="168" y="331" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585056936866">
@@ -597,26 +598,26 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="208" y="275" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585058522002" />
-    <state x="48" y="122" key="CommitChangelistDialog2" timestamp="1585232317239">
+    <state x="48" y="122" key="CommitChangelistDialog2" timestamp="1585386023888">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="48" y="122" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1585232317239" />
-    <state width="973" height="346" key="GridCell.Tab.0.bottom" timestamp="1585239002872">
+    <state x="48" y="122" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1585386023888" />
+    <state width="937" height="274" key="GridCell.Tab.0.bottom" timestamp="1586514811101">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="973" height="346" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1585239002872" />
-    <state width="973" height="346" key="GridCell.Tab.0.center" timestamp="1585239002872">
+    <state width="937" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586514811101" />
+    <state width="937" height="274" key="GridCell.Tab.0.center" timestamp="1586514811100">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="973" height="346" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1585239002872" />
-    <state width="973" height="346" key="GridCell.Tab.0.left" timestamp="1585239002872">
+    <state width="937" height="274" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586514811100" />
+    <state width="937" height="274" key="GridCell.Tab.0.left" timestamp="1586514811100">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="973" height="346" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1585239002872" />
-    <state width="973" height="346" key="GridCell.Tab.0.right" timestamp="1585239002872">
+    <state width="937" height="274" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586514811100" />
+    <state width="937" height="274" key="GridCell.Tab.0.right" timestamp="1586514811101">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="973" height="346" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1585239002872" />
+    <state width="937" height="274" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586514811101" />
     <state width="973" height="346" key="GridCell.Tab.1.bottom" timestamp="1585239002873">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -665,14 +666,14 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="973" height="346" key="GridCell.Tab.3.right/0.0.1920.1050@0.0.1920.1050" timestamp="1585239002873" />
-    <state x="18" y="167" key="SettingsEditor" timestamp="1585226818232">
+    <state x="18" y="167" key="SettingsEditor" timestamp="1585420613550">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="18" y="167" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1585226818232" />
-    <state x="79" y="261" key="Vcs.Push.Dialog.v2" timestamp="1585237670981">
+    <state x="18" y="167" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1585420613550" />
+    <state x="79" y="261" key="Vcs.Push.Dialog.v2" timestamp="1585386002821">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="79" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1585237670981" />
+    <state x="79" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1585386002821" />
     <state x="146" y="141" width="665" height="774" key="find.popup" timestamp="1584996962990">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

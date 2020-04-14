@@ -18,8 +18,8 @@ async function isHashAndPaymentDone(hash) {
     if (info && info.used === false) {
       if (info.p_status === 'succeeded')
         return { success: true, status: 'succeeded', user_id: info.user_id }
-      else if (info.p_status === 'promo_code')
-        return { success: true, status: 'promo_code', user_id: info.user_id }
+      else if (info.p_status.indexOf('promo_code') !== -1)
+        return { success: true, status: info.p_status, user_id: info.user_id }
 
       let kassaPayment = await kassa.getPaymentStatus(info.p_key)
       if (info.p_status !== kassaPayment.status)
@@ -95,7 +95,7 @@ const SignUp = {
               null,
               'PLAN_BUY',
               0,
-              'promo_code'
+              'promo_code ' + codeStatus.key
             )
           }
         }
@@ -191,12 +191,21 @@ const SignUp = {
 
       if (
         isOk.success === true &&
-        (isOk.status === 'succeeded' || isOk.status === 'promo_code')
+        (isOk.status === 'succeeded' ||
+          isOk.status.indexOf('promo_code') !== -1)
       ) {
+        let subscription_duration
+        if (isOk.status.indexOf('promo_code') !== -1) {
+          const promoCode = await User.Promo.getStatus(
+            isOk.status.replace('promo_code ', '')
+          )
+          subscription_duration = promoCode.subscription_duration || 31
+        } else subscription_duration = 31
+
         const passwordHashed = await bcrypt.hash(password, SALT_ROUNDS)
 
         let query = `UPDATE users SET password=$1, first_name=$2, last_name=$3, patronymic=$4, weight_start=$5, avatar_src=$6, height=$8, age=$9,
-                 date_signup=current_timestamp, subscription_exp = current_timestamp + '31 days' WHERE id=$7 RETURNING TRUE, plan_id`
+                 date_signup=current_timestamp, subscription_exp = current_timestamp + '${subscription_duration} days' WHERE id=$7 RETURNING TRUE, plan_id`
 
         let values = [
           passwordHashed,

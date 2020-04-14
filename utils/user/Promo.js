@@ -12,7 +12,7 @@ const Promo = {
     const values = [code]
     try {
       const { rows } = await db.query(query, values)
-      if (rows && rows[0]) return { plan_id: rows[0].plan_id }
+      if (rows && rows[0]) return rows[0]
       else return false
     } catch (e) {
       return false

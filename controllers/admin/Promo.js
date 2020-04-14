@@ -4,15 +4,16 @@ const { copyDATA } = require('../../data')
 
 const Promo = {
   async create(req, res) {
-    const { key, infinite, plan_id } = req.body
+    const { key, infinite, plan_id, subscription_duration } = req.body
 
-    const query = `INSERT INTO promo_codes(key, infinite, plan_id) VALUES($1,$2,$3) RETURNING *`
-    const values = [key, infinite, plan_id]
+    const query = `INSERT INTO promo_codes(key, infinite, plan_id, subscription_duration) VALUES($1,$2,$3,$4) RETURNING *`
+    const values = [key, infinite, plan_id, subscription_duration]
 
     try {
       const { rows } = await db.query(query, values)
       return utils.response.success(res, rows[0])
     } catch (e) {
+      console.log(e)
       return utils.response.error(res, 'Промокод с таким ключом уже существует')
     }
   },

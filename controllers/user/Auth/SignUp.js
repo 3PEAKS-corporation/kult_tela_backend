@@ -20,6 +20,8 @@ async function isHashAndPaymentDone(hash) {
         return { success: true, status: 'succeeded', user_id: info.user_id }
       else if (info.p_status.indexOf('promo_code') !== -1)
         return { success: true, status: info.p_status, user_id: info.user_id }
+      else if (info.p_status.indexOf('trial') !== -1)
+        return { success: true, status: info.p_status, user_id: info.user_id }
 
       let kassaPayment = await kassa.getPaymentStatus(info.p_key)
       if (info.p_status !== kassaPayment.status)
@@ -67,37 +69,48 @@ const SignUp = {
 
         let dbpayment = null,
           kassaPayment = null
-        if (!code) {
-          kassaPayment = await kassa.createPayment({
-            value: plan.cost,
-            description: `Оплата пакета "${plan.name} в приложении Культ Тела"`,
-            return_url: 'first-login/' + hash,
-            metadata: {
-              type: 'PLAN_BUY',
-              hash: hash
-            }
-          })
 
-          if (!kassaPayment)
-            return utils.response.error(res, 'Ошибка при создании платежа')
+        if (typeof plan.trial !== 'number') {
+          if (!code) {
+            kassaPayment = await kassa.createPayment({
+              value: plan.cost,
+              description: `Оплата пакета "${plan.name} в приложении Культ Тела"`,
+              return_url: 'first-login/' + hash,
+              metadata: {
+                type: 'PLAN_BUY',
+                hash: hash
+              }
+            })
 
-          dbpayment = await User.Payment.create(
-            user_id,
-            kassaPayment.id,
-            'PLAN_BUY',
-            parseInt(plan.cost)
-          )
-        } else if (code) {
-          const codeStatus = await User.Promo.getStatus(code, true)
-          if (codeStatus && codeStatus.plan_id === plan_id) {
+            if (!kassaPayment)
+              return utils.response.error(res, 'Ошибка при создании платежа')
+
             dbpayment = await User.Payment.create(
               user_id,
-              null,
+              kassaPayment.id,
               'PLAN_BUY',
-              0,
-              'promo_code ' + codeStatus.key
+              parseInt(plan.cost)
             )
+          } else if (code) {
+            const codeStatus = await User.Promo.getStatus(code, true)
+            if (codeStatus && codeStatus.plan_id === plan_id) {
+              dbpayment = await User.Payment.create(
+                user_id,
+                null,
+                'PLAN_BUY',
+                0,
+                'promo_code ' + codeStatus.key
+              )
+            }
           }
+        } else {
+          dbpayment = await User.Payment.create(
+            user_id,
+            null,
+            'PLAN_BUY',
+            0,
+            'trial ' + plan.trial
+          )
         }
 
         if (!dbpayment) {
@@ -192,7 +205,8 @@ const SignUp = {
       if (
         isOk.success === true &&
         (isOk.status === 'succeeded' ||
-          isOk.status.indexOf('promo_code') !== -1)
+          isOk.status.indexOf('promo_code') !== -1 ||
+          isOk.status.indexOf('trial') !== -1)
       ) {
         let subscription_duration
         if (isOk.status.indexOf('promo_code') !== -1) {
@@ -200,6 +214,8 @@ const SignUp = {
             isOk.status.replace('promo_code ', '')
           )
           subscription_duration = promoCode.subscription_duration || 31
+        } else if (isOk.status.indexOf('trial') !== -1) {
+          subscription_duration = parseInt(isOk.status.replace('trial ', ''))
         } else subscription_duration = 31
 
         const passwordHashed = await bcrypt.hash(password, SALT_ROUNDS)

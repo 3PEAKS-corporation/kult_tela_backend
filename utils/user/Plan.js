@@ -16,7 +16,10 @@ const Plan = {
       const { rows } = await db.query(query, values)
       let data = rows[0]
       if (data && typeof data.plan_id === 'number') {
-        const plans = copyDATA('plans')
+        const plans = copyDATA('plans').map(e => {
+          if (e.trial) delete e.trial
+          return e
+        })
         if (data.payment_status === 'promo_code') {
           return plans
             .map(e => {

@@ -31,7 +31,6 @@ const Kassa = {
         }
       })
     } catch (e) {
-      console.log('err', e)
       return utils.response.error(res, 'Ты не Яндекс.Касса')
     }
 

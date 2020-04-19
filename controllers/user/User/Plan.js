@@ -11,14 +11,10 @@ const Plan = {
     let { new_plan_id } = req.body
     new_plan_id = parseInt(new_plan_id)
 
-    const query = `SELECT plan_id FROM users WHERE id=$1`
-    const values = [req.currentUser.id]
-
-    const { rows } = await db.query(query, values)
+    const plan_id = parseInt(req.currentUser.plan_id)
     if (
-      !rows[0] ||
-      typeof rows[0].plan_id !== 'number' ||
-      rows[0].plan_id >= new_plan_id ||
+      typeof plan_id !== 'number' ||
+      plan_id >= new_plan_id ||
       typeof new_plan_id !== 'number'
     )
       return utils.response.error(res, 'Ошибка при обработке пакета')
@@ -31,6 +27,20 @@ const Plan = {
     const newPlan = newPlanPrices.filter(e => e.id === new_plan_id)[0]
 
     if (!newPlan) return utils.response.error(res, 'Пакет не существует')
+
+    if (req.currentUser.plan_id === 0 && newPlan.id === 1 && newPlan.trial) {
+      const query = `UPDATE users SET subscription_exp = current_timestamp + '${newPlan.trial} days', plan_id=1 WHERE id=$1`
+      const values = [req.currentUser.id]
+      try {
+        await db.query(query, values)
+        await User.Notification.add(req.currentUser.id, {
+          title: 'Текущий пакет успешно изменён!'
+        })
+        return utils.response.success(res)
+      } catch (e) {
+        return utils.response.error(res, 'Не удалось обновить пакет')
+      }
+    }
 
     const metadata = {
       type: 'PLAN_CHANGE',

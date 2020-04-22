@@ -8,7 +8,8 @@
     "dev": "nodemon server.js",
     "createTables": "node db.js createTables",
     "dropTables": "node db.js dropTables",
-    "npmci": "npm ci"
+    "npmci": "npm ci",
+    "test": "jest"
   },
   "author": "Artyom Lukyanov",
   "license": "MIT",
@@ -16,7 +17,9 @@
     "multer": "^1.4.2",
     "nodemailer": "^6.3.1",
     "nodemon": "^1.19.4",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "jest": "^25.4.0",
+    "supertest": "^4.0.2"
   },
   "dependencies": {
     "bcrypt": "^3.0.8",
@@ -35,5 +38,11 @@
   "prettier": {
     "singleQuote": true,
     "semi": false
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }

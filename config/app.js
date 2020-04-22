@@ -56,6 +56,7 @@ module.exports = function() {
 
   return {
     create,
-    start
+    start,
+    app
   }
 }

@@ -46,37 +46,53 @@ const Workout = {
               )
 
             if (train_id) {
-              if (typeof workout_ids.gym === 'number') {
-                train_id = train_id.train_day
-                const wg = DATA.workouts.plans.filter(
-                  item => item.id === workout_ids.gym
-                )[0]
-
-                workout.gym = {}
-                workout.gym.description = wg.description
-                workout.gym.exercises = wg.days[train_id].exercises
-              } else workout.gym = null
-
-              if (typeof workout_ids.home === 'number') {
-                const wh = DATA.workouts.plans.filter(
-                  item => item.id === workout_ids.home
-                )[0]
-
-                workout.home = {}
-                workout.home.description = wh.description
-                workout.home.exercises = wh.days[train_id].exercises
-              } else workout.home = null
+              workout = getWorkoutByTrainId(train_id, workout, workout_ids)
             } else workout.day_off = true
-          } else workout.plan_done = true
+          } else {
+            days_from_start =
+              days_from_start -
+              _workout.schedule[_workout.schedule.length - 1].dfs
+
+            let train_id = _workout.schedule.filter(
+              e => e.dfs === days_from_start
+            )[0]
+            if (train_id)
+              workout = getWorkoutByTrainId(train_id, workout, workout_ids)
+            else return utils.response.success(res, { day_off: true })
+          }
 
           return utils.response.success(res, workout)
         } else return utils.response.success(res, { day_off: true })
       } catch (e) {
-        console.log(e)
         return utils.response.error(res)
       }
     }
   }
+}
+
+const getWorkoutByTrainId = (train_id, workout, workout_ids) => {
+  if (typeof workout_ids.gym === 'number') {
+    train_id = train_id.train_day
+    const wg = DATA.workouts.plans.filter(
+      item => item.id === workout_ids.gym
+    )[0]
+
+    workout.gym = {}
+    workout.gym.description = wg.description
+    workout.gym.exercises = wg.days[train_id].exercises
+  } else workout.gym = null
+
+  if (typeof workout_ids.home === 'number') {
+    const wh = DATA.workouts.plans.filter(
+      item => item.id === workout_ids.home
+    )[0]
+
+    workout.home = {}
+    workout.home.description = wh.description
+    workout.home.exercises = wh.days[train_id].exercises
+  } else workout.home = null
+
+  return workout
 }
 
 module.exports = Workout

@@ -50,7 +50,7 @@ const Workout = {
             } else workout.day_off = true
           } else {
             days_from_start =
-              days_from_start -
+              days_from_start %
               _workout.schedule[_workout.schedule.length - 1].dfs
 
             let train_id = _workout.schedule.filter(

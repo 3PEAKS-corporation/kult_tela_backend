@@ -3,7 +3,7 @@ const { User } = require('../../utils/')
 const { copyDATA } = require('../../data/')
 
 const consultationPrice = 960
-const freeTimesForBestPlan = 2
+const freeTimesForBestPlan = 1
 
 const getPrice = async user => {
   if (user.plan_id < 3) {

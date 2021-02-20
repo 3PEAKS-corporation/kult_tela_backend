@@ -50,7 +50,7 @@ const Common = {
         } else {
           user.date_signup = user.date_signup_formatted
           user.subscription_exp = user.subscription_exp_formatted
-          const physicalLevel = copyDATA('workout_levels').find(x => x.id === user.workout.physical_level)
+          const physicalLevel = copyDATA('workout_levels').physical.find(x => x.id === user.workout.physical_level)
           user.workout.phyiscal_level_name = physicalLevel && physicalLevel.name || ""
 
           user.avatar_src = utils.getImageUrl(user.avatar_src)

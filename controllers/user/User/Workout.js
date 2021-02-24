@@ -5,7 +5,7 @@ const Workout = {
   async getLevels(req, res) {
     const levels = await User.Workout.getLevels(req.currentUser.id)
     if (levels) return utils.response.success(res, levels)
-    else return utils.response.error(res, 'Изменение данных невозможно')
+    else return utils.response.error(res, 'Ошибка при получении данных')
   },
   async setLevels(req, res) {
     let { physical_level, overweight_level, schedule_type } = req.body

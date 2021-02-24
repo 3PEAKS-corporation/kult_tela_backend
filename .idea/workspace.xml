@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="workout additional days">
+      <change afterPath="$PROJECT_DIR$/public/tutors/kusmarova.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/tutors/titkov.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/user/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/tutors.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/tutors.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +48,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/tutors" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="Z:\development\kult_tela_backend\node_modules\prettier" />
@@ -54,6 +56,9 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\js\kult_tela_backend\public\tutors" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="Z:\development\kult_tela_backend\tests" />
       <recent name="Z:\development\kult_tela_backend\public\tutors" />
@@ -230,7 +235,8 @@
       <workItem from="1592749733070" duration="149000" />
       <workItem from="1600612233312" duration="2629000" />
       <workItem from="1600690606696" duration="264000" />
-      <workItem from="1613832045077" duration="2020000" />
+      <workItem from="1613832045077" duration="3510000" />
+      <workItem from="1614165306956" duration="246000" />
     </task>
     <task id="LOCAL-00049" summary="changes in top and request price">
       <created>1583439659481</created>

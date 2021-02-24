@@ -8,7 +8,9 @@ const Workout = {
     else return utils.response.error(res, 'Изменение данных невозможно')
   },
   async setLevels(req, res) {
-    let { physical_level, overweight_level } = req.body
+    let { physical_level, overweight_level, schedule_type } = req.body
+
+    if(schedule_type !== 'odd' || schedule_type !== 'even') schedule_type = 'odd'
 
     if (!utils.verify([physical_level, overweight_level]))
       return utils.response.error(res)
@@ -27,7 +29,7 @@ const Workout = {
       const { rows } = await db.query(query)
       let dow = rows[0]._dow
 
-      const schedule = formSchedule(dow)
+      const schedule = formSchedule(dow, schedule_type)
 
       query = `UPDATE users SET workout = workout || '{"physical_level": ${physical_level}}'::jsonb WHERE id =${userId};
                 UPDATE users SET workout = workout || '{"overweight_level": ${overweight_level}}'::jsonb WHERE id =${userId};
@@ -44,11 +46,15 @@ const Workout = {
   }
 }
 
-function formSchedule(dow) {
-  const work_days = [
+function formSchedule(dow, schedule_type) {
+  const work_days = schedule_type === 'odd' ? [
     { number: 1, next_after: 2 },
     { number: 3, next_after: 2 },
     { number: 5, next_after: 3 }
+  ] : [
+    { number: 2, next_after: 2 },
+    { number: 4, next_after: 2 },
+    { number: 6, next_after: 3 }
   ]
 
   let schedule = []

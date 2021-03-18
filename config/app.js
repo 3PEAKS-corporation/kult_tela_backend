@@ -9,6 +9,7 @@ module.exports = function() {
     start
 
   create = config => {
+    console.log("[APP_CREATED]")
     const { initData: initJsonData } = require('../data/')
     const { env } = require('./')
 

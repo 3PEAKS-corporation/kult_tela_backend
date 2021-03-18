@@ -10,6 +10,8 @@ const Workout = {
   async setLevels(req, res) {
     let { physical_level, overweight_level, schedule_type } = req.body
 
+    console.log('schedule_type', schedule_type)
+
     if(schedule_type !== 'odd' || schedule_type !== 'even') schedule_type = 'odd'
 
     if (!utils.verify([physical_level, overweight_level]))
@@ -24,14 +26,12 @@ const Workout = {
     )
       return utils.response.error(res)
     const userId = parseInt(req.currentUser.id)
-    let query = `SELECT extract(dow from current_timestamp) as _dow;`
+
     try {
-      const { rows } = await db.query(query)
-      let dow = rows[0]._dow
+      const dateNow = new Date();
+      const schedule = formSchedule(dateNow.getDay(), schedule_type)
 
-      const schedule = formSchedule(dow, schedule_type)
-
-      query = `UPDATE users SET workout = workout || '{"physical_level": ${physical_level}}'::jsonb WHERE id =${userId};
+      const query = `UPDATE users SET workout = workout || '{"physical_level": ${physical_level}}'::jsonb WHERE id =${userId};
                 UPDATE users SET workout = workout || '{"overweight_level": ${overweight_level}}'::jsonb WHERE id =${userId};
                 UPDATE users SET workout = workout || jsonb_build_object('start_date', current_timestamp) WHERE id=${userId};
                 UPDATE users SET workout = workout || jsonb_build_object('schedule', cast('${JSON.stringify(
@@ -46,16 +46,23 @@ const Workout = {
   }
 }
 
-function formSchedule(dow, schedule_type) {
-  const work_days = schedule_type === 'odd' ? [
+const workout_schedule = {
+  odd: [
     { number: 1, next_after: 2 },
     { number: 3, next_after: 2 },
     { number: 5, next_after: 3 }
-  ] : [
+  ],
+  even: [
     { number: 2, next_after: 2 },
     { number: 4, next_after: 2 },
     { number: 6, next_after: 3 }
   ]
+}
+
+function formSchedule(dow, schedule_type) {
+  console.log('dayOfWeek', dow)
+  console.log('type', schedule_type)
+  const work_days = workout_schedule[schedule_type]
 
   let schedule = []
   let train_day = 0

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="workout additional days">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/user/User/Workout.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Workout.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -237,7 +236,7 @@
       <workItem from="1613832045077" duration="3510000" />
       <workItem from="1614165306956" duration="3842000" />
       <workItem from="1614280806463" duration="4000" />
-      <workItem from="1616060985920" duration="1205000" />
+      <workItem from="1616060985920" duration="2247000" />
     </task>
     <task id="LOCAL-00049" summary="changes in top and request price">
       <created>1583439659481</created>

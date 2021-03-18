@@ -10,9 +10,7 @@ const Workout = {
   async setLevels(req, res) {
     let { physical_level, overweight_level, schedule_type } = req.body
 
-    console.log('schedule_type', schedule_type)
-
-    if(schedule_type !== 'odd' || schedule_type !== 'even') schedule_type = 'odd'
+    if(schedule_type !== 'odd' && schedule_type !== 'even') schedule_type = 'odd'
 
     if (!utils.verify([physical_level, overweight_level]))
       return utils.response.error(res)
@@ -60,8 +58,6 @@ const workout_schedule = {
 }
 
 function formSchedule(dow, schedule_type) {
-  console.log('dayOfWeek', dow)
-  console.log('type', schedule_type)
   const work_days = workout_schedule[schedule_type]
 
   let schedule = []

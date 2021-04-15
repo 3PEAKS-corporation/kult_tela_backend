@@ -193,8 +193,7 @@ const SignUp = {
         weight_start,
         password,
         avatar_src,
-        height,
-        age
+        height
       ])
     )
       return utils.response.error(res)

@@ -30,5 +30,11 @@ router.get(
   requirePlan(1),
   user.Workout.get(true)
 )
+router.get(
+  '/workout/plan/next',
+  requireAuth.userToken(),
+  requirePlan(1),
+  user.Workout.get(false, true)
+)
 
 module.exports = router

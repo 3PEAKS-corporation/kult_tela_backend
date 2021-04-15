@@ -2,7 +2,7 @@ const { db, utils } = require('../../services')
 const { DATA } = require('../../data')
 
 const Workout = {
-  get(prev = false) {
+  get(prev = false, next = false) {
     return async function(req, res) {
       const query = `SELECT workout, EXTRACT('DAY' FROM (current_timestamp - (workout->>'start_date')::timestamp::date)) as days_from_start FROM users WHERE id=$1`
       const values = [req.currentUser.id]
@@ -30,15 +30,27 @@ const Workout = {
               e => e.dfs === days_from_start
             )[0]
 
-            if (prev === true && !train_id) {
-              days_from_start = days_from_start - 1
-              train_id = _workout.schedule.filter(
-                e => e.dfs === days_from_start
-              )[0]
-              if (!train_id) days_from_start = days_from_start - 1
-              train_id = _workout.schedule.filter(
-                e => e.dfs === days_from_start
-              )[0]
+            if (!train_id) {
+              if(prev === true) {
+                days_from_start = days_from_start - 1
+                train_id = _workout.schedule.filter(
+                  e => e.dfs === days_from_start
+                )[0]
+                if (!train_id) days_from_start = days_from_start - 1
+                train_id = _workout.schedule.filter(
+                  e => e.dfs === days_from_start
+                )[0]
+              }
+              else if(next === true) {
+                days_from_start = days_from_start + 1
+                train_id = _workout.schedule.filter(
+                  e => e.dfs === days_from_start
+                )[0]
+                if (!train_id) days_from_start = days_from_start + 1
+                train_id = _workout.schedule.filter(
+                  e => e.dfs === days_from_start
+                )[0]
+              }
             } else if (prev === true)
               return utils.response.error(
                 res,

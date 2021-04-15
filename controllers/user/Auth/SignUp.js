@@ -46,6 +46,7 @@ async function isHashAndPaymentDone(hash) {
 const SignUp = {
   async createBlankProfile(req, res) {
     let { email, code } = req.body
+    const forceBuy  = req.params.forceBuy !== 'false'
     const plan_id = parseInt(req.body.plan_id)
     if (!email || typeof plan_id !== 'number' || isNaN(plan_id))
       return utils.response.error(res)
@@ -70,7 +71,7 @@ const SignUp = {
         let dbpayment = null,
           kassaPayment = null
 
-        if (typeof plan.trial !== 'number') {
+        if (typeof plan.trial !== 'number' && forceBuy) {
           if (!code) {
             kassaPayment = await kassa.createPayment({
               value: plan.cost,

@@ -8,7 +8,7 @@ const newPrice = (newPlanPrice, currentPlanPrice, daysFromStart) =>
 
 const Plan = {
   async getChangePrices(userId) {
-    const query = `SELECT id, plan_id, (SELECT status FROM payments WHERE user_id=$1 AND type='PLAN_BUY' ORDER BY id DESC LIMIT 1) as payment_status, TO_CHAR((current_timestamp - (subscription_exp - interval '31 day')), 'DD')::int  as days_from_sub FROM users WHERE id=$1`
+    const query = `SELECT id, plan_id, (SELECT status FROM payments WHERE user_id=$1 AND type='PLAN_BUY' ORDER BY id DESC LIMIT 1) as payment_status, TO_CHAR((current_timestamp - (subscription_exp - interval '31 day')), 'DD')::int as days_from_sub FROM users WHERE id=$1`
 
     const values = [parseInt(userId)]
 

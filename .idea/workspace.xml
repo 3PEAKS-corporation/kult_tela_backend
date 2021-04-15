@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="workout additional days">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/json/plans.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/plans.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/user/Chat/InitRooms.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +238,10 @@
       <workItem from="1614165306956" duration="3842000" />
       <workItem from="1614280806463" duration="4000" />
       <workItem from="1616060985920" duration="3628000" />
-      <workItem from="1616532525978" duration="158000" />
+      <workItem from="1616532525978" duration="1322000" />
+      <workItem from="1616569224601" duration="873000" />
+      <workItem from="1616591123569" duration="12000" />
+      <workItem from="1618495803842" duration="796000" />
     </task>
     <task id="LOCAL-00049" summary="changes in top and request price">
       <created>1583439659481</created>

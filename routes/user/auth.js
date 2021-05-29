@@ -17,6 +17,10 @@ router
   .put(user.Auth.createBlankProfile)
   .post(user.Auth.isFillAllowed)
 
+router
+  .route('/auth/signup/code')
+  .post(user.Auth.verifyCode)
+
 router.post(
   '/auth/signup/fill',
   imageUpload.single('avatar_src'),

@@ -4,14 +4,14 @@ const { User } = require('../../../utils/')
 
 const LogIn = {
   async login(req, res) {
-    let { password, email } = req.body
+    let { password, login } = req.body
 
-    if (!utils.verify([password, email])) return utils.response.error(res)
+    if (!utils.verify([password, login])) return utils.response.error(res)
 
-    email = email.toLowerCase()
+    login = login.toLowerCase()
 
     try {
-      let user = await User.Common.getUserData(email, true, true)
+      let user = await User.Common.getUserData(login, true, true, true)
 
       let isPassword = null
       console.log(user)

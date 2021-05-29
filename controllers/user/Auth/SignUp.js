@@ -1,9 +1,11 @@
 const bcrypt = require('bcrypt')
-const { utils, db, token: _token, kassa } = require('../../../services')
+const { utils, db, token: _token, kassa, phoneNumber, sms } = require('../../../services')
 const { User } = require('../../../utils/')
 const { copyDATA } = require('../../../data/')
 
 const SALT_ROUNDS = 10
+
+const generateCode = () => Math.floor(100000 + Math.random() * 900000)
 
 async function isHashAndPaymentDone(hash) {
   let query = `SELECT hashes.id, hashes.user_id, hashes.used, hashes.hash, payments.id as p_id, payments.status as p_status, payments.key as p_key
@@ -45,16 +47,16 @@ async function isHashAndPaymentDone(hash) {
 
 const SignUp = {
   async createBlankProfile(req, res) {
-    let { email, code } = req.body
-    const forceBuy  = req.params.forceBuy !== 'false'
+    let { phone_number, code } = req.body
+    const forceBuy = req.params.forceBuy !== 'false'
     const plan_id = parseInt(req.body.plan_id)
-    if (!email || typeof plan_id !== 'number' || isNaN(plan_id))
+    if (!phone_number || typeof plan_id !== 'number' || isNaN(plan_id))
       return utils.response.error(res)
 
-    email = email.toLowerCase()
+    phone_number = phoneNumber.format(phone_number)
 
-    let query = `INSERT INTO users(email, plan_id) VALUES($1, $2) RETURNING id, email`
-    let values = [email, plan_id]
+    let query = `INSERT INTO users(phone_number, plan_id) VALUES($1, $2) RETURNING id, phone_number`
+    let values = [phone_number, plan_id]
 
     const plans = copyDATA('plans')
     const plan = plans.filter(e => parseInt(e.id) === parseInt(plan_id))[0]
@@ -62,10 +64,10 @@ const SignUp = {
     try {
       const { rows: user } = await db.query(query, values)
       if (user[0]) {
-        const { id: user_id, email } = user[0]
+        const { id: user_id, phone_number } = user[0]
         const hash = _token.generateToken({
           id: user_id,
-          email: email
+          email: phone_number
         })
 
         let dbpayment = null,
@@ -121,27 +123,49 @@ const SignUp = {
           return utils.response.error(res, 'Ошибка при попытке регистрации')
         }
 
-        query = `INSERT INTO hashes(user_id, hash, payment_id, type) VALUES($1,$2,$3, 'PLAN_BUY') RETURNING TRUE`
+        query = `INSERT INTO hashes(user_id, hash, code, payment_id, type) VALUES($1,$2,$3,$4, 'PLAN_BUY') RETURNING TRUE`
 
-        values = [user_id, hash, dbpayment.id]
+        const code = generateCode().toString()
+        values = [user_id, hash, code, dbpayment.id]
         const { rows } = await db.query(query, values)
 
         if (!rows[0].bool)
           return utils.response.error(res, 'Ошибка создания пользователя')
 
-        await User.Email.firstLogin(email, hash)
+        // await User.Email.firstLogin(email, hash)
+        const  r = await sms.send('Код для продолжения регистрации: \n' + code ,phone_number)
         return utils.response.success(res, {
           url: kassaPayment ? kassaPayment.confirmation.confirmation_url : null,
           codeUsed: !!code
         })
-      } else return utils.response.error(res, 'Email уже зарегистрирован')
+      } else return utils.response.error(res, 'Непредвиденная ошибка')
     } catch (error) {
       console.log(error)
       return utils.response.error(
         res,
-        'Пользователь с таким email уже зарегистрирован'
+        'Пользователь с таким телефонным номером уже зарегистрирован'
       )
     }
+  },
+  async verifyCode(req, res) {
+    const { code } = req.body
+    if (!code) return utils.response.error(res)
+
+    let query = `SELECT hash FROM hashes WHERE code=$1`
+    let values = [code.toString()]
+
+    let { rows } = await db.query(query, values)
+
+    const hash = rows[0] && rows[0].hash || null
+    if(hash == null) return utils.response.error(
+      res,
+      'Введен неправильный код, попробуйте снова'
+    )
+
+    return utils.response.success(res, {
+      success: true,
+      hash
+    })
   },
   async isFillAllowed(req, res) {
     const { hash } = req.body
@@ -152,12 +176,12 @@ const SignUp = {
       let isOk = await isHashAndPaymentDone(hash)
 
       if (isOk.success === true) {
-        let query = `SELECT email FROM users WHERE id=$1`
+        let query = `SELECT phone_number FROM users WHERE id=$1`
         let values = [isOk.user_id]
         let { rows } = await db.query(query, values)
         return utils.response.success(res, {
           success: true,
-          email: rows[0].email
+          phone_number: rows[0].phone_number
         })
       } else if (isOk === false)
         return utils.response.error(

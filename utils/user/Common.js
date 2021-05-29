@@ -1,4 +1,4 @@
-const { db, utils } = require('../../services/')
+const { db, utils, phoneNumber } = require('../../services/')
 const { copyDATA } = require('./../../data/')
 const Food = require('./Food')
 const InitRooms = require('./Chat/InitRooms')
@@ -23,12 +23,17 @@ const Common = {
       return null
     }
   },
-  async getUserData(key, isEmail = false, returnPassword = false) {
+  async getUserData(key, isEmail = false, returnPassword = false, isPhoneNumber = false) {
     let query
-    if (!isEmail)
+    if(isPhoneNumber && !key.includes('@')) key = phoneNumber.format(key)
+    if (!isEmail && !isPhoneNumber)
       query = `SELECT *, to_char(date_signup,'DD.MM.YYYY') as date_signup_formatted, to_char(subscription_exp,'DD.MM.YYYY') as subscription_exp_formatted, subscription_exp > current_timestamp as is_subscription  FROM users WHERE id=$1`
-    else
-      query = `SELECT *, to_char(date_signup,'DD.MM.YYYY') as date_signup_formatted, to_char(subscription_exp,'DD.MM.YYYY') as subscription_exp_formatted,  subscription_exp > current_timestamp as is_subscription  FROM users WHERE email=$1`
+    else if (isPhoneNumber && isEmail) {
+      if(!key.includes('@')) query = `SELECT *, to_char(date_signup,'DD.MM.YYYY') as date_signup_formatted, to_char(subscription_exp,'DD.MM.YYYY') as subscription_exp_formatted,  subscription_exp > current_timestamp as is_subscription  FROM users WHERE phone_number=$1`
+      else query = query = `SELECT *, to_char(date_signup,'DD.MM.YYYY') as date_signup_formatted, to_char(subscription_exp,'DD.MM.YYYY') as subscription_exp_formatted,  subscription_exp > current_timestamp as is_subscription  FROM users WHERE email=$1`
+    }
+    else if(isPhoneNumber) query = `SELECT *, to_char(date_signup,'DD.MM.YYYY') as date_signup_formatted, to_char(subscription_exp,'DD.MM.YYYY') as subscription_exp_formatted,  subscription_exp > current_timestamp as is_subscription  FROM users WHERE phone_number=$1`
+    else if(isEmail) query = `SELECT *, to_char(date_signup,'DD.MM.YYYY') as date_signup_formatted, to_char(subscription_exp,'DD.MM.YYYY') as subscription_exp_formatted,  subscription_exp > current_timestamp as is_subscription  FROM users WHERE email=$1`
 
     const values = [key]
 
@@ -124,7 +129,8 @@ const Common = {
 
     try {
       await db.query(query, values)
-    } catch (e) {}
+    } catch (e) {
+    }
   }
 }
 

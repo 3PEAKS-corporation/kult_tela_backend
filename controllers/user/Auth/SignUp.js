@@ -5,8 +5,6 @@ const { copyDATA } = require('../../../data/')
 
 const SALT_ROUNDS = 10
 
-const generateCode = () => Math.floor(100000 + Math.random() * 900000)
-
 async function isHashAndPaymentDone(hash) {
   let query = `SELECT hashes.id, hashes.user_id, hashes.used, hashes.hash, payments.id as p_id, payments.status as p_status, payments.key as p_key
                FROM hashes
@@ -125,14 +123,13 @@ const SignUp = {
 
         query = `INSERT INTO hashes(user_id, hash, code, payment_id, type) VALUES($1,$2,$3,$4, 'PLAN_BUY') RETURNING TRUE`
 
-        const code = generateCode().toString()
+        const code = utils.generateSmsCode()
         values = [user_id, hash, code, dbpayment.id]
         const { rows } = await db.query(query, values)
 
         if (!rows[0].bool)
           return utils.response.error(res, 'Ошибка создания пользователя')
 
-        // await User.Email.firstLogin(email, hash)
         const  r = await sms.send('Код для продолжения регистрации: \n' + code ,phone_number)
         return utils.response.success(res, {
           url: kassaPayment ? kassaPayment.confirmation.confirmation_url : null,
@@ -151,7 +148,7 @@ const SignUp = {
     const { code } = req.body
     if (!code) return utils.response.error(res)
 
-    let query = `SELECT hash FROM hashes WHERE code=$1`
+    let query = `SELECT hash FROM hashes WHERE code=$1 AND used=false`
     let values = [code.toString()]
 
     let { rows } = await db.query(query, values)

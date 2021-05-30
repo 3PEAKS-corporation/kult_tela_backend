@@ -1,4 +1,4 @@
-const { utils, db, token } = require('../../../services/')
+const { utils, db, token, phoneNumber, sms } = require('../../../services/')
 const { User } = require('../../../utils/')
 const bcrypt = require('bcrypt')
 
@@ -6,29 +6,33 @@ const SALT_ROUNDS = 10
 
 const Password = {
   async request(req, res) {
-    let email = req.body.email
+    let { phone_number } = req.body
 
-    if (!email) return utils.response.error(res)
+    if (!phone_number) return utils.response.error(res)
 
-    email = email.toLowerCase()
+    phone_number = phoneNumber.format(phone_number)
 
-    const query = `INSERT INTO hashes(user_id, type, hash) SELECT id, 'PASSWORD_RESET', $1 FROM users WHERE email=$2 RETURNING id`
+    const query = `INSERT INTO hashes(user_id, type, hash, code) SELECT id, 'PASSWORD_RESET', $1, $3 FROM users WHERE phone_number=$2 RETURNING id`
 
-    let hash = token.generateToken({
+    const hash = token.generateToken({
       id: Math.floor(Math.random() * Math.floor(15648)),
-      email: email
-    })
-    hash = hash.substr(hash.length - 25)
+      email: phone_number
+    }).substr(50)
 
-    const values = [hash, email]
+    const code = utils.generateSmsCode()
+    const values = [hash, phone_number, code]
 
     try {
       const { rows } = await db.query(query, values)
       if (rows && rows.length > 0 && typeof rows[0].id === 'number') {
-        await User.Email.passwordReset(email, hash)
+        const r = await sms.send('Код для сброса пароля: \n' + code, phone_number)
+        //await User.Email.passwordReset(email, hash)
+        return utils.response.success(res, { hash })
       }
-      return utils.response.success(res)
-    } catch (e) {}
+      return  utils.response.error(res,"Неправильный телефонный номер")
+    } catch (e) {
+      return  utils.response.error(res, "Непредвиденная ошибка, попробуйте снова")
+    }
   },
   async verifyHash(req, res) {
     const hash = req.body.hash

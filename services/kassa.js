@@ -1,6 +1,8 @@
 const { env } = require('../config')
-const kassa = require('yandex-checkout')(env.KASSA_ID, env.KASSA_KEY)
+const { YooCheckout } = require('@a2seven/yoo-checkout')
 const bcrypt = require('bcrypt')
+
+const checkout = new YooCheckout({ shopId: env.KASSA_ID, secretKey: env.KASSA_KEY })
 
 const idempotenceKey = () => {
   const random = Math.random().toString()
@@ -14,7 +16,7 @@ const idempotenceKey = () => {
 const createPayment = ({ value, description, return_url, ...options }) => {
   const key = idempotenceKey()
   return new Promise((resolve, reject) => {
-    kassa
+    checkout
       .createPayment(
         {
           ...options,
@@ -45,7 +47,7 @@ const createPayment = ({ value, description, return_url, ...options }) => {
 
 const getPaymentStatus = async key => {
   return new Promise((resolve, reject) => {
-    kassa
+    checkout
       .getPayment(key)
       .then(res => {
         resolve(res)

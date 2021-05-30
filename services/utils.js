@@ -1,6 +1,7 @@
 const { SERVER_URL, IMAGES_FOLDER } = require('../config/env')
 
 module.exports = {
+  generateSmsCode: () => Math.floor(100000 + Math.random() * 900000).toString(),
   response: {
     error: (res, error = 'Все поля должны быть заполнены!', code = 400) =>
       res.status(code).send({ success: false, error }),

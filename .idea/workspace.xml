@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b3bc8759-ca72-4b7f-a2bd-da97de8cd329" name="Default Changelist" comment="workout additional days">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/Auth/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/User/Password.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/User/Password.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/kassa.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/kassa.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,7 +260,8 @@
       <workItem from="1622110021734" duration="8952000" />
       <workItem from="1622319435293" duration="3781000" />
       <workItem from="1622369724627" duration="1261000" />
-      <workItem from="1622395355273" duration="5511000" />
+      <workItem from="1622395355273" duration="6124000" />
+      <workItem from="1622987786378" duration="935000" />
     </task>
     <task id="LOCAL-00049" summary="changes in top and request price">
       <created>1583439659481</created>
